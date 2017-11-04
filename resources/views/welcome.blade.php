@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="partials/home/home.css">
     <link rel="stylesheet" href="partials/nav-menu/nav-menu.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="partials/login/login.css">
 </head>
 
 <body>
@@ -40,8 +41,10 @@
 
 <!-- Controllers -->
 <script src="partials/home/home.controller.js"></script>
+<script src="partials/login/login.controller.js"></script>
 
 <!-- Services -->
 <script src="js/auth.service.js"></script>
 <script src="partials/home/home.service.js"></script>
+<script src="partials/login/login.service.js"></script>
 </html>
