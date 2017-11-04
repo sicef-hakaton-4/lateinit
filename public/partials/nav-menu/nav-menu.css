@@ -17,3 +17,22 @@
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
     background-color: #555;
 }
+/*navbar*/
+.navbar-default {
+    margin-bottom: -1px;
+    margin-top: -1px;
+    background-color: transparent;
+    border-color: transparent;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #22a8e3;
+    font-family: "Proxima Nova Bold";
+    font-size: 16px;
+}
+.navbar-nav>li {
+    width: 140px;
+    text-align: center;
+}

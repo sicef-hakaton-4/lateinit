@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
     <link rel="stylesheet" href="partials/home/home.css">
     <link rel="stylesheet" href="partials/nav-menu/nav-menu.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
