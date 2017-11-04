@@ -173,4 +173,40 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.my-concurs', {
+        url: '/my-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/my-concurs/my-concurs.html',
+                css: 'partials/my-concurs/my-concurs.css',
+                controller: 'MyConcursCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.create-concurs', {
+        url: '/create-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/create-concurs/create-concurs.html',
+                css: 'partials/create-concurs/create-concurs.css',
+                controller: 'CreateConcursCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.results-concurs', {
+        url: '/results-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/results-concurs/results-concurs.html',
+                css: 'partials/results-concurs/results-concurs.css',
+                controller: 'ResultsConcursCtrl'
+            }
+        }
+    });
 });
