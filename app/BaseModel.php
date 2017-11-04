@@ -142,7 +142,7 @@ class BaseModel extends Model
     	if (!$instance->delete()) {
     		return JSONResponse(false, 500, 'Database communication error.');
     	}
-    	return JSONResponse(true, 200);
+    	return JSONResponse(true, 200, 'Deleted');
     }
 
     public static function dropdown($order = null) {
@@ -154,7 +154,7 @@ class BaseModel extends Model
             $query->orderBy($order['name'], $order['dir']);
         }
         $data = $query->get();
-        return JSONResponse(true, 200, $data);
+        return JSONResponse(true, 200, 'Loaded', $data);
     } 
 
     public static function dropValue() {

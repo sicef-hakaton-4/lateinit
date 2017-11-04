@@ -8,9 +8,9 @@ class Opening extends BaseModel
 {
     protected $fillable = [];
 
-    protected $hidden = [];
+    protected $hidden = ['company_id'];
 
-    public static $listData = ['id', 'position', 'deadline', 'technologies', 'requirements'];
+    public static $listData = ['id', 'position', 'deadline', 'technologies', 'requirements', 'company_id'];
 
     public static $listRel = ['company'];
 

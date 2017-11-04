@@ -28,4 +28,26 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    //      -- Mutators --
+
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+
+
+    //      -- Custom methods --
+
+    public function displayData() {
+        $data['name'] = $this->name;
+        $data['type'] = $this->type;
+        return $data;
+    }
+
+    public function token() {
+        return '123456';
+    }
 }
