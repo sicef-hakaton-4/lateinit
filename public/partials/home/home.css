@@ -1,0 +1,85 @@
+.home-page {
+  display: block;
+  background: #fff url('../../img/home-bg.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 600px;
+}
+/*content*/
+.content-home {
+	text-align: center;
+	margin-top: 200px;
+}
+.content-home h3 {
+	font-size: 38px;
+	color: #fff;
+	margin: 0px;
+	font-family: "Proxima Nova Thin";
+}
+.content-home span {
+	font-family: "Proxima Nova Bold";
+}
+.content-home p {
+	color: #ffffff;
+	margin-top: 20px;
+	font-family: "Proxima Nova Light";
+}
+/*button kontaktirajte nas*/
+.kontaktirajte-nas {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 20px;
+}
+.kontaktirajte-nas span {
+	margin-left: 30px;
+}
+.kontaktirajte-nas button {
+	outline: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: 800;
+	font-size: 14px;
+	width: 200px;
+	color: #06d79c;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #06d79c;
+	border-radius: 0px;
+	font-family: "Proxima Nova Bold";
+}
+.kontaktirajte-nas button:hover {
+	color: #fff;
+	background-color: #06d79c;
+	border: none;
+	border-bottom: 2px solid #06d79c;
+	border-radius: 0px;
+}
+.kontaktirajte-nas button:active {
+	color: #fff;
+	background-color: #06d79c;
+	border: none;
+	border-bottom: 2px solid #06d79c;
+	border-radius: 0px;
+}
+.kontaktirajte-nas button:focus {
+	outline: none;
+	color: #fff;
+	background-color: #06d79c;
+	border: none;
+	border-bottom: 2px solid #06d79c;
+	border-radius: 0px;
+}
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.open>.dropdown-toggle.btn-default.focus,
+.open>.dropdown-toggle.btn-default:focus,
+.open>.dropdown-toggle.btn-default:hover {
+	outline: none;
+	color: #fff;
+    background-color: transparent;
+    border-color: #06d79c;
+}
+/* find a job */
