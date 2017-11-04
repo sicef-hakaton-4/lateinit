@@ -122,6 +122,9 @@ angular.module('app', [
                 css: 'partials/single-view-job/single-view-job.css',
                 controller: 'SingleViewJobCtrl'
             }
+        },
+        params: {
+            id: null
         }
     });
 

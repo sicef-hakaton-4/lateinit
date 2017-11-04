@@ -12,8 +12,7 @@ function FindAJobCtrl($scope, FindAJobService, Constants, $state) {
     });
 
     $scope.singleViewJob = function(id) {
-        console.log(id);
-        $state.go("menu.singleViewJob");
+        $state.go("menu.singleViewJob", {id:id});
     }
 
 }

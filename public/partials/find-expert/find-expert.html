@@ -1,3 +1,18 @@
-<div ng-repeat="expert in experts">
-    <p>{{expert.id}}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-3" ng-repeat="expert in experts">
+            <div class="card">
+                <div class="avatar-find-expert col-xs-12 col-md-12">
+                    <img src="../../img/expert.png">
+                </div>
+                <div class="col-xs-12 col-md-12 card-text-findjob">
+                    <h3>Title</h3>
+                    <span>Lorem Ipsum has been the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </span>
+                </div>
+                <div class="col-xs-12 col-md-12">
+                    <button ng-click="">See more</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
