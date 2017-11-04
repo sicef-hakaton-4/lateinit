@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MultipleQuestion extends Model
+class MultipleQuestion extends BaseModel
 {
     protected $fillable = ['question', 'test_id', 'answer', 'options'];
 
@@ -30,5 +30,15 @@ class MultipleQuestion extends Model
     	}
     	$options[] = ['option' => $this->answer, 'correct'=> 1];
     	return collect($options)->shuffle();
+    }
+
+
+
+    //      -- Mutators --
+
+    public function setOptionsAttribute($value) {
+        foreach ($options as $index => $option) {
+            $this->attributes['option'.$i] = $option;
+        }
     }
 }

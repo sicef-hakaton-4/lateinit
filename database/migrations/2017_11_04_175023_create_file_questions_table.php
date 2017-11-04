@@ -14,7 +14,7 @@ class CreateFileQuestionsTable extends Migration
     public function up()
     {
         Schema::create('file_questions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             
 
             $table->integer('test_id')->unsigned();

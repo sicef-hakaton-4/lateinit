@@ -8,7 +8,7 @@ use App\Test;
 
 class Opening extends BaseModel
 {
-    protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'minimal_rate', 'technologies'];
+    protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'min_rate', 'technologies'];
 
     protected $hidden = ['company_id'];
 
@@ -64,8 +64,9 @@ class Opening extends BaseModel
             $tst->fill($req->only(Test::fillableList()));
             $tst->opening_id = $open->id;
             $tst->save();
-            // $tst->addQuestions($)
+            $tst->addQuestions($test['questions']);
         }
+        return JSONResponse(true, 200, 'Opening created.');
     }
 
 }
