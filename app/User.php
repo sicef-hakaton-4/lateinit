@@ -31,6 +31,20 @@ class User extends Authenticatable
 
 
 
+    //      -- Accessors -- 
+
+    public function getTypeAttribute($value) {
+        if (is_string($value)) {
+            return $value;
+        }
+        if ($value == 1) {
+            return 'expert';
+        }
+        return 'company'
+    }
+
+
+
     //      -- Relationships -- 
 
     public function description() {
@@ -43,6 +57,25 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+
+
+    //      -- CRUD --
+
+    public static function loadSingle($id) {
+        if (property_exists(static::class, 'relationships')) {
+            $instance = static::with(static::$relationships)->where('id', $id)->get();
+        }
+        else {
+            $instance = static::find($id);
+        }
+        if (!$instance) {
+            $message = 'Not found';
+            return JSONResponse(false, 404, $message);
+        }
+        $message = 'Instance loaded succesfully!';
+        return JSONResponse(true, 200, $message, $instance);
     }
 
 
