@@ -49,7 +49,7 @@ angular.module('app', [
             'menuContent': {
                 templateUrl: 'partials/login/login.html',
                 css: 'partials/login/login.css',
-                controller: 'HomeCtrl'
+                controller: 'LoginCtrl'
             }
         }
     });
