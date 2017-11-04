@@ -26,12 +26,16 @@ class TestSeeder extends Seeder
         		$tst->queue = $queue;
         		$tst->min_rate = (rand() % 10) + 1;
         		$tst->save();
-        		// for ($question = 0; $question < 4; $question++) {
-        		// 	$type = (rand() % 3) + 1;
-          //           switch ($type) {
-          //               case 
-          //           }
-        		// }
+        		for ($question = 0; $question < 4; $question++) {
+        			$type = (rand() % 3) + 1;
+                    switch ($type) {
+                        case 1:
+                            $q = new MultipleQuestion;
+                            $q->options = ['netacan1', 'netacan2', 'netacan3'];
+                            $q->answer = ['tacan'];
+                            $q->question = 'Koe ima po grad?';
+                    }
+        		}
         	}
         }
     }
