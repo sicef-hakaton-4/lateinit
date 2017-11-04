@@ -14,16 +14,16 @@
 				<img src="../../img/expert.png">
 			</div>
 			<div class="col-xs-12 col-sm-8">
-				<h3>Ime pozicije</h3>
-				<p>ROK: <span>05.11.2017</span></p>
-				<p>NIVO: <span>Senior</span></p>
-				<p>MIN. TARE: <span>3</span></p>
+				<h3>{{job.position}}</h3>
+				<p>DEADLINE: <span>{{job.deadline}}</span></p>
+				<p>EXPERIENCE: <span>{{job.level}}</span></p>
+				<p>MINIMUM AVERAGE RATING: <span>{{job.min_rate}}</span></p>
 			</div>
 		</div>
 		<div class="row single-view-job-desc">
 			<div class="col-xs-12">
 				<p class="description">
-					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+					{{job.description}}
 				</p>
 			</div>
 		</div>
@@ -35,20 +35,8 @@
 			<h2>Requirements</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-4">
-					<p>Godine iskustva</p>
-					<p>Master diploma</p>
-					<p>Timski duh</p>
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<p>Godine iskustva</p>
-					<p>Master diploma</p>
-					<p>Timski duh</p>
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<p>Godine iskustva</p>
-					<p>Master diploma</p>
-					<p>Timski duh</p>
+				<div class="col-xs-12 col-sm-4" ng-repeat="requirement in job.requirements">
+					<p>{{requirement}}</p>
 				</div>
 			</div>
 		</div>
@@ -56,20 +44,8 @@
 			<h2>Technologies</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-4">
-					<p>Java Script</p>
-					<p>Angular JS</p>
-					<p>Laravel</p>
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<p>Java Script</p>
-					<p>Angular JS</p>
-					<p>Laravel</p>
-				</div>
-				<div class="col-xs-12 col-sm-4">
-					<p>Java Script</p>
-					<p>Angular JS</p>
-					<p>Laravel</p>
+				<div class="col-xs-12 col-sm-4" ng-repeat="technology in job.technologies">
+					<p>{{technology}}</p>
 				</div>
 			</div>
 		</div>
