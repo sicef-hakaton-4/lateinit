@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container find-expert">
     <div class="row">
         <div class="col-xs-12">
             <h1 class="title">Find an expert</h1>
@@ -6,20 +6,22 @@
             <div class="line"></div>
         </div>
     </div>
+</div>
+<div class="container expert-find">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-3" ng-repeat="expert in experts">
-            <div class="card">
-                <div class="avatar-find-expert col-xs-12 col-md-12">
+        <div class="col-xs-12 col-sm-6 col-md-4 " ng-repeat="expert in experts">
+            
+                <div class="avatar-find-expert card">
                     <img src="../../img/expert.png">
+                    <div class="card-text-findjob">
+                        <h3>{{expert.name}}</h3>
+                        <span>Lorem Ipsum has been the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </span>
+                        
+                    </div>
+                    <div class="btn-find-a-expert">
+                        <button class="btn btn-default" ng-click="singleViewExpert(expert.id)">See more</button>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-md-12 card-text-findjob">
-                    <h3>{{expert.name}}</h3>
-                    <span>Lorem Ipsum has been the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </span>
-                </div>
-                <div class="col-xs-12 col-md-12">
-                    <button ng-click="singleViewExpert(expert.id)">See more</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
