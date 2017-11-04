@@ -28,4 +28,38 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    //      -- Relationships -- 
+
+    public function description() {
+        return $this->hasOne('App\ExpertDescription', 'expert_id');
+    }
+
+
+
+    //      -- Mutators --
+
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+
+
+    //      -- Custom methods --
+
+    public function displayData() {
+        $data['name'] = $this->name;
+        $data['type'] = $this->type;
+        return $data;
+    }
+
+    public function token() {
+        return '123456';
+    }
+
+    public static function getExperts() {
+        return static::where('type', 'expert');
+    }
 }

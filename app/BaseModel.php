@@ -79,7 +79,7 @@ class BaseModel extends Model
 			return JSONResponse(false, 500, 'Database communication error');
 		}
 		$message = 'Created succesfully!';
-		return JSONResponse(true, 200);
+		return JSONResponse(true, 200, $message);
 	}
 
     public static function patchInitialize($id) {
@@ -109,7 +109,7 @@ class BaseModel extends Model
 			return JSONResponse(false, 500, 'Database communication error');
 		}
 		$message = 'Update completed!';
-		return JSONResponse(true, 200);
+		return JSONResponse(true, 200, $message);
 	}
 
     public static function loadSingle($id) {
@@ -124,14 +124,14 @@ class BaseModel extends Model
     		return JSONResponse(false, 404, $message);
     	}
     	$message = 'Instance loaded succesfully!';
-    	return JSONResponse(true, 200, $instance);
+    	return JSONResponse(true, 200, $message, $instance);
     }
 
     public static function loadAll() {
     	$listData = static::$listData;
     	$rels = static::$listRel;
     	$data = static::with($rels)->select($listData)->get();
-    	return JSONResponse(true, 200, $data);
+    	return JSONResponse(true, 200, 'Loaded succesfully', $data);
     }
 
     public static function baseDelete($id) {
@@ -142,7 +142,7 @@ class BaseModel extends Model
     	if (!$instance->delete()) {
     		return JSONResponse(false, 500, 'Database communication error.');
     	}
-    	return JSONResponse(true, 200);
+    	return JSONResponse(true, 200, 'Deleted');
     }
 
     public static function dropdown($order = null) {
@@ -154,7 +154,7 @@ class BaseModel extends Model
             $query->orderBy($order['name'], $order['dir']);
         }
         $data = $query->get();
-        return JSONResponse(true, 200, $data);
+        return JSONResponse(true, 200, 'Loaded', $data);
     } 
 
     public static function dropValue() {

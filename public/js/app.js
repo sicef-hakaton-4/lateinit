@@ -173,4 +173,64 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.my-concurs', {
+        url: '/my-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/my-concurs/my-concurs.html',
+                css: 'partials/my-concurs/my-concurs.css',
+                controller: 'MyConcursCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.create-concurs', {
+        url: '/create-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/create-concurs/create-concurs.html',
+                css: 'partials/create-concurs/create-concurs.css',
+                controller: 'CreateConcursCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.results-concurs', {
+        url: '/results-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/results-concurs/results-concurs.html',
+                css: 'partials/results-concurs/results-concurs.css',
+                controller: 'ResultsConcursCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.expertRegister', {
+        url: '/expert-register',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/expert-register/expert-register.html',
+                css: 'partials/expert-register/expert-register.css',
+                controller: 'ExpertRegisterCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.firmRegister', {
+        url: '/firm-register',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/firm-register/firm-register.html',
+                css: 'partials/firm-register/firm-register.css',
+                controller: 'FirmRegisterCtrl'
+            }
+        }
+    });
 });

@@ -19,6 +19,15 @@ $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => '123',
+        'type' => $faker->numberBetween(1, 2)
     ];
+});
+
+
+$factory->define(App\ExpertDescription::class, function (Faker $faker) {
+	return [
+		'technologies' => 'C++&&C#&&.NET&&PHP',
+		'position' => $faker->jobTitle
+	];
 });

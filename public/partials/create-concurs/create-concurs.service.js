@@ -1,11 +1,11 @@
 angular
     .module('app')
-    .service('FindAJobService', FindAJobService);
+    .service('CreateConcursService', CreateConcursService);
 
-function FindAJobService($q, $http, Constants) {
+function CreateConcursService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "get/opening")
+        $http.get(Constants.ENDPOINT_URL + "")
             .then(function (response) {
                 deffered.resolve(response.data);
             })
