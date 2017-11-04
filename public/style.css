@@ -77,3 +77,6 @@ textarea {
     margin-top:40px;
     color: #fff;
 }
+.navbar-parts li {
+    width: 140px;
+}

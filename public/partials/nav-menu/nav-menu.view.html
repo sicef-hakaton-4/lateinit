@@ -9,13 +9,15 @@
             <a class="navbar-brand" ui-sref="menu.home">Sicef</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-parts">
                 <li ui-sref-active="active"><a ui-sref="menu.home">Home</a></li>
+                <li ui-sref-active="active"><a ui-sref="menu.findjob">Find A Job</a></li>
+                <li ui-sref-active="active"><a ui-sref="menu.find-expert">Find An Expert</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-parts">
                 <li ui-sref-active="active" ng-if="!isLoggedIn"><a ui-sref="menu.login">Login</a></li>
                 <li ui-sref-active="active" ng-if="!isLoggedIn"><a ui-sref="menu.register">Register</a></li>
                 <li ui-sref-active="active" ng-if="isLoggedIn"><a ng-click="logout()">Logout</a></li>
-                <li ui-sref-active="active"><a ui-sref="menu.findjob">Find A Job</a></li>
-                <li ui-sref-active="active"><a ui-sref="menu.find-expert">Find An Expert</a></li>
             </ul>
         </div>
     </div>
