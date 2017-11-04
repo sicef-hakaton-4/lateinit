@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "Proxima Nova Bold";
+    src: url(font/ProximaNovaBold.otf) format("truetype");
+}
+@font-face {
+    font-family: "Proxima Nova Light";
+    src: url(font/ProximaNovaLight.otf) format("truetype");
+}
+@font-face {
+    font-family: "Proxima Nova Regular";
+    src: url(font/ProximaNovaLight.otf) format("truetype");
+}
+@font-face {
+    font-family: "Proxima Nova Semibold";
+    src: url(font/ProximaNovaLight.otf) format("truetype");
+}
+@font-face {
+    font-family: "Proxima Nova Thin";
+    src: url(font/ProximaNovaLight.otf) format("truetype");
+}
+.title {
+    font-family: "Proxima Nova Bold";
+    font-size: 28px;
+    color: #504e4e;
+}
+.description {
+    font-family: "Proxima Nova Light";  
+    color: #777474;
+}
+.card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 6px 10.392px 45px 0px rgba(0, 0, 0, 0.15);
+    height: 380px;
+}
+.line {
+    border-bottom: 4px solid #019ae0;
+    width: 50px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
