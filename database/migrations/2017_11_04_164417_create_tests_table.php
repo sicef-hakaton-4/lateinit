@@ -14,7 +14,7 @@ class CreateTestsTable extends Migration
     public function up()
     {
         Schema::create('tests', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             
             $table->integer('opening_id')->unsigned();
             $table->foreign('opening_id')
