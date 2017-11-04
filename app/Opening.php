@@ -24,6 +24,10 @@ class Opening extends BaseModel
         return $this->belongsTo('App\User', 'company_id')->select('id', 'name');
     }
 
+    public function applications() {
+        return $this->hasMany('App\Application');
+    }
+
 
 
     //		-- Accessors -- 
