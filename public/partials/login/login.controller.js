@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('LoginCtrl', LoginCtrl);
 
-function LoginCtrl($scope, AuthService) {
+function LoginCtrl($scope, AuthService, ngToast, $state, Constants) {
     $scope.isLoading = false;
     $scope.login = function(credentials) {
         $scope.isLoading = true;
@@ -12,7 +12,12 @@ function LoginCtrl($scope, AuthService) {
                 ngToast.success({
                     content: response.message
                 });
-                $state.go('menu.home');
+
+                if(response.entity.displayData.type == Constants.EXPERT_ROLE) {
+                    $state.go('menu.findjob');
+                } else {
+                    $state.go('menu.createconcurs');
+                }
             })
             .catch(function() {
                 $scope.isLoading = false;

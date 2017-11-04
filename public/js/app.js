@@ -7,8 +7,43 @@ angular.module('app', [
     'angularSpinner'
 ])
 
-.run(function ($rootScope, $localStorage, $transitions, $state, $q) {
+.run(function ($rootScope, $localStorage, $transitions, $state, $q, Constants) {
+    $rootScope.isLoggedIn = $localStorage.token != undefined;
+    if($rootScope.isLoggedIn) {
+        $rootScope.user = $localStorage.user;
+    }
 
+    $transitions.onBefore({to: 'menu.login'}, function() {
+        var deferred = $q.defer();
+        if($localStorage.token) {
+            var params = { reload: true };
+            var user = $localStorage.user;
+            if(user.type == Constants.EXPERT_ROLE) {
+                deferred.resolve($state.target('menu.findjob', undefined, params));
+            } else {
+                deferred.resolve($state.target('menu.createconcurs', undefined, params));
+            }
+        } else {
+            deferred.resolve();
+        }
+        return deferred.promise;
+    });
+
+    $transitions.onBefore({to: 'menu.register'}, function() {
+        var deferred = $q.defer();
+        if($localStorage.token) {
+            var params = { reload: true };
+            var user = $localStorage.user;
+            if(user.type == Constants.EXPERT_ROLE) {
+                deferred.resolve($state.target('menu.findjob', undefined, params));
+            } else {
+                deferred.resolve($state.target('menu.createconcurs', undefined, params));
+            }
+        } else {
+            deferred.resolve();
+        }
+        return deferred.promise;
+    });
 })
 
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider, ngToastProvider) {
@@ -67,7 +102,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.find-a-job', {
+    state('menu.findjob', {
         url: '/find-a-job',
         views: {
             'menuContent': {
@@ -187,7 +222,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.create-concurs', {
+    state('menu.createconcurs', {
         url: '/create-concurs',
         views: {
             'menuContent': {

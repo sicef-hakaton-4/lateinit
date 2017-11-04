@@ -2,13 +2,13 @@ angular
     .module('app')
     .service('AuthService', AuthService);
 
-function AuthService($q, $http, Constants) {
+function AuthService($q, $http, Constants, $localStorage, $rootScope) {
     function login(credentials) {
         var deferred = $q.defer();
         $http.post(Constants.ENDPOINT_URL + Constants.LOGIN_API, credentials)
             .then(function (response) {
                 $localStorage.token = response.data.entity.token;
-                $localStorage.user = response.data.entity.user;
+                $localStorage.user = response.data.entity.displayData;
                 $rootScope.isLoggedIn = true;
                 $rootScope.user = $localStorage.user;
                 deferred.resolve(response.data);
