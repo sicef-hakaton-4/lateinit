@@ -3,9 +3,10 @@ angular
     .service('SingleViewJobService', SingleViewJobService);
 
 function SingleViewJobService($q, $http, Constants) {
-    function getData() {
+    function getData(id) {
+        console.log(id);
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.get(Constants.ENDPOINT_URL + "get/opening/" + id)
             .then(function (response) {
                 deffered.resolve(response.data);
             })

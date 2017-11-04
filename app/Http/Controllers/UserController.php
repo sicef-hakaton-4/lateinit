@@ -28,17 +28,14 @@ class UserController extends Controller
 	public function register(Request $req) {
 		$data = $req->only(['type', 'name', 'email', 'password']);
 		$user = User::create($data);
-		if ($user->type == 1) {
-			$descData = $req->only(['technologies', 'position']);
-			$descData['expert_id'] = $user->id;
-			$desc = ExpertDescription::create($descData);
-		}
-		else {
+		if ($user->type == 2) {
 			$descData = $req->only(['description', 'founded', 'employees', 'headquarters']);
 			$descData['company_id'] = $user->id;
 			$desc = CompanyDescription::create($descData);
 		}
-		return JSONResponse(true, 200, 'You are registered.', $user->displayData());
+		$response['displayData'] = $user->displayData();
+		$response['token'] = $user->token();
+		return JSONResponse(true, 200, 'You are registered.', $response);
 	}
 
 }
