@@ -14,4 +14,15 @@ class OpeningController extends Controller
 		return JSONResponse(true, 200, 'Loaded', $opening);
 	}
 
+	public function myOpenings() {
+		if (Auth::user()->type == 'expert') {
+			$openings = Auth::user()->applications();
+		}
+		else {
+			$openings = Auth::user()->openings();
+		}
+		$data['openings'] = $openings;
+		return JSONResponse(true, 200, 'Loaded', $data);
+	}
+
 }

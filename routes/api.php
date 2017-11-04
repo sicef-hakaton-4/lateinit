@@ -2,6 +2,21 @@
 
 use Illuminate\Http\Request;
 
+Route::group(['middleware' => 'jwt.auth'], function () {
+
+
+
+
+	//		-- Openings --
+
+	Route::get('opening/applications/{openingId}', 'OpeningController@applications');
+
+	Route::get('my/openings', 'OpeningController@myOpenings');
+
+
+});
+
+
 
 //		-- Basic CRUD --
 
@@ -19,6 +34,9 @@ Route::get('delete/{model}/{id}', 'BaseController@delete'); // DELETE
 
 
 
+
+
+
 //		-- Authentication --
 
 Route::post('login', 'UserController@login');
@@ -30,12 +48,6 @@ Route::post('register', 'UserController@register');
 //		-- Unauthenticated --
 
 Route::get('expert/get', 'ExpertController@publicExperts');
-
-
-
-//		-- Openings --
-
-Route::get('opening/applications/{openingId}', 'OpeningController@applications');
 
 
 
