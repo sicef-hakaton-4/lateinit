@@ -1,8 +1,23 @@
-<div>
-    <form ng-submit="login(credentials)">
-        <input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-    <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
+<div class="container opening-card">
+    <div class="row">
+        <center>
+            <div class="col-xs-12">
+                <h2 class="title">Login</h2>
+                <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="line"></div>
+            </div>
+        </center>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card card-register col-xs-12 col-md-6 col-md-offset-3">
+            <form ng-submit="login(credentials)">
+                <input ng-model="credentials.email" type="email" id="inputEmail" class="form-control register-input" placeholder="Email address" required autofocus>
+                <input ng-model="credentials.password" type="password" id="inputPassword" class="form-control register-input" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block register-input margin-register-btn" type="submit">Sign in</button>
+            </form>
+            <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
+        </div>
+    </div>
 </div>
