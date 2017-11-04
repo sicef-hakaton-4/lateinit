@@ -33,3 +33,25 @@
 	height: auto;
 	text-align: left;
 }
+.btn-apply {
+	margin-top: 15px;
+	padding-right: 0px;
+}
+.btn-apply button {
+	float: right;
+	border-radius: 2px;
+	background-color: #22a8e3;
+	color: #fff;
+	border: none;
+	width: 120px;
+	height: 40px;
+	
+}
+.btn-apply button:focus {
+	background-color: #22a8e3;
+	color: #fff;
+}
+.btn-apply button:hover {
+	background-color: #22a8e3;
+	color: #fff;
+}
