@@ -65,4 +65,16 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.find-a-job', {
+        url: '/find-a-job',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/find-a-job/find-a-job.html',
+                css: 'partials/find-a-job/find-a-job.css',
+                controller: 'FindAJobCtrl'
+            }
+        }
+    });
 });

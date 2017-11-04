@@ -1,7 +1,7 @@
 angular
     .module('app')
-    .controller('RegisterCtrl', HomeCtrl);
+    .controller('RegisterCtrl', RegisterCtrl);
 
-function HomeCtrl($scope, RegisterService, Constants) {
+function RegisterCtrl($scope, RegisterService, Constants) {
 
 }

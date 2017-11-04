@@ -2,6 +2,6 @@ angular
     .module('app')
     .controller('LoginCtrl', HomeCtrl);
 
-function HomeCtrl($scope, LoginService, Constants) {
+function LoginCtrl($scope, LoginService, Constants) {
 
 }
