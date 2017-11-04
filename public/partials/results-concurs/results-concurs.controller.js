@@ -2,9 +2,9 @@ angular
     .module('app')
     .controller('ResultsConcursCtrl', ResultsConcursCtrl);
 
-function ResultsConcursCtrl($scope, ResultsConcursService, Constants) {
+function ResultsConcursCtrl($scope, ResultsConcursService, Constants, $stateParams) {
 
-    ResultsConcursService.getData().then(function(response) {
+    ResultsConcursService.getData($stateParams.id).then(function(response) {
             $scope.results = response.entity;
             console.log($scope.results);
         },

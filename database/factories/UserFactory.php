@@ -31,3 +31,26 @@ $factory->define(App\ExpertDescription::class, function (Faker $faker) {
 		'position' => $faker->jobTitle
 	];
 });
+
+$factory->define(App\CompanyDescription::class, function (Faker $faker) {
+    return [
+        'description' => $faker->paragraph(8),
+        'founded' => $faker->year(2020),
+        'employees' => $faker->numberBetween(4, 500),
+        'headquarters' => $faker->address
+    ];
+});
+
+$factory->define(App\Project::class, function (Faker $faker) {
+    return [
+        // 'owner_id' => 1,
+        // 'owner' => 1,
+        'name' => $faker->catchPhrase,
+        'description' => $faker->paragraph(3),
+        'client' => $faker->company,
+        'technologies' => 'C++&&PHP&&nodeJS',
+        'position' => 'Backend developer',
+        'started' => $faker->dateTime(),
+        'ended' => $faker->dateTime()
+    ];
+});

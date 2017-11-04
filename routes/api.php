@@ -14,6 +14,12 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 	Route::get('my/openings', 'OpeningController@myOpenings');
 
 
+
+	//		-- My info --
+
+	Route::get('my/account', 'UserController@myAccount');
+
+
 });
 
 

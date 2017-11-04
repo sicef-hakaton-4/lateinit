@@ -25,15 +25,21 @@ class TestSeeder extends Seeder
         		$tst->opening_id = $openId;
         		$tst->queue = $queue;
         		$tst->min_rate = (rand() % 10) + 1;
+                $tst->minutes = 2;
+                $tst->seconds = 30;
         		$tst->save();
         		for ($question = 0; $question < 4; $question++) {
         			$type = (rand() % 3) + 1;
                     switch ($type) {
                         case 1:
-                            $q = new MultipleQuestion;
-                            $q->options = ['netacan1', 'netacan2', 'netacan3'];
-                            $q->answer = ['tacan'];
-                            $q->question = 'Koe ima po grad?';
+                            factory(App\MultipleQuestion::class, 1)->create(['test_id' => $tst->id]);
+                            break;
+                        case 2:
+                            factory(App\CodeQuestion::class, 1)->create(['test_id' => $tst->id]);
+                            break;
+                        case 3:
+                            factory(App\FileQuestion::class, 1)->create(['test_id' => $tst->id]);
+                            break;
                     }
         		}
         	}
