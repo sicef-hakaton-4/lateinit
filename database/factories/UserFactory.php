@@ -40,3 +40,17 @@ $factory->define(App\CompanyDescription::class, function (Faker $faker) {
         'headquarters' => $faker->address
     ];
 });
+
+$factory->define(App\Project::class, function (Faker $faker) {
+    return [
+        // 'owner_id' => 1,
+        // 'owner' => 1,
+        'name' => $faker->catchPhrase,
+        'description' => $faker->paragraph(3),
+        'client' => $faker->company,
+        'technologies' => 'C++&&PHP&&nodeJS',
+        'position' => 'Backend developer',
+        'started' => $faker->dateTime(),
+        'ended' => $faker->dateTime()
+    ];
+});

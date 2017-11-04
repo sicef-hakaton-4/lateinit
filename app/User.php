@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Application', 'expert_id');
     }
 
+    public function projects() {
+        $flag = ($this->type == 'company') ? 1 : 0;
+        return $this->hasMany('App\Project', 'owner_id')->where('owner', $flag);
+    }
+
     public function description() {
         if ($this->type == 'expert') {
             return $this->hasOne('App\ExpertDescription', 'expert_id');
@@ -78,7 +83,7 @@ class User extends Authenticatable
 
     public static function loadSingle($id) {
         $user = static::find($id);
-        $user->description;
+        $user->load(['description', 'projects']);
         $message = 'Instance loaded succesfully!';
         return JSONResponse(true, 200, $message, $user);
     }
