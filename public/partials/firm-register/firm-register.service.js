@@ -3,7 +3,7 @@ angular
     .service('FirmRegisterService', FirmRegisterService);
 
 function FirmRegisterService($q, $http, Constants) {
-    function getData() {
+    function register() {
         var deffered = $q.defer();
         $http.get(Constants.ENDPOINT_URL + "")
             .then(function (response) {
