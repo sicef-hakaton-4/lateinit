@@ -78,5 +78,8 @@ textarea {
     color: #fff;
 }
 .navbar-parts li {
-    width: 140px;
+    width: 100px;
+}
+.navbar-default {
+    border: none;
 }
