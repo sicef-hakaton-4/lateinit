@@ -41,8 +41,8 @@ class MultipleQuestion extends BaseModel
     //      -- Mutators --
 
     public function setOptionsAttribute($value) {
-        foreach ($options as $index => $option) {
-            $this->attributes['option'.$i] = $option;
+        foreach ($value as $index => $option) {
+            $this->attributes['option'.($index + 1)] = $option;
         }
     }
 }
