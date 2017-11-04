@@ -122,6 +122,9 @@ angular.module('app', [
                 css: 'partials/single-view-job/single-view-job.css',
                 controller: 'SingleViewJobCtrl'
             }
+        },
+        params: {
+            id: null
         }
     });
 
@@ -174,7 +177,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.single-view-expert', {
+    state('menu.singleViewExpert', {
         url: '/single-view-expert',
         views: {
             'menuContent': {
@@ -182,6 +185,9 @@ angular.module('app', [
                 css: 'partials/single-view-expert/single-view-expert.css',
                 controller: 'SingleViewExpertCtrl'
             }
+        },
+        params: {
+            id: null
         }
     });
 
