@@ -1,0 +1,38 @@
+.card-concurs {
+	padding: 15px;
+	border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 6px 10.392px 45px 0px rgba(0, 0, 0, 0.15);
+    margin-bottom: 80px;
+}
+.opening-card {
+	margin-top: 80px;
+}
+.card-concurs button {
+	background-color: #019ae0;
+	color: #fff;
+	margin-top: 10px;
+}
+.card-concurs button:hover {
+	background-color: #019ae0;
+	color: #fff;
+	margin-top: 10px;
+}
+.card-concurs button:focus {
+	background-color: #019ae0;
+	color: #fff;
+	margin-top: 10px;
+}
+.btn-default.active.focus, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default:active.focus, 
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.open>.dropdown-toggle.btn-default.focus, 
+.open>.dropdown-toggle.btn-default:focus, 
+.open>.dropdown-toggle.btn-default:hover {
+	background-color: #019ae0;
+	color: #fff;
+	margin-top: 10px;
+}

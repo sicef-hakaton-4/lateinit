@@ -26,6 +26,11 @@ body {
     font-size: 28px;
     color: #504e4e;
 }
+.subtitle {
+    font-family: "Proxima Nova Bold";
+    font-size: 16px;
+    color: #504e4e;
+}
 .description {
     font-family: "Proxima Nova Light";  
     color: #777474;
@@ -43,4 +48,22 @@ body {
     width: 50px;
     margin-bottom: 15px;
     margin-top: 5px;
+}
+input {
+    border: none;
+    border-bottom: 2px solid #019ae0;
+    font-size: 18px;
+    width: 100%;
+    font-family: "Proxima Nova Bold";    
+}
+input:focus {
+    outline: none;
+}
+textarea {
+    resize: none;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 2px;
+    border: 2px solid #cccccc;
+    font-family: "Proxima Nova Bold";
 }
