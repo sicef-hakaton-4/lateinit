@@ -114,7 +114,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.single-view-job', {
+    state('menu.singleViewJob', {
         url: '/single-view-job',
         views: {
             'menuContent': {

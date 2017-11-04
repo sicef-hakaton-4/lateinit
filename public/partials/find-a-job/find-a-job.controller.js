@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('FindAJobCtrl', FindAJobCtrl);
 
-function FindAJobCtrl($scope, FindAJobService, Constants) {
+function FindAJobCtrl($scope, FindAJobService, Constants, $state) {
 
     FindAJobService.getData().then(function(response) {
         $scope.jobs = response.entity;
@@ -10,5 +10,10 @@ function FindAJobCtrl($scope, FindAJobService, Constants) {
     },
     function(response){
     });
+
+    $scope.singleViewJob = function(id) {
+        console.log(id);
+        $state.go("menu.singleViewJob");
+    }
 
 }
