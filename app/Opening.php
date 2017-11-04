@@ -64,7 +64,7 @@ class Opening extends BaseModel
             $tst->fill($req->only(Test::fillableList()));
             $tst->opening_id = $open->id;
             $tst->save();
-            $tst->addQuestions($)
+            // $tst->addQuestions($)
         }
     }
 
