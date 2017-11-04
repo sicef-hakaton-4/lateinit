@@ -9,4 +9,6 @@ class ExpertDescription extends BaseModel
     protected $table = 'expert_descriptions';
 
     protected $hidden = ['expert_id'];
+
+    protected $fillable = ['expert_id', 'technologies', 'position'];
 }

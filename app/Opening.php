@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Opening extends BaseModel
 {
-    protected $fillable = [];
+    protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'minimal_rate', 'technologies'];
 
     protected $hidden = ['company_id'];
 
