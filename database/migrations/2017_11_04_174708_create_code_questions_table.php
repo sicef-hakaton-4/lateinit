@@ -14,7 +14,7 @@ class CreateCodeQuestionsTable extends Migration
     public function up()
     {
         Schema::create('code_questions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             
             $table->integer('test_id')->unsigned();
             $table->foreign('test_id')

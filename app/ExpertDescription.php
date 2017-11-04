@@ -10,5 +10,16 @@ class ExpertDescription extends BaseModel
 
     protected $hidden = ['expert_id'];
 
-    protected $fillable = ['expert_id', 'technologies', 'position'];
+    protected $fillable = ['expert_id', 'technologies', 'position', 'public'];
+
+
+    //		-- Relationships --
+
+
+
+    //		-- Accessors --
+
+    public function getTechnologiesAttribute($value) {
+    	return explode('&&', $value);
+    }
 }

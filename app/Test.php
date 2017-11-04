@@ -48,4 +48,36 @@ class Test extends BaseModel
     	return $questions;
     }
 
+
+
+    //      -- Accessors --
+
+
+
+    //      -- Mutators --
+
+
+
+    //      -- Custom methods --
+
+    public function addQuestions($questions) {
+        foreach ($questions as $question) {
+            switch ($question['type']) {
+                case 'code':
+                    $quest = new CodeQuestion;
+                    break;
+                case 'file':
+                    $quest = new FileQuestion;
+                    break;
+                case 'multiple':
+                    $quest = new MultipleQuestion;
+                    break;
+            }
+            unset($question['type']);
+            $quest->fill($question);
+            $quest->test_id = $this->id;
+            $quest->save();
+        }
+    }
+
 }

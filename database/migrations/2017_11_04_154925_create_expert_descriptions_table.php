@@ -14,7 +14,7 @@ class CreateExpertDescriptionsTable extends Migration
     public function up()
     {
         Schema::create('expert_descriptions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             
             $table->integer('expert_id')->unsigned();
             $table->foreign('expert_id')
@@ -27,6 +27,8 @@ class CreateExpertDescriptionsTable extends Migration
 
             $table->string('address')->nullable();
             $table->string('phonenumber')->nullable();
+
+            $table->tinyInteger('public')->default(0);
         });
     }
 
