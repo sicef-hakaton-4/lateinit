@@ -15,8 +15,8 @@
 </head>
 
 <body>
-<toast></toast>
-<ui-view></ui-view>
+    <toast></toast>
+    <ui-view></ui-view>
 </body>
 
 <script src="bower_components/angular/angular.min.js"></script>
