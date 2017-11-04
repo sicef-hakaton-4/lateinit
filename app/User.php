@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use JWTAuth;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -92,7 +94,8 @@ class User extends Authenticatable
     }
 
     public function token() {
-        return '123456';
+        $token = JWTAuth::fromUser($this);
+        return $token;
     }
 
     public static function getExperts() {
