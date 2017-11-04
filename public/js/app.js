@@ -41,4 +41,28 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.login', {
+        url: '/login',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/login/login.html',
+                css: 'partials/login/login.css',
+                controller: 'HomeCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.register', {
+        url: '/register',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/register/register.html',
+                css: 'partials/register/register.css',
+                controller: 'RegisterCtrl'
+            }
+        }
+    });
 });
