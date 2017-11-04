@@ -3,7 +3,6 @@ angular
     .controller('FindAJobCtrl', FindAJobCtrl);
 
 function FindAJobCtrl($scope, FindAJobService, Constants, $state) {
-
     FindAJobService.getData().then(function(response) {
         $scope.jobs = response.entity;
         console.log($scope.jobs);
