@@ -16,7 +16,22 @@ function TestCodeService($q, $http, Constants) {
         return deffered.promise;
     }
 
+    function doTest2(answers) {
+        var deferred = $q.defer();
+        $http.post(Constants.ENDPOINT_URL + "")
+            .then(function (response) {
+
+                deferred.resolve(response.data);
+            })
+            .catch(function (error) {
+                deferred.reject(error.data);
+            });
+
+        return deferred.promise;
+    }
+
     return {
-        getData: getData
+        getData: getData,
+        doTest2: doTest2
     }
 }
