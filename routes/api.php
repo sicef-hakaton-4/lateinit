@@ -29,7 +29,7 @@ Route::post('register', 'UserController@register');
 
 //		-- Unauthenticated --
 
-Route::get('expert/public', 'ExpertController@publicExperts');
+Route::get('get/expert', 'ExpertController@publicExperts');
 
 
 Route::get('test', 'BaseController@test');
