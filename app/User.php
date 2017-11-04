@@ -40,7 +40,7 @@ class User extends Authenticatable
         if ($value == 1) {
             return 'expert';
         }
-        return 'company'
+        return 'company';
     }
 
 
