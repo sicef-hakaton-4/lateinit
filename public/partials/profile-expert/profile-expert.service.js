@@ -16,7 +16,22 @@ function ProfileExpertService($q, $http, Constants) {
         return deffered.promise;
     }
 
+    function editUser(user) {
+        var deferred = $q.defer();
+        $http.put(Constants.ENDPOINT_URL + "")
+            .then(function (response) {
+
+                deferred.resolve(response.data);
+            })
+            .catch(function (error) {
+                deferred.reject(error.data);
+            });
+
+        return deferred.promise;
+    }
+
     return {
-        getData: getData
+        getData: getData,
+        editUser: editUser
     }
 }
