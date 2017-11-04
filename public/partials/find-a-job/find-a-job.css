@@ -1,6 +1,45 @@
 .avatar-find-job img {
-    max-width:300px;
+    width: 100%;
+}
+.jobs {
+	margin-top: 80px;
 }
 .card-text-findjob {
     text-align: left;
+}
+.find-a-jobs .card {
+	height: auto;
+	padding: 15px;
+}
+.btn-view-more button {
+	float: right;
+	border-radius: 2px;
+	background-color: #22a8e3;
+	color: #fff;
+	border: none;
+	
+}
+.btn-view-more button:focus {
+	background-color: #22a8e3;
+	color: #fff;
+}
+.btn-view-more button:hover {
+	background-color: #22a8e3;
+	color: #fff;
+}
+.find-a-jobs h3 {
+	margin-top: 0px;
+}
+.find-a-jobs p {
+	padding: 0px;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	font-family: "Proxima Nova SemiBold";
+	font-size: 18px;
+}
+@media screen and (max-width: 991px) {
+    .find-a-jobs h3 {
+		margin-top: 10px;
+	}
 }
