@@ -18,7 +18,9 @@
             <ul class="nav navbar-nav navbar-right navbar-parts">
                 <li ui-sref-active="active" ng-if="!isLoggedIn"><a ui-sref="menu.login">Login</a></li>
                 <li ui-sref-active="active" ng-if="!isLoggedIn"><a ui-sref="menu.register">Register</a></li>
-                <li ui-sref-active="active" ng-if="isLoggedIn"><a ng-click="logout()">Logout</a></li>
+                <li ng-if="user.type == 'company'" ui-sref-active="active" ng-if="isLoggedIn"><a ui-sref="menu.profilefirm">Profile</a></li>
+                <li ng-if="user.type == 'expert'" ui-sref-active="active" ng-if="isLoggedIn"><a ui-sref="menu.profileexpert">Profile</a></li>
+                <li ui-sref-active="active" ng-if="isLoggedIn"><a href="" ng-click="logout()">Logout</a></li>
             </ul>
         </div>
     </div>
