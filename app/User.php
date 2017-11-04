@@ -45,6 +45,14 @@ class User extends Authenticatable
         return $this->hasOne('App\ExpertDescription', 'expert_id');
     }
 
+    public function openings() {
+        return $this->hasMany('App\Opening', 'company_id');
+    }
+
+    public function applications() {
+        return $this->hasMany('App\Application', 'expert_id');
+    }
+
     public function description() {
         if ($this->type == 'expert') {
             return $this->hasOne('App\ExpertDescription', 'expert_id');
