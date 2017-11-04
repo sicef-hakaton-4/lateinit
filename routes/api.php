@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+
+//		-- Basic CRUD --
+
 Route::post('put/{model}', 'BaseController@create'); // CREATE
 
 Route::get('get/{model}', 'BaseController@readAll'); // READ LIST
@@ -15,9 +18,18 @@ Route::post('patch/{model}/{id}', 'BaseController@update'); // UPDATE
 Route::get('delete/{model}/{id}', 'BaseController@delete'); // DELETE
 
 
+
+//		-- Authentication --
+
 Route::post('login', 'UserController@login');
 
 Route::post('register', 'UserController@register');
+
+
+
+//		-- Unauthenticated --
+
+Route::get('expert/public', 'ExpertController@publicExperts');
 
 
 Route::get('test', 'BaseController@test');

@@ -22,3 +22,11 @@ $factory->define(App\User::class, function (Faker $faker) {
         'password' => '123'
     ];
 });
+
+
+$factory->define(App\ExpertDescription::class, function (Faker $faker) {
+	return [
+		'technologies' => 'C++&&C#&&.NET&&PHP',
+		'position' => $faker->jobTitle
+	];
+});

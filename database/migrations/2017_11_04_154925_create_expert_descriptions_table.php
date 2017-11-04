@@ -16,7 +16,14 @@ class CreateExpertDescriptionsTable extends Migration
         Schema::create('expert_descriptions', function (Blueprint $table) {
             $table->increments('id');
             
-            // $table->
+            $table->integer('expert_id')->unsigned();
+            $table->foreign('expert_id')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
+
+            $table->string('technologies'); // CSV
+            $table->string('position');
         });
     }
 
