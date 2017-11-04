@@ -1,8 +1,8 @@
 angular
     .module('app')
-    .service('FindAJobService', FindAJobService);
+    .service('ViewProfileFirmService', ViewProfileFirmService);
 
-function FindAJobService($q, $http, Constants) {
+function ViewProfileFirmService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
         $http.get(Constants.ENDPOINT_URL + "")

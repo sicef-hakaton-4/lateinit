@@ -1,8 +1,8 @@
 angular
     .module('app')
-    .service('FindAJobService', FindAJobService);
+    .service('SingleViewExpertService', SingleViewExpertService);
 
-function FindAJobService($q, $http, Constants) {
+function SingleViewExpertService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
         $http.get(Constants.ENDPOINT_URL + "")
