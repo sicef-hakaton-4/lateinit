@@ -57,11 +57,11 @@ class Opening extends BaseModel
 
     public static function baseCreate($req) {
         $open = new static;
-        $open->fill($req->only(static::fillable()));
+        $open->fill($req->only(static::fillableList()));
         $open->save();
         foreach ($open->tests as $test) {
             $tst = new Test;
-            $tst->fill($req->only(Test::fillable()));
+            $tst->fill($req->only(Test::fillableList()));
             $tst->opening_id = $open->id;
             $tst->save();
             $tst->addQuestions($)

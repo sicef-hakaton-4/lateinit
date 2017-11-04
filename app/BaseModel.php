@@ -67,7 +67,7 @@ class BaseModel extends Model
         return with(new static)->getTable();
     }
 
-    public static function fillable() {
+    public static function fillableList() {
         return with(new static)->getFillable();
     }
 
