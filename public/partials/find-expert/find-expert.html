@@ -10,18 +10,21 @@
 <div class="container expert-find">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 " ng-repeat="expert in experts">
-            
-                <div class="avatar-find-expert card">
-                    <img src="../../img/expert.png">
-                    <div class="card-text-findjob">
-                        <h3>{{expert.name}}</h3>
-                        <span>Lorem Ipsum has been the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </span>
-                        
-                    </div>
-                    <div class="btn-find-a-expert">
-                        <button class="btn btn-default" ng-click="singleViewExpert(expert.id)">See more</button>
-                    </div>
+            <div class="avatar-find-expert card">
+                <img src="../../img/expert.png">
+                <div class="card-text-findjob">
+                    <h3>{{expert.name}} <span>(Backend)</span></h3>
+                    <p>Lorem Ipsum has been the, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It </p>
                 </div>
+                <div class="technologie">
+                    <h2>Technologie</h2>
+                    <p class="badge">Laravel</p>
+                    <p class="badge">Angular</p>
+                </div>
+                <div class="btn-find-a-expert">
+                    <button class="btn btn-default" ng-click="singleViewExpert(expert.id)">See more</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

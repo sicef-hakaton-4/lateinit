@@ -3,10 +3,22 @@
 }
 .avatar-find-expert img {
     width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .card-text-findjob {
 	padding-left: 10px;
 	padding-right: 10px;
+}
+.card-text-findjob span {
+	font-size: 16px;
+	font-family: "Proxima Nova Bold";
+	color: #22a8e3;
+}
+.card-text-findjob p {
+	font-size: 14px;
+	font-family: "Proxima Nova Light";
+	color: #777474;
 }
 .btn-find-a-expert button {
 	background-color: #22a8e3;
@@ -27,4 +39,21 @@
 }
 .expert-find .card {
 	height: auto;
+	margin-top: 30px;
+}
+.technologie {
+	text-align: left;
+	margin-left: 10px;
+}
+.technologie h2 {
+	font-size: 18px;
+	font-family: "Proxima Nova Bold";
+	color: #777474;
+}
+.technologie p {
+	font-size: 14px;
+	font-family: "Proxima Nova Bold";
+	color: #fff;
+	background-color: #bbbbbb;
+	padding: 5px;
 }
