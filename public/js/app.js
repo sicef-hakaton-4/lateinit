@@ -113,4 +113,64 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.test-code', {
+        url: '/test-code',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/test-code/test-code.html',
+                css: 'partials/test-code/test-code.css',
+                controller: 'TestCodeCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.find-expert', {
+        url: '/find-expert',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/find-expert/find-expert.html',
+                css: 'partials/find-expert/find-expert.css',
+                controller: 'FindExpertCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.single-view-expert', {
+        url: '/single-view-expert',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/single-view-expert/single-view-expert.html',
+                css: 'partials/single-view-expert/single-view-expert.css',
+                controller: 'SingleViewExpertCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.profil-firm', {
+        url: '/profile-firm',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/profil-firm/profil-firm.html',
+                css: 'partials/profil-firm/profil-firm.css',
+                controller: 'ProfilFirmCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.view-profile-firm', {
+        url: '/view-profile-firm',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/view-profile-firm/view-profile-firm.html',
+                css: 'partials/view-profile-firm/view-profile-firm.css',
+                controller: 'ViewProfileFirmCtrl'
+            }
+        }
+    });
 });

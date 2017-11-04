@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="partials/single-view-job/single-view-job.css">
     <link rel="stylesheet" href="partials/profile-expert/profile-expert.css">
     <link rel="stylesheet" href="partials/test-questions/test-questions.css">
+    <link rel="stylesheet" href="partials/test-code/test-code.css">
+    <link rel="stylesheet" href="partials/find-expert/find-expert.css">
+    <link rel="stylesheet" href="partials/single-view-expert/single-view-expert.css">
+    <link rel="stylesheet" href="partials/profil-firm/profil-firm.css">
+    <link rel="stylesheet" href="partials/view-profile-firm/view-profile-firm.css">
 </head>
 
 <body>
@@ -51,6 +56,11 @@
 <script src="partials/single-view-job/single-view-job.controller.js"></script>
 <script src="partials/profile-expert/profile-expert.controller.js"></script>
 <script src="partials/test-questions/test-questions.controller.js"></script>
+<script src="partials/test-code/test-code.controller.js"></script>
+<script src="partials/find-expert/find-expert.controller.js"></script>
+<script src="partials/single-view-expert/single-view-expert.controller.js"></script>
+<script src="partials/profil-firm/profil-firm.controller.js"></script>
+<script src="partials/view-profile-firm/view-profile-firm.controller.js"></script>
 
 <!-- Services -->
 <script src="js/auth.service.js"></script>
@@ -61,4 +71,9 @@
 <script src="partials/single-view-job/single-view-job.service.js"></script>
 <script src="partials/profile-expert/profile-expert.service.js"></script>
 <script src="partials/test-questions/test-questions.service.js"></script>
+<script src="partials/test-code/test-code.service.js"></script>
+<script src="partials/find-expert/find-expert.service.js"></script>
+<script src="partials/single-view-expert/single-view-expert.service.js"></script>
+<script src="partials/profil-firm/profil-firm.service.js"></script>
+<script src="partials/view-profile-firm/view-profile-firm.service.js"></script>
 </html>
