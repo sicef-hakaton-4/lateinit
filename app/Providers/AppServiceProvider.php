@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Schema;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -16,6 +18,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        Relation::morphMap([
+            '1' => 'App\MultipleQuestion',
+            '2' => 'App\CodeQuestion',
+            '3' => 'App\FileQuestion'
+        ]);
     }
 
     /**

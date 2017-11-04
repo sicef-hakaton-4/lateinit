@@ -33,6 +33,12 @@ Route::get('expert/get', 'ExpertController@publicExperts');
 
 
 
+//		-- Openings --
+
+Route::get('opening/applications/{openingId}', 'OpeningController@applications');
+
+
+
 
 
 Route::get('test', 'BaseController@test');

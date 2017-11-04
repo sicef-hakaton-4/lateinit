@@ -20,6 +20,10 @@ class MultipleQuestion extends BaseModel
     	return $this->belongsTo('App\Test');
     }
 
+    public function answers() {
+        return $this->morphMany('App\Answer', 'question_type');
+    }
+
 
 
     //		-- Accessors --
