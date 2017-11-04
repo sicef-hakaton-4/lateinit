@@ -18,6 +18,9 @@
     font-family: "Proxima Nova Thin";
     src: url(font/ProximaNovaLight.otf) format("truetype");
 }
+body {
+    background-color: #f6f6f5;
+}
 .title {
     font-family: "Proxima Nova Bold";
     font-size: 28px;
@@ -31,7 +34,9 @@
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 6px 10.392px 45px 0px rgba(0, 0, 0, 0.15);
-    height: 380px;
+    height: 300px;
+    margin-top: 10px;
+    text-align: center;
 }
 .line {
     border-bottom: 4px solid #019ae0;

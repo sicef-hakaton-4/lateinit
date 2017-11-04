@@ -1,11 +1,11 @@
 angular
     .module('app')
-    .service('FindAJobService', FindAJobService);
+    .service('FirmRegisterService', FirmRegisterService);
 
-function FindAJobService($q, $http, Constants) {
+function FirmRegisterService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "get/opening")
+        $http.get(Constants.ENDPOINT_URL + "")
             .then(function (response) {
                 deffered.resolve(response.data);
             })

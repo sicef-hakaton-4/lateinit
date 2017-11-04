@@ -13,7 +13,14 @@ class userSeeder extends Seeder
     {
         for ($i  = 1; $i < 3; $i++) {
         	$email = 'test' . $i . '@gmail.com';
-        	factory(\App\User::class, 1)->create(['email' => $email, 'type' => $i]);
+        	factory(\App\User::class, 1)->create(['email' => $email, 'type' => $i])->each(function ($user) {
+                if ($user->type == 1) {
+                    factory(App\ExpertDescription::class, 1)->create(['expert_id' => 1]);
+                }
+                else {
+                    
+                }
+            });
         }
     }
 }

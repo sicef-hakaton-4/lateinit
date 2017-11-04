@@ -1,0 +1,36 @@
+.register-page {
+	margin-top: 60px;
+}
+.card-register .card {
+	height: 400px;
+}
+.card-register .card .company {
+	background-image: url("../../img/company.png");
+	background-repeat: round;
+	height: 400px;
+	cursor: pointer;
+}
+.card-register .card .expert {
+	background-image: url("../../img/expert.png");
+	background-repeat: round;
+	height: 400px;
+	cursor: pointer;
+}
+.card-register .card img {
+	width: 100%;
+	height: 400px;
+	cursor: pointer;
+	
+}
+.card-register {
+	margin-bottom: 80px;
+}
+.card-register a {
+	text-decoration: none;
+    color: #fff;
+}
+.card-register h2 {
+	font-size: 56px;
+    height: 400px;
+    line-height: 400px;
+}

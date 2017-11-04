@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="partials/my-concurs/my-concurs.css">
     <link rel="stylesheet" href="partials/create-concurs/create-concurs.css">
     <link rel="stylesheet" href="partials/results-concurs/results-concurs.css">
+    <link rel="stylesheet" href="partials/expert-register/expert-register.css">
+    <link rel="stylesheet" href="partials/firm-register/firm-register.css">
 </head>
 
 <body>
@@ -68,6 +70,8 @@
 <script src="partials/my-concurs/my-concurs.controller.js"></script>
 <script src="partials/create-concurs/create-concurs.controller.js"></script>
 <script src="partials/results-concurs/results-concurs.controller.js"></script>
+<script src="partials/expert-register/expert-register.controller.js"></script>
+<script src="partials/firm-register/firm-register.controller.js"></script>
 
 <!-- Services -->
 <script src="js/auth.service.js"></script>
@@ -86,4 +90,6 @@
 <script src="partials/my-concurs/my-concurs.service.js"></script>
 <script src="partials/create-concurs/create-concurs.service.js"></script>
 <script src="partials/results-concurs/results-concurs.service.js"></script>
+<script src="partials/expert-register/expert-register.service.js"></script>
+<script src="partials/firm-register/firm-register.service.js"></script>
 </html>

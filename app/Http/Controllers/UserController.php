@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\User;
+
+use App\ExpertDescription;
+
+use App\CompanyDescription;
+
 class UserController extends Controller
 {
     
@@ -20,7 +26,19 @@ class UserController extends Controller
 	}
 
 	public function register(Request $req) {
-
+		$data = $req->only(['type', 'name', 'email', 'password']);
+		$user = User::create($data);
+		if ($user->type == 1) {
+			$descData = $req->only(['technologies', 'position']);
+			$descData['expert_id'] = $user->id;
+			$desc = ExpertDescription::create($descData);
+		}
+		else {
+			$descData = $req->only(['description', 'founded', 'employees', 'headquarters']);
+			$descData['company_id'] = $user->id;
+			$desc = CompanyDescription::create($descData);
+		}
+		return JSONResponse(true, 200, 'You are registered.', $user->displayData());
 	}
 
 }
