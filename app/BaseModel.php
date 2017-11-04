@@ -67,6 +67,10 @@ class BaseModel extends Model
         return with(new static)->getTable();
     }
 
+    public static function fillableList() {
+        return with(new static)->getFillable();
+    }
+
     public static function baseCreate($request) {
 		if (method_exists(static::class, 'creationValidation')) {
 			if (!$static::creationValidation($request)) {
