@@ -3,7 +3,8 @@ angular
     .service('ResultsConcursService', ResultsConcursService);
 
 function ResultsConcursService($q, $http, Constants) {
-    function getData() {
+    function getData(id) {
+        console.log(id);
         var deffered = $q.defer();
         $http.get(Constants.ENDPOINT_URL + "")
             .then(function (response) {
