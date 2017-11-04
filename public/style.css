@@ -49,13 +49,6 @@ body {
     margin-bottom: 15px;
     margin-top: 5px;
 }
-input {
-    border: none;
-    border-bottom: 2px solid #019ae0;
-    font-size: 18px;
-    width: 100%;
-    font-family: "Proxima Nova Bold";    
-}
 input:focus {
     outline: none;
 }
