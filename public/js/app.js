@@ -209,4 +209,28 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.expertRegister', {
+        url: '/expert-register',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/expert-register/expert-register.html',
+                css: 'partials/expert-register/expert-register.css',
+                controller: 'ExpertRegisterCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.firmRegister', {
+        url: '/firm-register',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/firm-register/firm-register.html',
+                css: 'partials/firm-register/firm-register.css',
+                controller: 'FirmRegisterCtrl'
+            }
+        }
+    });
 });
