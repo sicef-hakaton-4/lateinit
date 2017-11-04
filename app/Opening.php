@@ -63,10 +63,11 @@ class Opening extends BaseModel
         $open = new static;
         $open->fill($req->only(static::fillableList()));
         $open->save();
-        foreach ($open->tests as $test) {
+        foreach ($open->tests as $index => $test) {
             $tst = new Test;
             $tst->fill($req->only(Test::fillableList()));
             $tst->opening_id = $open->id;
+            $tst->queue = $index;
             $tst->save();
             $tst->addQuestions($test['questions']);
         }

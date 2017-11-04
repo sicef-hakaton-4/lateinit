@@ -18,7 +18,7 @@ class userSeeder extends Seeder
                     factory(App\ExpertDescription::class, 1)->create(['expert_id' => 1]);
                 }
                 else {
-                    
+                    factory(App\CompanyDescription::class, 1)->create(['company_id' => 2]);
                 }
             });
         }

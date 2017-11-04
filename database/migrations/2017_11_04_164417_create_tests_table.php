@@ -25,6 +25,7 @@ class CreateTestsTable extends Migration
             $table->integer('queue')->unsigned();
 
             $table->integer('min_rate');
+            $table->integer('time');
         });
     }
 

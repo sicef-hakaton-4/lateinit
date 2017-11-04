@@ -31,3 +31,12 @@ $factory->define(App\ExpertDescription::class, function (Faker $faker) {
 		'position' => $faker->jobTitle
 	];
 });
+
+$factory->define(App\CompanyDescription::class, function (Faker $faker) {
+    return [
+        'description' => $faker->paragraph(8),
+        'founded' => $faker->year(2020),
+        'employees' => $faker->numberBetween(4, 500),
+        'headquarters' => $faker->address
+    ];
+});

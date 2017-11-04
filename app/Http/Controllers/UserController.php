@@ -38,4 +38,9 @@ class UserController extends Controller
 		return JSONResponse(true, 200, 'You are registered.', $response);
 	}
 
+	public function myACcount() {
+		$myId = Auth::user()->id;
+		return User::loadSingle($myId);
+	}
+
 }
