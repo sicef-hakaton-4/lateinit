@@ -5,5 +5,6 @@ angular
         // ENDPOINT_URL: "http://homestead.dev/",
         LOGIN_API: "login",
         EXPERT_ROLE: "expert",
-        LOGOUT_MESSAGE: "Successfully logged out"
+        LOGOUT_MESSAGE: "Successfully logged out",
+        REGISTER_URL: "register"
     });

@@ -4,6 +4,9 @@
 .card-register .card {
 	height: 400px;
 }
+.card-register .card:hover {
+	box-shadow: 6px 10.392px 45px 0px rgba(0, 0, 0, 0.4);
+}
 .card-register .card .company {
 	background-image: url("../../img/company.png");
 	background-repeat: round;

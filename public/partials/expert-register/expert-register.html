@@ -1,1 +1,19 @@
-<p>Expert register</p>
+<div>
+    <form ng-submit="register(credentials)">
+        <input ng-model="credentials.name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <textarea ng-model="credentials.description" rows="5" id="inputDescription" class="form-control" placeholder="Description" required></textarea>
+        <div class="form-group">
+            <label for="selfounded">Founded:</label>
+            <select ng-model="credentials.founded" class="form-control" id="selfounded">
+                <option selected>2017</option>
+                <option ng-repeat="year in years">{{year}}</option>
+            </select>
+        </div>
+        <input ng-model="credentials.employees" type="number" id="inputEmployees" class="form-control" placeholder="Employees" required>
+        <input ng-model="credentials.headquarters" type="text" id="inputAddress" class="form-control" placeholder="Address" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
+    <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
+</div>
