@@ -77,4 +77,40 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.single-view-job', {
+        url: '/single-view-job',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/single-view-job/single-view-job.html',
+                css: 'partials/single-view-job/single-view-job.css',
+                controller: 'SingleViewJobCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.profile-expert', {
+        url: '/profile-expert',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/profile-expert/profile-expert.html',
+                css: 'partials/profile-expert/profile-expert.css',
+                controller: 'ProfileExpertCtrl'
+            }
+        }
+    });
+
+    $stateProvider.
+    state('menu.test-questions', {
+        url: '/test-questions',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/test-questions/test-questions.html',
+                css: 'partials/test-questions/test-questions.css',
+                controller: 'TestQuestionsCtrl'
+            }
+        }
+    });
 });
