@@ -5,7 +5,7 @@ angular
 function FindAJobService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.get(Constants.ENDPOINT_URL + "get/opening")
             .then(function (response) {
                 deffered.resolve(response.data);
             })
