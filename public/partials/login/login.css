@@ -3,7 +3,24 @@
 }
 .register-input {
     margin-top:20px;
+    border-radius: 2px;
 }
 .margin-register-btn {
+	border: none;
+	background-color: #22a8e3;
+	color: #fff;
     margin-bottom:20px;
+    border-bottom: 2px solid #22a8e3;
+	border-radius: 2px;
+	width: 100%;
+	font-family: "Proxima Nova Semibold";
+}
+.margin-register-btn:hover {
+	border: none;
+	background-color: #22a8e3;
+	color: #fff;
+    margin-bottom:20px;
+    border-bottom: 2px solid #22a8e3;
+	border-radius: 2px;
+	font-family: "Proxima Nova Semibold";
 }
