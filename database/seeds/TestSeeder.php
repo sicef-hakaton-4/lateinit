@@ -26,9 +26,12 @@ class TestSeeder extends Seeder
         		$tst->queue = $queue;
         		$tst->min_rate = (rand() % 10) + 1;
         		$tst->save();
-        		for ($question = 0; $question < 4; $question++) {
-        			$type = ()
-        		}
+        		// for ($question = 0; $question < 4; $question++) {
+        		// 	$type = (rand() % 3) + 1;
+          //           switch ($type) {
+          //               case 
+          //           }
+        		// }
         	}
         }
     }
