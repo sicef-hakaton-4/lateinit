@@ -3,9 +3,9 @@ angular
     .service('SingleViewExpertService', SingleViewExpertService);
 
 function SingleViewExpertService($q, $http, Constants) {
-    function getData() {
+    function getData(id) {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.get(Constants.ENDPOINT_URL + "expert/get/" + id)
             .then(function (response) {
                 deffered.resolve(response.data);
             })
