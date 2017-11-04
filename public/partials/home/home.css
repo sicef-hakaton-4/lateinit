@@ -37,35 +37,35 @@
 	padding-top: 10px;
 	padding-bottom: 10px;
 	font-weight: 800;
-	font-size: 14px;
-	width: 200px;
-	color: #06d79c;
+	font-size: 20px;
+	width: 240px;
+	color: #a5e4ff;
 	background-color: transparent;
 	border: none;
-	border-bottom: 2px solid #06d79c;
+	border-bottom: 2px solid #a5e4ff;
 	border-radius: 0px;
 	font-family: "Proxima Nova Bold";
 }
 .kontaktirajte-nas button:hover {
 	color: #fff;
-	background-color: #06d79c;
+	background-color: #22a8e3;
 	border: none;
-	border-bottom: 2px solid #06d79c;
+	border-bottom: 2px solid #22a8e3;
 	border-radius: 0px;
 }
 .kontaktirajte-nas button:active {
 	color: #fff;
-	background-color: #06d79c;
+	background-color: #22a8e3;
 	border: none;
-	border-bottom: 2px solid #06d79c;
+	border-bottom: 2px solid #22a8e3;
 	border-radius: 0px;
 }
 .kontaktirajte-nas button:focus {
 	outline: none;
 	color: #fff;
-	background-color: #06d79c;
+	background-color: #22a8e3;
 	border: none;
-	border-bottom: 2px solid #06d79c;
+	border-bottom: 2px solid #22a8e3;
 	border-radius: 0px;
 }
 .btn-default.active.focus,
@@ -80,6 +80,12 @@
 	outline: none;
 	color: #fff;
     background-color: transparent;
-    border-color: #06d79c;
+    border-color: #22a8e3;
 }
 /* find a job */
+.page-home .card h2 {
+	height: 300px;
+	line-height: 300px;
+	font-family: "Proxima Nova Bold";
+	font-size: 16px;
+}
