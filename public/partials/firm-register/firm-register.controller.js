@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('FirmRegisterCtrl', FirmRegisterCtrl);
 
-function FirmRegisterCtrl($scope, $state, AuthService, Constants, ngToast) {
+function FirmRegisterCtrl($scope, $state, AuthService, ngToast) {
     $scope.years = [];
     for(var i = 2016; i > 1950; i--) {
         $scope.years.push(i);
@@ -17,12 +17,7 @@ function FirmRegisterCtrl($scope, $state, AuthService, Constants, ngToast) {
                 ngToast.success({
                     content: response.message
                 });
-
-                if(response.entity.displayData.type == Constants.EXPERT_ROLE) {
-                    $state.go('menu.findjob');
-                } else {
-                    $state.go('menu.createconcurs');
-                }
+                $state.go('menu.profilefirm');
             })
             .catch(function() {
                 $scope.isLoading = false;

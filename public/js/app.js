@@ -129,7 +129,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.profile-expert', {
+    state('menu.profileexpert', {
         url: '/profile-expert',
         views: {
             'menuContent': {
@@ -192,7 +192,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.profil-firm', {
+    state('menu.profilefirm', {
         url: '/profile-firm',
         views: {
             'menuContent': {
