@@ -31,6 +31,14 @@ class User extends Authenticatable
 
 
 
+    //      -- Relationships -- 
+
+    public function description() {
+        return $this->hasOne('App\ExpertDescription', 'expert_id');
+    }
+
+
+
     //      -- Mutators --
 
     public function setPasswordAttribute($value) {
@@ -49,5 +57,9 @@ class User extends Authenticatable
 
     public function token() {
         return '123456';
+    }
+
+    public static function getExperts() {
+        return static::where('type', 'expert');
     }
 }

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->enum('type', ['expert', 'company']);
+
+            $table->tinyInteger('public')->default(1);
         });
     }
 
