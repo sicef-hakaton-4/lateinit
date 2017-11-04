@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Test;
+
 class Opening extends BaseModel
 {
     protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'minimal_rate', 'technologies'];
@@ -48,4 +50,22 @@ class Opening extends BaseModel
 
 
     //		-- Custom methods --
+
+
+
+    //      -- CRUD --
+
+    public static function baseCreate($req) {
+        $open = new static;
+        $open->fill($req->only(static::fillable()));
+        $open->save();
+        foreach ($open->tests as $test) {
+            $tst = new Test;
+            $tst->fill($req->only(Test::fillable()));
+            $tst->opening_id = $open->id;
+            $tst->save();
+            $tst->addQuestions($)
+        }
+    }
+
 }
