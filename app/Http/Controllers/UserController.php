@@ -35,7 +35,7 @@ class UserController extends Controller
 		}
 		$response['displayData'] = $user->displayData();
 		$response['token'] = $user->token();
-		return JSONResponse(true, 200, 'You are registered.', $user->displayData());
+		return JSONResponse(true, 200, 'You are registered.', $response);
 	}
 
 }
