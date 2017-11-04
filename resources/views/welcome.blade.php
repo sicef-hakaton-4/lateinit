@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
     <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
     <link rel="stylesheet" href="partials/home/home.css">
+    <link rel="stylesheet" href="partials/nav-menu/nav-menu.css">
 </head>
 
 <body>

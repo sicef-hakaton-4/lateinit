@@ -22,17 +22,23 @@ angular.module('app', [
 
     $urlRouterProvider.otherwise('/');
 
-    // $stateProvider.state('menu', {
-    //     abstract: true,
-    //     templateUrl: 'partials/nav-menu/nav-menu.view.html',
-    //     css: 'partials/nav-menu/nav-menu.css',
-    //     controller: 'GlobalController'
-    // });
+    $stateProvider.
+    state('menu', {
+        abstract: true,
+        templateUrl: 'partials/nav-menu/nav-menu.view.html',
+        css: 'partials/nav-menu/nav-menu.css',
+        controller: 'GlobalController'
+    });
 
-    $stateProvider.state('home', {
+    $stateProvider.
+    state('menu.home', {
         url: '/',
-        templateUrl: 'partials/home/home.html',
-        css: 'partials/home/home.css',
-        controller: 'HomeCtrl'
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/home/home.html',
+                css: 'partials/home/home.css',
+                controller: 'HomeCtrl'
+            }
+        }
     });
 });

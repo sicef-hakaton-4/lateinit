@@ -1,0 +1,19 @@
+@media (max-width: 425px) {
+    .navbar .pull-right {
+        float: none !important;
+    }
+}
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.logout-menu-item {
+    cursor: pointer;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    background-color: #555;
+}
