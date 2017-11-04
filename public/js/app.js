@@ -216,7 +216,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.my-concurs', {
+    state('menu.myConcurs', {
         url: '/my-concurs',
         views: {
             'menuContent': {
