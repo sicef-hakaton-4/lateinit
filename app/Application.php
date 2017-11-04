@@ -23,4 +23,28 @@ class Application extends Model
     	return $this->belongsTo('App\Opening');
     }
 
+    public function answers() {
+    	return $this->hasMany('App\Answer');
+    }
+
+
+
+    //		-- Accessors --
+
+
+
+    //		-- Mutators --
+
+
+
+    //		-- CRUD --
+
+    public function loadSingle($id) {
+    	$app = static::with('answers.question.test')->where('id', $id)->first();
+    	$app->answers->groupBy(function ($answer) {
+    		return $answer->group->test->queue;
+    	});
+    	return JSONResponse(true, 200, 'Loaded', $app);
+    }
+
 }

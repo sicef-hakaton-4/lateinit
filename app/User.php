@@ -50,7 +50,7 @@ class User extends Authenticatable
             return $this->hasOne('App\ExpertDescription', 'expert_id');
         }
         else {
-            return $this->hasOne('App\companyDescription', 'company_id');
+            return $this->hasOne('App\CompanyDescription', 'company_id');
         }
     }
 
