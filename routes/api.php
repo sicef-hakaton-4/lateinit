@@ -15,4 +15,9 @@ Route::post('patch/{model}/{id}', 'BaseController@update'); // UPDATE
 Route::get('delete/{model}/{id}', 'BaseController@delete'); // DELETE
 
 
+Route::post('login', 'UserController@login');
+
+Route::post('register', 'UserController@register');
+
+
 Route::get('test', 'BaseController@test');
