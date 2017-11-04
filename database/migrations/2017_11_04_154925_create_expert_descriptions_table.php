@@ -24,6 +24,9 @@ class CreateExpertDescriptionsTable extends Migration
 
             $table->string('technologies'); // CSV
             $table->string('position');
+
+            $table->string('address')->nullable();
+            $table->string('phonenumber')->nullable();
         });
     }
 
