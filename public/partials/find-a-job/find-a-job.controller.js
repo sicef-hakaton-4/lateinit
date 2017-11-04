@@ -4,10 +4,10 @@ angular
 
 function FindAJobCtrl($scope, FindAJobService, Constants) {
 
-        FindAJobService.getData().then(function(response) {
-            $scope.jobs = response.entity;
-        },
-        function(response){
-        });
+    FindAJobService.getData().then(function(response) {
+        $scope.jobs = response.entity;
+    },
+    function(response){
+    });
 
 }
