@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Opening;
 
+use Illuminate\Support\Facades\Auth;
+
 class OpeningController extends Controller
 {
     
