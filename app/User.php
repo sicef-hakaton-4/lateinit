@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use JWTAuth;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -43,6 +45,14 @@ class User extends Authenticatable
 
     public function expertDescription() {
         return $this->hasOne('App\ExpertDescription', 'expert_id');
+    }
+
+    public function openings() {
+        return $this->hasMany('App\Opening', 'company_id');
+    }
+
+    public function applications() {
+        return $this->hasMany('App\Application', 'expert_id');
     }
 
     public function description() {
@@ -84,7 +94,8 @@ class User extends Authenticatable
     }
 
     public function token() {
-        return '123456';
+        $token = JWTAuth::fromUser($this);
+        return $token;
     }
 
     public static function getExperts() {
