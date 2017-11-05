@@ -75,12 +75,12 @@ textarea {
 .navbar-default {
     border: none;
 }
-.btn-default:focus:hover {
+/*.btn-default:focus:hover {
     margin-top:0px !important;
-}
-.btn-default:active:focus {
+}*/
+/*.btn-default:active:focus {
     margin-top:0px !important;
-}
+}*/
 .badge {
     background-color: #bbbbbb;
 }
