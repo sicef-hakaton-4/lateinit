@@ -121,7 +121,7 @@ class Test extends BaseModel
 
     public function nextQuestion($q) {
         $nextQuestion = $this->questions()->where('id', '>', $q->id)->first();
-        if (!is_null($nextQuestion)) {
+        if (is_null($nextQuestion)) {
             return false;
         }
         return $nextQuestion;
@@ -132,6 +132,7 @@ class Test extends BaseModel
         if (is_null($nextTest)) {
             return false;
         }
+        $nextTest->questionCount();
         return $nextTest;
     }
 
