@@ -1,5 +1,30 @@
+.btn-experts {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    background-color: #22a8e3;
+    color: #fff;
+    -webkit-border-radius:;
+    -moz-border-radius:;
+    border: none;
+    widows:140px;
+}
+.btn-experts:hover {
+    background-color: #22a8e3;
+    color: #fff;
+}
+.btn-experts:focus {
+    background-color: #22a8e3;
+    color: #fff;
+}.btn-experts:active {
+     background-color: #22a8e3;
+     color: #fff;
+ }
+
 .card-questions {
     text-align: left;
+    height: auto;
+    margin-top: 10px;
 }
 .checkbox label:after {
     content: '';
