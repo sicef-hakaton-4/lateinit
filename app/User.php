@@ -94,8 +94,8 @@ class User extends Authenticatable
         if (!$instance->save()) {
             return JSONResponse(false, 500, 'Database communication error');
         }
-        $this->description->fill($request->description);
-        $this->description->save();
+        $instance->description->fill($request->description);
+        $instance->description->save();
         foreach ($request->projects as $project) {
             if (!isset($project['id'])) {
                 Project::create($project);
