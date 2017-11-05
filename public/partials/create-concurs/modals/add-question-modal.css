@@ -1,0 +1,9 @@
+.inputs input {
+	margin-top: 10px;
+	width: 100%;
+}
+.buttons-modal button {
+	margin-top: 10px;
+	width: 100px;
+	float: right;
+}
