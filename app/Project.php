@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\Auth;
+
 class Project extends BaseModel
 {
     protected $fillable = ['owner_id', 'owner', 'name', 'description', 'client', 'technologies', 'position', 'started', 'ended'];

@@ -8,7 +8,8 @@ class Test extends BaseModel
 {
     protected $fillable = ['opening_id', 'queue', 'type', 'min_rate', 'minutes', 'seconds', 'time'];
 
-    protected $hidden = ['opening_id'];
+    protected $hidden = ['opening_id', 'codeQuestions', 'fileQuestions', 'multipleQuestions'];
+
 
 
 
@@ -32,18 +33,21 @@ class Test extends BaseModel
 
     public function questions() {
     	$this->load(['codeQuestions', 'fileQuestions', 'multipleQuestions']);
-    	$questions['code'] = $this->codeQuestions->transform(function ($question) {
+    	$questions = $this->codeQuestions->map(function ($question) {
     		$question->type = 'code';
     		return $question;
     	});
-    	$questions['file'] = $this->codeQuestions->transform(function ($question) {
-    		$question->type = 'file';
-    		return $question;
-    	});
-    	$questions['multiple'] = $this->codeQuestions->transform(function ($question) {
-    		$question->type = 'multiple';
-    		return $question;
-    	});
+    	$questions = $questions->merge($this->fileQuestions->map(function ($question) {
+                    $question->type = 'file';
+                    return $question;
+                }));
+    	$questions = $questions->merge($this->multipleQuestions->transform(function ($question) {
+                    $question->type = 'multiple';
+                    return $question;
+                }));
+        $questions = $questions->sortBy(function ($q) {
+            return $q->id;
+        });
     	$this->questions = $questions;
     	return $questions;
     }
@@ -51,6 +55,15 @@ class Test extends BaseModel
 
 
     //      -- Accessors --
+
+    public function getTimeAttribute($value) {
+        $minutes = floor($value / 60);
+        $seconds = $value % 60;
+        $return['minutes'] = $minutes . ':' . $seconds;
+        $return['totalSeconds'] = $value;
+        $return['seconds'] = $seconds;
+        return $return;
+    }
 
 
 
@@ -93,6 +106,21 @@ class Test extends BaseModel
             $quest->test_id = $this->id;
             $quest->save();
         }
+    }
+
+    public function questionCount() {
+        $count = $this->questions()->count();
+        $this->questionCount = $count;
+        return $count;
+    }
+
+    public function firstQuestion() {
+        $question = $this->questions()->first();
+        return $question;
+    }
+
+    public function nextQuestion() {
+
     }
 
 }

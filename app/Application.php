@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Application extends Model
+use Illuminate\Support\Facades\Auth;
+
+class Application extends BaseModel
 {
 
     protected $hidden = ['expert_id', 'opening_id'];
@@ -39,12 +41,25 @@ class Application extends Model
 
     //		-- CRUD --
 
-    public function loadSingle($id) {
+    public static function loadSingle($id) {
     	$app = static::with('answers.question.test')->where('id', $id)->first();
     	$app->answers->groupBy(function ($answer) {
     		return $answer->group->test->queue;
     	});
     	return JSONResponse(true, 200, 'Loaded', $app);
+    }
+
+    public static function baseCreate($req) {
+        $app = new static;
+        $app->opening_id = $req->opening_id;
+        $app->expert_id = Auth::user()->id;
+        $app->save();
+        $response['applicaton_id'] = $app->id;
+        $response['testNum'] = $app->opening->tests()->count();
+        $response['nextTest'] = $app->opening->tests()->first();
+        $response['nextTest']->questionCount();
+        // $response['nextTest']->makeHidden('questions');
+        return JSONResponse(true, 200, 'Created', $response);
     }
 
 }
