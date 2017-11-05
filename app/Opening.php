@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Test;
+
+use Carbon\Carbon;
 
 class Opening extends BaseModel
 {
@@ -61,6 +65,11 @@ class Opening extends BaseModel
     public function setRequirementsAttribute($value) {
         $techs = implode('&&', $value);
         $this->attributes['requirements'] = $techs;
+    }
+
+    public function setDeadlineAttribute($value) {
+        $carb = new Carbon($value);
+        $this->attributes['date'] = $carb->toDateString();
     }
 
 
