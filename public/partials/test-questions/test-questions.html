@@ -6,16 +6,18 @@
             <div class="line"></div>
         </div>
     </div>
-    <div class="row find-a-jobs">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="card card-questions">
-                <h3>Number of tests: {{numTest}}</h3>
+    <div class="row find-a-jobs card card-questions">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="">
+                <h3 style="margin-top: 10px;">Number of tests: {{numTest}}</h3>
                 <h4>Test: {{activeTest}}</h4>
-                <h4>Time: {{time.minutes}} : {{time.seconds}}</h4>
                 <h4>Min rate: {{minRate}}</h4>
                 <h4>Questions: {{questionCount}}</h4>
-                <button ng-if="!isStarted" class="btn btn-primary" ng-click="start()">Start</button>
+                <button ng-if="!isStarted" class="btn btn-primary btn-experts" style="float: left; width: 140px;" ng-click="start()">Start</button>
             </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <h4 style="font-size: 70px;">Time: {{time.minutes}} : {{time.seconds}}</h4>
         </div>
     </div>
     <div class="row find-a-jobs" ng-if="question.type == 'multiple'">
@@ -27,7 +29,7 @@
                     <input type="radio" name="choosedAnswer" ng-value="answer.option" ng-model="options.choosedAnswer" required/>
                     <label>{{ answer.option }}</label>
                 </div>
-                <button class="btn btn-primary" ng-click="next(question.id, question.type, options.choosedAnswer)">Next</button>
+                <button class="btn btn-primary btn-experts" ng-click="next(question.id, question.type, options.choosedAnswer)">Next</button>
             </div>
         </div>
     </div>
