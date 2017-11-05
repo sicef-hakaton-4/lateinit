@@ -2,22 +2,74 @@ angular
     .module('app')
     .controller('TestQuestionsCtrl', TestQuestionsCtrl);
 
-function TestQuestionsCtrl($scope, TestQuestionsService, Constants) {
-
-    TestQuestionsService.getData().then(function(response) {
-            $scope.questions = response.entity;
-            console.log($scope.questions);
+function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval, ngToast) {
+    $scope.isLoading = false;
+    $scope.options = {};
+    $scope.options.choosedAnswer = '';
+    TestQuestionsService.getData($stateParams.id)
+        .then(function(response) {
+            $scope.numTest = response.entity.testNum;
+            $scope.time = response.entity.nextTest.time;
+            $scope.activeTest = response.entity.nextTest.queue;
+            $scope.minRate = response.entity.nextTest.min_rate;
+            $scope.questionCount = response.entity.nextTest.questionCount;
+            $scope.applicationId = response.entity.applicaton_id;
         },
-        function(response){
+        function(response) {
+
         });
 
-    //Save edit user
-    $scope.doTest = function(answers) {
-        TestQuestionsService.doTest(answers).then(function(response) {
-                $scope.answers = response.entity;
-                console.log($scope.answers);
-            },
-            function(response){
-            });
-    }
+    $scope.start = function() {
+        $scope.isLoading = true;
+        TestQuestionsService.start($scope.activeTest)
+            .then(function(response) {
+                    $scope.isLoading = false;
+                    $scope.question = response.entity;
+                    $scope.countTime();
+                },
+                function(response) {
+                    $scope.isLoading = false;
+                });
+    };
+
+    $scope.countTime = function() {
+        $scope.interval = $interval(function() {
+            if($scope.time.minutes == 0) {
+                console.log("Finished");
+            }
+
+            if($scope.time.seconds > 0) {
+                $scope.time.seconds--;
+            }
+
+            if($scope.time.seconds == 0) {
+                $scope.time.minutes--;
+                $scope.time.seconds = 59;
+            }
+        }, 1000);
+    };
+
+    $scope.next = function(id, type, answer) {
+        $scope.isLoading = true;
+        TestQuestionsService.next(id, type, $scope.applicationId, answer)
+            .then(function(response) {
+                    $scope.isLoading = false;
+                    ngToast.success({
+                        content: response.message
+                    });
+                    $scope.options.choosedAnswer = '';
+                    if(response.entity.nextQuestion) {
+                        $scope.question = response.entity.nextQuestion;
+                    } else {
+                        $scope.time = response.entity.nextTest.time;
+                        $scope.activeTest = response.entity.nextTest.queue;
+                        $scope.minRate = response.entity.nextTest.min_rate;
+                        $scope.question = null;
+                        $interval.cancel($scope.interval);
+                    }
+                },
+                function(response) {
+                    $scope.isLoading = false;
+                });
+    };
 }
