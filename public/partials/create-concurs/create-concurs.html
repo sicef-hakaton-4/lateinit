@@ -30,7 +30,7 @@
                             </div>
                             <h2 class="title">Requirments</h2>
                             <div ng-repeat="requirement in requirements">
-                                <input style="width: 90%; float: left;" class="form-control" ng-model="requirement.description" type="text">
+                                <input style="width: 90%; float: left;" class="form-control" ng-model="requirement.description" placeholder="Requirement" type="text">
                                 <button class="btn btn-default btn-delete pull-right glyphicon glyphicon-trash" type="button" ng-show="$last" ng-click="removeRequirement()"></button>
                             </div>
                             <button type="button" class="btn btn-default" ng-click="addRequirement()">Add new
@@ -60,12 +60,12 @@
                                     <option value="10">10</option>
                                 </select>
                             </div>
-                            <h2 class="title">Tehnologies</h2>
+                            <h2 class="title">Technologies</h2>
                             <div ng-repeat="tech in technologies">
-                                <input style="width: 90%; float: left;" class="form-control" ng-model="tech.description" type="text">
+                                <input style="width: 90%; float: left;" class="form-control" ng-model="tech.description" placeholder="Technology" type="text">
                                 <button class="btn btn-default btn-delete pull-right glyphicon glyphicon-trash" type="button" ng-show="$last" ng-click="removeTech()"></button>
                             </div>
-                            <button type="button" ng-click="addTech()" class="btn btn-default">Add new tehnology
+                            <button type="button" ng-click="addTech()" class="btn btn-default">Add new technology
                             </button>
                         </div>
                         <div class="col-xs-12">
