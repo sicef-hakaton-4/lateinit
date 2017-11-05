@@ -29,8 +29,28 @@ function TestQuestionsService($q, $http, Constants) {
         return deferred.promise;
     }
 
+    function next(id, type, appId, answer) {
+        var params = {
+            question_id: id,
+            question_type: type,
+            application_id: appId,
+            answer: answer
+        };
+        var deferred = $q.defer();
+        $http.post(Constants.ENDPOINT_URL + Constants.NEXT_QUESTION_URL, params)
+            .then(function (response) {
+                deferred.resolve(response.data);
+            })
+            .catch(function (error) {
+                deferred.reject(error.data);
+            });
+
+        return deferred.promise;
+    }
+
     return {
         getData: getData,
-        start: start
+        start: start,
+        next: next
     }
 }

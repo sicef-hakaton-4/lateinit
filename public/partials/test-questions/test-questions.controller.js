@@ -4,6 +4,8 @@ angular
 
 function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval) {
     $scope.isLoading = false;
+    $scope.options = {};
+    $scope.options.choosedAnswer = '';
     TestQuestionsService.getData($stateParams.id)
         .then(function(response) {
             $scope.numTest = response.entity.testNum;
@@ -16,6 +18,19 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
         function(response) {
 
         });
+
+    $scope.start = function() {
+        $scope.isLoading = true;
+        TestQuestionsService.start($stateParams.id)
+            .then(function(response) {
+                    $scope.isLoading = false;
+                    $scope.question = response.entity;
+                    $scope.countTime();
+                },
+                function(response) {
+                    $scope.isLoading = false;
+                });
+    };
 
     $scope.countTime = function() {
         $interval(function() {
@@ -31,22 +46,19 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
                 $scope.time.minutes--;
                 $scope.time.seconds = 59;
             }
-        }, $scope.time.totalSeconds);
+        }, 1000);
     };
 
-    $scope.start = function() {
+    $scope.next = function(id, type, answer) {
         $scope.isLoading = true;
-        TestQuestionsService.start($stateParams.id)
+        TestQuestionsService.next(id, type, $scope.applicationId, answer)
             .then(function(response) {
-                $scope.isLoading = false;
-                $scope.question = response.entity;
-            },
-            function(response) {
-
-            });
-    };
-
-    $scope.next = function() {
-
+                    $scope.isLoading = false;
+                    $scope.question = response.entity;
+                    $scope.countTime();
+                },
+                function(response) {
+                    $scope.isLoading = false;
+                });
     };
 }
