@@ -23,4 +23,12 @@ class Answer extends BaseModel
     	return $this->morphedBy('App\Question', 'question_type');
     }
 
+
+
+    //		-- CRUD -- 
+
+    public static function baseCreate($req) {
+    	$ans = new static;
+    }
+
 }

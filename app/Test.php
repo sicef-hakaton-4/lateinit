@@ -53,6 +53,14 @@ class Test extends BaseModel
 
     //      -- Accessors --
 
+    public function getTimeAttribute($value) {
+        $minutes = floor($value / 60);
+        $seconds = $value % 60;
+        $return['string'] = $minutes . ':' . $seconds;
+        $return['seconds'] = $value;
+        return $return;
+    }
+
 
 
     //      -- Mutators --
