@@ -53,7 +53,7 @@ class OpeningController extends Controller
 	}
 
 	public function scheduleInterview(Request $req) {
-		$int = Interview::schedule($req->date, $req->opening_id, $req->expert_id);
+		$int = Interview::schedule($req->date, $req->application_id);
 		return JSONResponse(true, 200, 'Interview scheduled.');
 	}
 
