@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('SingleViewExpertCtrl', SingleViewExpertCtrl);
 
-function SingleViewExpertCtrl($scope, SingleViewExpertService, Constants, $stateParams) {
+function SingleViewExpertCtrl($scope, SingleViewExpertService, Constants, $stateParams, ngToast) {
 
     SingleViewExpertService.getData($stateParams.id).then(function(response) {
             $scope.expert = response.entity;
@@ -10,4 +10,10 @@ function SingleViewExpertCtrl($scope, SingleViewExpertService, Constants, $state
         },
         function(response){
         });
+
+    $scope.sendMail = function(id, message) {
+        ngToast.success({
+            content: "Successfully sent!"
+        });
+    }
 }
