@@ -89,15 +89,16 @@ class User extends Authenticatable
     }
 
     public static function baseUpdate($id, $request) {
-        if (method_exists(static::class, 'updateValidation')) {
-            if (!static::updateValidation($request)) {
-                return JSONResponse(false, 400, 'Invalid data');
-            }
-        }
         $instance = static::find($id);
-        $instance->fill($request->all());
+        $instance->fill($request->only(with(new static)->getFillable()));
         if (!$instance->save()) {
             return JSONResponse(false, 500, 'Database communication error');
+        }
+        if ($instance->type == 'expert') {
+            $update = $request->only(['technologies', 'position', 'address', 'phonenumber', 'public']);
+        }
+        else {
+            $update = $request->only(['description', 'founded', 'employees', 'headquarters']);
         }
         $message = 'Update completed!';
         return JSONResponse(true, 200, $message);

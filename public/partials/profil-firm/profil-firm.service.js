@@ -16,7 +16,22 @@ function ProfilFirmService($q, $http, Constants) {
         return deffered.promise;
     }
 
+    function editUser(user) {
+        console.log(user);
+        var deferred = $q.defer();
+        $http.post(Constants.ENDPOINT_URL + "my/account/patch", user)
+            .then(function (response) {
+                deferred.resolve(response.data);
+            })
+            .catch(function (error) {
+                deferred.reject(error.data);
+            });
+
+        return deferred.promise;
+    }
+
     return {
-        getData: getData
+        getData: getData,
+        editUser: editUser
     }
 }

@@ -24,6 +24,9 @@ function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
         });
         angular.forEach(user.projects, function(project) {
             angular.forEach(project.techNew, function(tech) {
+                if(!project.technologies) {
+                    project.technologies = [];
+                }
                 project.technologies.push(tech.description);
             });
             project.techNew = [];
