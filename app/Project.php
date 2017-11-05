@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends BaseModel
 {
-    protected $fillable = ['owner_id', 'owner'];
+    protected $fillable = ['owner_id', 'owner', 'name', 'description', 'client', 'technologies', 'position', 'started', 'ended'];
 
     protected $hidden = [];
 
