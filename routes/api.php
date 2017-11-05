@@ -42,7 +42,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 	Route::get('test/start/{testId}', 'TestController@startTest');
 
-
 });
 
 
