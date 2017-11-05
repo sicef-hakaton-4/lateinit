@@ -16,7 +16,21 @@ function SingleViewExpertService($q, $http, Constants) {
         return deffered.promise;
     }
 
+    function sendMail(id, message) {
+        var deffered = $q.defer();
+        $http.post(Constants.ENDPOINT_URL + "")
+            .then(function (response) {
+                deffered.resolve(response.data);
+            })
+            .catch(function (error) {
+                deffered.reject(error.data);
+            });
+
+        return deffered.promise;
+    }
+
     return {
-        getData: getData
+        getData: getData,
+        sendMail: sendMail
     }
 }

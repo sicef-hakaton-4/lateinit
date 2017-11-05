@@ -38,9 +38,12 @@ class OpeningController extends Controller
 	}
 
 	public function elevatedView($id) {
-		$opening = Opening::with('applications.expert', 'applications.answers')->where('id', $id)->first();
+		$opening = Opening::with('applications.expert.description', 'applications.answers')->where('id', $id)->first();
 		$opening->applications->transform(function ($app) {
 			$app->answers->load('question.test');
+			if (!is_null($app->expert)) {
+				$app->expert->description;
+			}
 			$tests = $app->answers->groupBy(function ($answer) {
 				$test = 'Test' . $answer->question->test->queue;
 				return $test;
@@ -53,7 +56,7 @@ class OpeningController extends Controller
 	}
 
 	public function scheduleInterview(Request $req) {
-		$int = Interview::schedule($req->date, $req->opening_id, $req->expert_id);
+		$int = Interview::schedule($req->date, $req->application_id);
 		return JSONResponse(true, 200, 'Interview scheduled.');
 	}
 
