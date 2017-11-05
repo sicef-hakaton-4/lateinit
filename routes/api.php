@@ -34,7 +34,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 	Route::get('my/account', 'UserController@myAccount');
 
-	Route::post('my/account', 'UserController@editAccount');
+	Route::post('my/account/patch', 'UserController@editAccount');
 
 
 
