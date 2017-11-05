@@ -26,7 +26,8 @@ class Answer extends BaseModel
     }
 
     public function question() {
-    	return $this->morphedBy('App\Question', 'question_type');
+        $model = ucfirst($this->question_type) . 'Question';
+    	return $this->belongsTo('App\\' . $model, 'question_id');
     }
 
 
