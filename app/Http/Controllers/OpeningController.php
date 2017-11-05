@@ -41,6 +41,9 @@ class OpeningController extends Controller
 		$opening = Opening::with('applications.expert.description', 'applications.answers')->where('id', $id)->first();
 		$opening->applications->transform(function ($app) {
 			$app->answers->load('question.test');
+			if (!is_null($app->expert)) {
+				$app->expert->description;
+			}
 			$tests = $app->answers->groupBy(function ($answer) {
 				$test = 'Test' . $answer->question->test->queue;
 				return $test;
