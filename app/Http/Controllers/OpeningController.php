@@ -8,6 +8,8 @@ use App\Opening;
 
 use App\Interview;
 
+use App\Application;
+
 use Illuminate\Support\Facades\Auth;
 
 class OpeningController extends Controller
@@ -58,6 +60,12 @@ class OpeningController extends Controller
 	public function scheduleInterview(Request $req) {
 		$int = Interview::schedule($req->date, $req->application_id);
 		return JSONResponse(true, 200, 'Interview scheduled.');
+	}
+
+	public function hire($appId) {
+		$app = Application::find($appId);
+		$app->hire();
+		return JSONResponse(true, 200, 'Applicant hired.');
 	}
 
 }

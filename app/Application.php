@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 class Application extends BaseModel
 {
 
-    protected $hidden = ['expert_id', 'opening_id'];
+    protected $hidden = ['expert_id', 'opening_id', 'interview'];
 
     protected $fillable = ['expert_id', 'opening_id'];
+
+    protected $appends = ['ints'];
 
 
 
@@ -29,9 +33,25 @@ class Application extends BaseModel
     	return $this->hasMany('App\Answer');
     }
 
+    public function interview() {
+        return $this->hasOne('App\Interview');
+    }
+
 
 
     //		-- Accessors --
+
+    public function getIntsAttribute() {
+        if (is_null($this->interview)) {
+            $this->attributes['ints'] = null;
+            return null;
+        }
+        $ints['ints'] = $this->interview->appointment;
+        $ints['hr'] = 1;
+        return $ints;
+        
+
+    }
 
 
 
@@ -62,6 +82,12 @@ class Application extends BaseModel
             $response['nextTest']->makeHidden('questions');
         }
         return JSONResponse(true, 200, 'Created', $response);
+    }
+
+    public function hire() {
+        $this->hired = 1;
+        $this->hired_at = Carbon::now()->toDateTimeString();
+        $this->save();
     }
 
 }

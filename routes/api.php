@@ -41,6 +41,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 	Route::get('get/opening/elevated/{openingId}', 'OpeningController@elevatedView');
 
+	Route::get('application/hire/{appId}', 'OpeningController@hire');
+
 
 
 	//		-- My info --
