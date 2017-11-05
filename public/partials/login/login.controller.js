@@ -14,7 +14,7 @@ function LoginCtrl($scope, AuthService, ngToast, $state, Constants) {
                 });
 
                 if(response.entity.displayData.type == Constants.EXPERT_ROLE) {
-                    $state.go('menu.findjob');
+                    $state.go('menu.findjob', {fromLogIn: true});
                 } else {
                     $state.go('menu.createconcurs');
                 }

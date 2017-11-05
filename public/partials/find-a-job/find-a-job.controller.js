@@ -2,7 +2,28 @@ angular
     .module('app')
     .controller('FindAJobCtrl', FindAJobCtrl);
 
-function FindAJobCtrl($scope, FindAJobService, Constants, $state) {
+function FindAJobCtrl($stateParams, $scope, FindAJobService, $state, $uibModal, ngToast) {
+    if($stateParams.fromLogIn) {
+        var modal = $uibModal.open({
+            animation: true,
+            templateUrl: 'partials/recension-modal/recension-modal.html',
+            controller: 'RecensionModal',
+            backdrop: true,
+            resolve: {
+                company: function () {
+                    return $stateParams.company;
+                }
+            }
+        });
+
+        modal.result.then(function () {
+            ngToast.success({
+                content: "Thank you for your time"
+            });
+        }, function (response) {
+            console.log(response);
+        });
+    }
     FindAJobService.getData().then(function(response) {
         $scope.jobs = response.entity;
         console.log($scope.jobs);

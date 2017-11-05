@@ -110,6 +110,9 @@ angular.module('app', [
                 css: 'partials/find-a-job/find-a-job.css',
                 controller: 'FindAJobCtrl'
             }
+        },
+        params: {
+            fromLogIn: null
         }
     });
 

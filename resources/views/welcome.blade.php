@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="partials/create-concurs/modals/edit-question-modal.css">
     <link rel="stylesheet" href="partials/results-concurs/modals/send-interview.css">
     <link rel="stylesheet" href="partials/expert-concurs/expert-concurs.css">
+    <link rel="stylesheet" href="partials/recension-modal/recension-modal.css">
 </head>
 
 <body>
@@ -80,6 +81,7 @@
 <script src="partials/create-concurs/modals/edit-question-modal.controller.js"></script>
 <script src="partials/results-concurs/modals/send-interview.controller.js"></script>
 <script src="partials/expert-concurs/expert-concurs.controller.js"></script>
+<script src="partials/recension-modal/recension-modal.controller.js"></script>
 
 <!-- Services -->
 <script src="js/auth.service.js"></script>
