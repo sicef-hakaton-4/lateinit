@@ -48,7 +48,11 @@ class Answer extends BaseModel
         }
         $answ->fill($req->only(static::fillableList()));
         $answ->save();
-        $response['nextQuestion'] = $q->test->nextQuestion($q->id);
+        $nextQuestion = $q->test->nextQuestion($q->id);
+        $response['nextQuestion'] = $nextQuestion;
+        if (is_null($nextQuestion)) {
+            $response['end'] = 1;
+        }
         return JSONResponse(true, 200, 'Saved', $response);
     }
 
