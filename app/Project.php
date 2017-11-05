@@ -35,4 +35,16 @@ class Project extends BaseModel
 
 
     //		-- Custom methods --
+
+
+
+    //      -- CRUD -- 
+
+    public static function baseCreate($req) {
+        $pro = new static;
+        $pro->owner_id = Auth::user()->id;
+        $pro->owner = (Auth::user()->type == 'expert') ? 0 : 1;
+        $pro->save();
+        return JSONResponse(true, 200, 'Project added.');
+    }
 }
