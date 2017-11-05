@@ -65,12 +65,11 @@
 		<div class="col-xs-12 card" ng-repeat="app in concurs.applications">
 			<h2 class="title">Name: {{app.expert.name}}</h2>
 			<button class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
-			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
-			<h2 class="title">Positions: <span>Backend</span></h2>
+			<h2 class="title">Technologies: <span class="badge" ng-repeat="tech in app.expert.description.technologies">{{tech}}</span></h2>
+			<h2 class="title">Positions: <span>{{app.expert.description.position}}</span></h2>
 			<div ng-repeat="test in app.tests track by $index">
 				<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test{{$index}}">Test 1</button>
 				<div id="test{{$index}}" class="collapse">
-					<div</div>
 					<p>Pitanje: </p>
 					<p>Odgovor: </p>
 				</div>
