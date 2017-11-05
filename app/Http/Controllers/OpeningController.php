@@ -18,7 +18,7 @@ class OpeningController extends Controller
 
 	public function myOpenings() {
 		if (Auth::user()->type == 'expert') {
-			$openings = Auth::user()->applications()->with('openings')->get();
+			$openings = Auth::user()->applications()->with('opening')->get();
 		}
 		else {
 			$openings = Auth::user()->openings;
