@@ -69,7 +69,7 @@ class Opening extends BaseModel
 
     public function setDeadlineAttribute($value) {
         $carb = new Carbon($value);
-        $this->attributes['date'] = $carb->toDateString();
+        $this->attributes['deadline'] = $carb->toDateString();
     }
 
 
@@ -84,9 +84,10 @@ class Opening extends BaseModel
         $open->fill($req->only(static::fillableList()));
         $open->company_id = Auth::user()->id;
         $open->save();
-        foreach ($open->tests as $index => $test) {
+        foreach ($req->tests as $index => $test) {
+            $test = collect($test);
             $tst = new Test;
-            $tst->fill($req->only(Test::fillableList()));
+            $tst->fill($test->only(Test::fillableList())->all());
             $tst->opening_id = $open->id;
             $tst->queue = $index;
             $tst->save();

@@ -1,1 +1,65 @@
-<p>Single view expert</p>
+<div class="container single-view-job">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="title">Single view find an expert</h1>
+			<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+			<div class="line"></div>
+		</div>
+	</div>
+</div>
+<div class="card-single">
+	<div class="container single-view-job-content card">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<img src="../../img/expert.png">
+			</div>
+			<div class="col-xs-12 col-sm-8">
+				<h3></h3>
+				<p>Email: {{expert.email}}<span></span></p>
+				<p>Pozicija: {{expert.description.position}} <span></span></p>
+				<p>Adresa: {{expert.description.address}} <span></span></p>
+				<p>Br. mob: {{expert.description.phonenumber}}<span></span></p>
+			</div>
+		</div>
+		<div class="row single-view-job-desc">
+			<div class="col-xs-12">
+				<p class="description">
+					
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row card-single">
+		<div class="col-xs-12 card">
+			<h2>Technologies</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-4" ng-repeat="tecnology in expert.technologies">
+					<p>{{technology}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row card-single">
+		<div class="col-xs-12 card">
+			<h2>List projects</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12" ng-repeat="project in expert.projects track by $index">
+					<p>{{$index + 1}}</p>
+					<p>ime projekta: {{project.name}}</p>
+					<p>opis projekta: {{project.description}}</p>
+					<p>ime klijenta: {{project.client}}</p>
+					<p ng-repeat="technology in project.technologies">tehnologije: {{technology}}</p>
+					<p>pozicija: {{project.position}}</p>
+					<p>od - do : {{project.started}} - {{project.ended}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container btn-apply">
+	<button class="btn btn-primary">Apply</button>
+</div>

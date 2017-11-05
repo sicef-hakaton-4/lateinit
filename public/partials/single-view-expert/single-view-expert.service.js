@@ -5,7 +5,7 @@ angular
 function SingleViewExpertService($q, $http, Constants) {
     function getData(id) {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "expert/get/" + id)
+        $http.get(Constants.ENDPOINT_URL + "get/user/" + id)
             .then(function (response) {
                 deffered.resolve(response.data);
             })
