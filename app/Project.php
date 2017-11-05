@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends BaseModel
 {
-    protected $fillable = [];
+    protected $fillable = ['owner_id', 'owner'];
 
     protected $hidden = [];
 
@@ -18,9 +18,19 @@ class Project extends BaseModel
 
     //		-- Accessors -- 
 
+    public function getTechnologiesAttribute($value) {
+    	$techs = explode('&&', $value);
+    	return $techs;
+    }
+
 
 
     //		-- Mutators --
+
+    public function setTechnologiesAttribute($value) {
+    	$techs = implode('&&', $value);
+    	$this->attributes['technologies'] = $techs;
+    }
 
 
 

@@ -27,7 +27,7 @@ class CreateOpeningsTable extends Migration
             $table->enum('level', ['student', 'entry', 'mid-level', 'senior']);
             $table->date('deadline');
 
-            $table->float('minimal_rate', 12, 2)->nullable();
+            $table->float('min_rate', 12, 2)->nullable();
 
             $table->string('technologies');
         });

@@ -49,13 +49,6 @@ body {
     margin-bottom: 15px;
     margin-top: 5px;
 }
-input {
-    border: none;
-    border-bottom: 2px solid #019ae0;
-    font-size: 18px;
-    width: 100%;
-    font-family: "Proxima Nova Bold";    
-}
 input:focus {
     outline: none;
 }
@@ -66,4 +59,20 @@ textarea {
     border-radius: 2px;
     border: 2px solid #cccccc;
     font-family: "Proxima Nova Bold";
+}
+.footer {
+    bottom: 0;
+    background-color: #5f5f5f;
+    height:100px;
+    margin-top:100px;
+}
+.footer .container center {
+    margin-top:40px;
+    color: #fff;
+}
+.navbar-parts li {
+    width: 100px;
+}
+.navbar-default {
+    border: none;
 }

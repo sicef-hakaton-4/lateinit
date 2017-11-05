@@ -15,14 +15,14 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             
 
             $table->integer('owner_id');
             $table->tinyInteger('owner'); //0 za strucnjaka 1 za firmu
 
             $table->string('name');
-            $table->string('description');
+            $table->string('description', 500);
             $table->string('client')->nullable();
 
             $table->string('technologies'); // CSV

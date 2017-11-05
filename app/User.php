@@ -5,26 +5,18 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use JWTAuth;
+
 class User extends Authenticatable
 {
     use Notifiable;
 
     public $timestamps = false;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password', 'type'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -47,8 +39,34 @@ class User extends Authenticatable
 
     //      -- Relationships -- 
 
-    public function description() {
+    public function companyDescription() {
+        return $this->hasOne('App\companyDescription', 'company_id');
+    }
+
+    public function expertDescription() {
         return $this->hasOne('App\ExpertDescription', 'expert_id');
+    }
+
+    public function openings() {
+        return $this->hasMany('App\Opening', 'company_id');
+    }
+
+    public function applications() {
+        return $this->hasMany('App\Application', 'expert_id');
+    }
+
+    public function projects() {
+        $flag = ($this->type == 'company') ? 1 : 0;
+        return $this->hasMany('App\Project', 'owner_id')->where('owner', $flag);
+    }
+
+    public function description() {
+        if ($this->type == 'expert') {
+            return $this->hasOne('App\ExpertDescription', 'expert_id');
+        }
+        else {
+            return $this->hasOne('App\CompanyDescription', 'company_id');
+        }
     }
 
 
@@ -64,18 +82,10 @@ class User extends Authenticatable
     //      -- CRUD --
 
     public static function loadSingle($id) {
-        if (property_exists(static::class, 'relationships')) {
-            $instance = static::with(static::$relationships)->where('id', $id)->get();
-        }
-        else {
-            $instance = static::find($id);
-        }
-        if (!$instance) {
-            $message = 'Not found';
-            return JSONResponse(false, 404, $message);
-        }
+        $user = static::find($id);
+        $user->load(['description', 'projects']);
         $message = 'Instance loaded succesfully!';
-        return JSONResponse(true, 200, $message, $instance);
+        return JSONResponse(true, 200, $message, $user);
     }
 
 
@@ -89,7 +99,8 @@ class User extends Authenticatable
     }
 
     public function token() {
-        return '123456';
+        $token = JWTAuth::fromUser($this);
+        return $token;
     }
 
     public static function getExperts() {

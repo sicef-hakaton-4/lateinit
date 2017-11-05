@@ -1,1 +1,32 @@
-<p>my concurs</p>
+<div class="container jobs">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="title">Openings</h1>
+            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row find-a-jobs">
+        <div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="concur in concurs">
+            <div class="card">
+                <div class="row">
+                    <div class="avatar-find-job col-xs-12 col-md-4">
+                        <img src="../../img/expert.png">
+                    </div>
+                    <div class="col-xs-12 col-md-8 card-text-findjob">
+                        <h3>{{concur.position}}</h3>
+                        <span class="description">{{concur.description}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <p><span></span>{{concur.deadline}}</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 btn-view-more">
+                        <button class="btn btn-primary" ng-click="seeOpening(concur.id)">See more</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMultipleQuestionsTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,20 @@ class CreateMultipleQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('multiple_questions', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             
+            $table->integer('question_id')->unsigned();
+            $table->tinyInteger('question_type'); // 1 za multiple, 2 za code, 3 za file
 
-            $table->integer('test_id')->unsigned();
-            $table->foreign('test_id')
+            $table->integer('application_id')->unsigned();
+            $table->foreign('application_id')
                   ->references('id')
-                  ->on('tests')
+                  ->on('applications')
                   ->onDelete('cascade');
 
-            $table->string('question');
-
             $table->string('answer');
-            $table->string('option1');
-            $table->string('option2');
-            $table->string('option3');
-
+            $table->tinyInteger('correct')->default(0);
         });
     }
 
@@ -40,6 +37,6 @@ class CreateMultipleQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('multiple_questions');
+        Schema::dropIfExists('answers');
     }
 }

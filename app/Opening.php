@@ -8,7 +8,7 @@ use App\Test;
 
 class Opening extends BaseModel
 {
-    protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'minimal_rate', 'technologies'];
+    protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'min_rate', 'technologies'];
 
     protected $hidden = ['company_id'];
 
@@ -22,6 +22,10 @@ class Opening extends BaseModel
 
     public function company() {
         return $this->belongsTo('App\User', 'company_id')->select('id', 'name');
+    }
+
+    public function applications() {
+        return $this->hasMany('App\Application');
     }
 
 
@@ -47,6 +51,15 @@ class Opening extends BaseModel
 
     //		-- Mutators --
 
+    public function setTechnologiesAttribute($value) {
+        $techs = implode('&&', $value);
+        $this->attributes['technologies'] = $techs;
+    }
+
+    public function setRequirementsAttribute($value) {
+        $techs = implode('&&', $value);
+        $this->attributes['requirements'] = $techs;
+    }
 
 
     //		-- Custom methods --
@@ -59,13 +72,15 @@ class Opening extends BaseModel
         $open = new static;
         $open->fill($req->only(static::fillableList()));
         $open->save();
-        foreach ($open->tests as $test) {
+        foreach ($open->tests as $index => $test) {
             $tst = new Test;
             $tst->fill($req->only(Test::fillableList()));
             $tst->opening_id = $open->id;
+            $tst->queue = $index;
             $tst->save();
-            // $tst->addQuestions($)
+            $tst->addQuestions($test['questions']);
         }
+        return JSONResponse(true, 200, 'Opening created.');
     }
 
 }

@@ -2,6 +2,27 @@
 
 use Illuminate\Http\Request;
 
+Route::group(['middleware' => 'jwt.auth'], function () {
+
+
+
+
+	//		-- Openings --
+
+	Route::get('opening/applications/{openingId}', 'OpeningController@applications');
+
+	Route::get('my/openings', 'OpeningController@myOpenings');
+
+
+
+	//		-- My info --
+
+	Route::get('my/account', 'UserController@myAccount');
+
+
+});
+
+
 
 //		-- Basic CRUD --
 
@@ -16,6 +37,9 @@ Route::get('patch/{model}/initialize/{id}', 'BaseController@initializePatch'); /
 Route::post('patch/{model}/{id}', 'BaseController@update'); // UPDATE
 
 Route::get('delete/{model}/{id}', 'BaseController@delete'); // DELETE
+
+
+
 
 
 

@@ -1,19 +1,34 @@
-<div>
-    <form ng-submit="register(credentials)">
-        <input ng-model="credentials.name" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <input ng-model="credentials.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-        <input ng-model="credentials.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <textarea ng-model="credentials.description" rows="5" id="inputDescription" class="form-control" placeholder="Description" required></textarea>
-        <div class="form-group">
-            <label for="selfounded">Founded:</label>
-            <select ng-model="credentials.founded" class="form-control" id="selfounded">
-                <option selected>2017</option>
-                <option ng-repeat="year in years">{{year}}</option>
-            </select>
+<div class="container opening-card">
+    <div class="row">
+        <center>
+            <div class="col-xs-12">
+                <h2 class="title">Firm register</h2>
+                <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="line"></div>
+            </div>
+        </center>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card card-register col-xs-12 col-md-6 col-md-offset-3">
+            <form ng-submit="register(credentials)" class="">
+                <input ng-model="credentials.name" type="text" id="inputName" class="form-control register-input" placeholder="Name" required autofocus>
+                <input ng-model="credentials.email" type="email" id="inputEmail" class="form-control register-input" placeholder="Email address" required>
+                <input ng-model="credentials.password" type="password" id="inputPassword" class="form-control register-input" placeholder="Password" required>
+                <textarea ng-model="credentials.description" rows="5" id="inputDescription" class="form-control register-input" placeholder="Description" required></textarea>
+                <div class="form-group founded-register">
+                    <label for="selfounded">Founded:</label>
+                    <select ng-model="credentials.founded" class="form-control" id="selfounded">
+                        <option selected>2017</option>
+                        <option ng-repeat="year in years">{{year}}</option>
+                    </select>
+                </div>
+                <input ng-model="credentials.employees" type="number" id="inputEmployees" class="form-control register-input" placeholder="Employees" required>
+                <input ng-model="credentials.headquarters" type="text" id="inputAddress" class="form-control register-input" placeholder="Address" required>
+                <button class="btn btn-lg btn-primary btn-block register-input margin-register-btn" type="submit">Register</button>
+            </form>
+            <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
         </div>
-        <input ng-model="credentials.employees" type="number" id="inputEmployees" class="form-control" placeholder="Employees" required>
-        <input ng-model="credentials.headquarters" type="text" id="inputAddress" class="form-control" placeholder="Address" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-    </form>
-    <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
+    </div>
 </div>

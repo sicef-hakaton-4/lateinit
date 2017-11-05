@@ -5,7 +5,7 @@ angular
 function ProfileExpertService($q, $http, Constants) {
     function getData() {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.get(Constants.ENDPOINT_URL + "my/account")
             .then(function (response) {
                 deffered.resolve(response.data);
             })

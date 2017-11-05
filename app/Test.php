@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends BaseModel
 {
-    protected $fillable = ['opening_id', 'queue', 'type', 'min_rate'];
+    protected $fillable = ['opening_id', 'queue', 'type', 'min_rate', 'minutes', 'seconds'];
 
     protected $hidden = ['opening_id'];
 
@@ -46,6 +46,53 @@ class Test extends BaseModel
     	});
     	$this->questions = $questions;
     	return $questions;
+    }
+
+
+
+    //      -- Accessors --
+
+
+
+    //      -- Mutators --
+
+    public function setMinutesAttribute($value) {
+        $seconds = (int) $value * 60;
+        if (!isset($this->attributes['time'])) {
+            $this->attributes['time'] = 0;
+        }
+        $this->attributes['time'] += $seconds;
+    }
+
+    public function setSecondsAttribute($value) {
+        if (!isset($this->attributes['time'])) {
+            $this->attributes['time'] = 0;
+        }
+        $this->attributes['time'] += $value;
+    }
+
+
+
+    //      -- Custom methods --
+
+    public function addQuestions($questions) {
+        foreach ($questions as $question) {
+            switch ($question['type']) {
+                case 'code':
+                    $quest = new CodeQuestion;
+                    break;
+                case 'file':
+                    $quest = new FileQuestion;
+                    break;
+                case 'multiple':
+                    $quest = new MultipleQuestion;
+                    break;
+            }
+            unset($question['type']);
+            $quest->fill($question);
+            $quest->test_id = $this->id;
+            $quest->save();
+        }
     }
 
 }

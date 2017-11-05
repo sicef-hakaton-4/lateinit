@@ -1,1 +1,56 @@
-<p>Single view job</p>
+<div class="container single-view-job">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="title">Single view find a job</h1>
+			<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+			<div class="line"></div>
+		</div>
+	</div>
+</div>
+<div class="card-single">
+	<div class="container single-view-job-content card">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<img src="../../img/expert.png">
+			</div>
+			<div class="col-xs-12 col-sm-8">
+				<h3>{{job.position}}</h3>
+				<p>DEADLINE: <span>{{job.deadline}}</span></p>
+				<p>EXPERIENCE: <span>{{job.level}}</span></p>
+				<p>MINIMUM AVERAGE RATING: <span>{{job.min_rate}}</span></p>
+			</div>
+		</div>
+		<div class="row single-view-job-desc">
+			<div class="col-xs-12">
+				<p class="description">
+					{{job.description}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row card-single">
+		<div class="col-xs-12 card">
+			<h2>Requirements</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-4" ng-repeat="requirement in job.requirements">
+					<p>{{requirement}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 card">
+			<h2>Technologies</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-4" ng-repeat="technology in job.technologies">
+					<p>{{technology}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container btn-apply">
+	<button class="btn btn-primary">Apply</button>
+</div>

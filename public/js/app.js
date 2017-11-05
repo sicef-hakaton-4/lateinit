@@ -216,7 +216,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.my-concurs', {
+    state('menu.myConcurs', {
         url: '/my-concurs',
         views: {
             'menuContent': {
@@ -240,7 +240,7 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.results-concurs', {
+    state('menu.resultsConcurs', {
         url: '/results-concurs',
         views: {
             'menuContent': {
@@ -248,6 +248,9 @@ angular.module('app', [
                 css: 'partials/results-concurs/results-concurs.css',
                 controller: 'ResultsConcursCtrl'
             }
+        },
+        params: {
+            id: null
         }
     });
 
