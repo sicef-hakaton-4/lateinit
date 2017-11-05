@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('ProfileExpertCtrl', ProfileExpertCtrl);
 
-function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
+function ProfileExpertCtrl($scope, ProfileExpertService, Constants, ngToast) {
 
     $scope.user = [];
     $scope.newTechnologies = [];
@@ -36,6 +36,15 @@ function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
         ProfileExpertService.editUser(user).then(function(response) {
                 $scope.user = response.entity;
                 console.log($scope.user);
+                ngToast.success({
+                    content: response.message
+                });
+                ProfileExpertService.getData().then(function(response) {
+                        $scope.user = response.entity;
+                        console.log($scope.user);
+                    },
+                    function(response){
+                    });
             },
             function(response){
             });
