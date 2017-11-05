@@ -31,6 +31,12 @@ function ResultsConcursCtrl($scope, ResultsConcursService, $uibModal, $statePara
             ngToast.success({
                 content: "Invite for interview successfully sent"
             });
+            ResultsConcursService.getData($stateParams.id)
+                .then(function(response) {
+                        $scope.concurs = response.entity;
+                    },
+                    function(response){
+                    });
         }, function (response) {
             console.log(response);
         });

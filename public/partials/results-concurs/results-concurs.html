@@ -64,15 +64,16 @@
 	<div class="row">
 		<div class="col-xs-12 card" ng-repeat="app in concurs.applications track by $index">
 			<h2 class="title">Name: {{app.expert.name}}</h2>
-			<button class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
+			<button ng-if="app.ints == null" class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
+			<h2 ng-if="app.ints != null" class="pull-right">Interview scheduled for: {{app.ints.ints}}</h2>
 			<h2 class="title">Technologies: <span class="badge" ng-repeat="tech in app.expert.description.technologies">{{tech}}</span></h2>
 			<h2 class="title">Positions: <span>{{app.expert.description.position}}</span></h2>
 			<div ng-repeat="test in app.tests track by $index">
 				<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#demo{{$parent.$index}}{{$index+1}}">Test {{$index+1}}</button>
 				<div id="demo{{$parent.$index}}{{$index+1}}" class="collapse">
 					<div ng-repeat="p in test">
-						<p>Pitanje: {{p.question.task}}</p>
-						<p>Odgovor: {{p.answer}}</p>
+						<p>Question: {{p.question.task}}</p>
+						<p>Answer: {{p.answer}}</p>
 					</div>
 				</div>
 			</div>
