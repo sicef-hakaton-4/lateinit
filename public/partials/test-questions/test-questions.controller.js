@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('TestQuestionsCtrl', TestQuestionsCtrl);
 
-function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval) {
+function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval, ngToast) {
     $scope.isLoading = false;
     $scope.options = {};
     $scope.options.choosedAnswer = '';
@@ -21,7 +21,7 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
 
     $scope.start = function() {
         $scope.isLoading = true;
-        TestQuestionsService.start($stateParams.id)
+        TestQuestionsService.start($scope.activeTest)
             .then(function(response) {
                     $scope.isLoading = false;
                     $scope.question = response.entity;
@@ -33,7 +33,7 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
     };
 
     $scope.countTime = function() {
-        $interval(function() {
+        $scope.interval = $interval(function() {
             if($scope.time.minutes == 0) {
                 console.log("Finished");
             }
@@ -54,10 +54,19 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
         TestQuestionsService.next(id, type, $scope.applicationId, answer)
             .then(function(response) {
                     $scope.isLoading = false;
+                    ngToast.success({
+                        content: response.message
+                    });
+                    $scope.options.choosedAnswer = '';
                     if(response.entity.nextQuestion) {
-                        $scope.question = response.entity;
+                        $scope.question = response.entity.nextQuestion;
+                    } else {
+                        $scope.time = response.entity.nextTest.time;
+                        $scope.activeTest = response.entity.nextTest.queue;
+                        $scope.minRate = response.entity.nextTest.min_rate;
+                        $scope.question = null;
+                        $interval.cancel($scope.interval);
                     }
-                    $scope.countTime();
                 },
                 function(response) {
                     $scope.isLoading = false;

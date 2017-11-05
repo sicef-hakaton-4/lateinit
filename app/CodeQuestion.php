@@ -18,4 +18,8 @@ class CodeQuestion extends BaseModel
     	return $this->morphMany('App\Answer', 'question_type');
     }
 
+    public function test() {
+        return $this->belongsTo('App\Test');
+    }
+
 }

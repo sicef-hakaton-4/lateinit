@@ -23,7 +23,7 @@
             <div class="card card-questions">
                 <h5>{{question.question}}</h5>
                 <div ng-repeat="answer in question.options track by $index">
-                    <input type="radio" name="choosedAnswer" ng-value="answer.option" ng-model="options.choosedAnswer"/>
+                    <input type="radio" name="choosedAnswer" ng-value="answer.option" ng-model="options.choosedAnswer" required/>
                     <label>{{ answer.option }}</label>
                 </div>
                 <button class="btn btn-primary" ng-click="next(question.id, question.type, options.choosedAnswer)">Next</button>
@@ -35,8 +35,8 @@
             <div class="card card-questions">
                 <h5>Lorem Ipsum is simply dummy text of the prithe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </h5>
-                <textarea rows="10" class="form-control register-input" placeholder="Answer"></textarea>
-                <button class="btn btn-primary" ng-click="next()">Next</button>
+                <textarea rows="10" class="form-control register-input" ng-model="answer" placeholder="Answer"></textarea>
+                <button class="btn btn-primary" ng-click="next(question.id, question.type, answer)">Next</button>
             </div>
         </div>
     </div>
@@ -45,8 +45,8 @@
             <div class="card card-questions">
                 <h5>Lorem Ipsum is simply dummy text of the prithe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </h5>
-                <button>upload file</button>
-                <button class="btn btn-primary" ng-click="next()">Next</button>
+                <input type="file">
+                <button class="btn btn-primary" ng-click="next(question.id, question.type, 'kako je koke')">Next</button>
             </div>
         </div>
     </div>
