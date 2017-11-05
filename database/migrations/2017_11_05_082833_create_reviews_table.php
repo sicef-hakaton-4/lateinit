@@ -22,6 +22,7 @@ class CreateReviewsTable extends Migration
                   ->onDelete('cascade');
 
             $table->string('body', 500);
+            $table->integer('rate');
         });
     }
 
