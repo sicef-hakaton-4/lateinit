@@ -11,7 +11,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
             <div class="card-concurs">
                 <form ng-submit="createConcurs(dataObject)">
                     <div class="row">
@@ -88,9 +88,9 @@
                                     </div>
                                     <h2 class="title" ng-if="test.questions.length > 0">Questions</h2>
                                     <div ng-repeat="question in test.questions track by $index">
-                                        <div class="questions">
-                                            <p style="float: left;" ng-if="question.task" ng-click="editQuestion(question)">{{$index + 1}}) {{question.task}}</p>
-                                            <p style="float: left;" ng-if="question.question" ng-click="editQuestion(question)">{{$index + 1}}) {{question.question}}</p>
+                                        <div class="questions" ng-click="editQuestion(question)">
+                                            <p style="float: left;" ng-if="question.task" >{{$index + 1}}) {{question.task}}</p>
+                                            <p style="float: left;" ng-if="question.question">{{$index + 1}}) {{question.question}}</p>
                                         </div>
                                         <button class="btn btn-default btn-delete pull-right glyphicon glyphicon-trash" type="button" ng-show="$last" ng-click="removeQuestion(test)" style="margin-top: -36px !important;"></button>
                                         <div>
