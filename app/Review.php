@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends BaseModel
 {
-    protected $fillable = ['review', 'application_id', 'rate'];
+    protected $fillable = ['body', 'application_id', 'rate'];
 }
