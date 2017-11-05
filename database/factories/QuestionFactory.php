@@ -16,12 +16,12 @@ $factory->define(\App\MultipleQuestion::class, function (Faker $faker) {
 
 $factory->define(\App\CodeQuestion::class, function (Faker $faker) {
     return [
-        'task' => $faker->paragraph(2)
+        'task' => $faker->paragraph(1)
     ];
 });
 
 $factory->define(\App\FileQuestion::class, function (Faker $faker) {
     return [
-        'task' => $faker->paragraph(2)
+        'task' => $faker->paragraph(1)
     ];
 });
