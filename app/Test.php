@@ -59,7 +59,7 @@ class Test extends BaseModel
     public function getTimeAttribute($value) {
         $minutes = floor($value / 60);
         $seconds = $value % 60;
-        $return['minutes'] = $minutes . ':' . $seconds;
+        $return['minutes'] = $minutes;
         $return['totalSeconds'] = $value;
         $return['seconds'] = $seconds;
         return $return;
