@@ -57,8 +57,7 @@ textarea {
     width: 100%;
     margin-top: 10px;
     border-radius: 2px;
-    border: 2px solid #cccccc;
-    font-family: "Proxima Nova Bold";
+    border: 1px solid #cccccc;
 }
 .footer {
     bottom: 0;
