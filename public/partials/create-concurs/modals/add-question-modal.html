@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h3 class="modal-title">Add question</h3>
+    <h3 style="margin-left: 15px;" class="modal-title">Add question</h3>
     <div class="modal-body" id="modal-body">
         <form ng-submit="add(question)">
             <div class="row">
@@ -16,17 +16,29 @@
                         <textarea  ng-model="question.task" placeholder="Task" cols="30" rows="10"></textarea>
                     </div>
                     <div ng-if="question.type == 'multiple'">
-                        <input ng-model="question.question" type="text" placeholder="Question" required>
-                        <input ng-model="question.answer" type="text" placeholder="Correct Answer" required>
-                        <input ng-model="question.options[0]" type="text" placeholder="Option 1" required>
-                        <input ng-model="question.options[1]" type="text" placeholder="Option 2" required>
-                        <input ng-model="question.options[2]" type="text" placeholder="Option 3" required>
+                        <div class="row inputs">
+                            <div class="col-xs-12">
+                                <input class="form-control" ng-model="question.question" type="text" placeholder="Question" required>
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="form-control" ng-model="question.answer" type="text" placeholder="Correct Answer" required>    
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="form-control" ng-model="question.options[0]" type="text" placeholder="Option 1" required>    
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="form-control" ng-model="question.options[1]" type="text" placeholder="Option 2" required>    
+                            </div>
+                            <div class="col-xs-6">
+                                <input class="form-control" ng-model="question.options[2]" type="text" placeholder="Option 3" required>    
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row buttons-modal">
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-default">Save</button>
+                    <button type="submit" class="btn btn-default" style="margin-left: 10px;">Save</button>
                     <button type="button" ng-click="cancel()" class="btn btn-default">Cancel</button>
                 </div>
             </div>

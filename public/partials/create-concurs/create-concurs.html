@@ -77,8 +77,15 @@
                                 </button>
                                 <button style="margin-right: 10px;" class="btn btn-default btn-dlt pull-right glyphicon glyphicon-trash" type="button" ng-show="$last" ng-click="removeTest()"></button>
                                 <div class="add-test" id="demo{{$index + 1}}" class="collapse">
-                                    <input class="form-control" ng-model="test.minutes" type="number" placeholder="00" required> m
-                                    <input class="form-control" ng-model="test.seconds" type="number" placeholder="00" required> s
+                                    <div style="width: 50%; float: left;">
+                                        Minutes
+                                    </div>
+                                    <div style="width: 50%; float: right;">
+                                        Seconds
+                                    </div>
+                                    <input style="width: 50%; float: left;" class="form-control" ng-model="test.minutes" type="number" placeholder="00" required>
+                                    <input style="width: 50%;" class="form-control" ng-model="test.seconds" type="number" placeholder="00" required>
+                                    
                                     <div class="form-group">
                                         <label for="seltestrate{{$index+1}}">Minimum Rate</label>
                                         <select ng-model="test.min_rate" class="form-control"
@@ -97,15 +104,15 @@
                                             <hr>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-info btn-lg" ng-click="addQuestion(test)">Dodaj
+                                    <button type="button" class="btn btn-info" ng-click="addQuestion(test)">Dodaj
                                         pitanje
                                     </button>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-info btn-lg" ng-click="addTest()">Dodaj test</button>
+                            <button type="button" class="btn btn-info" ng-click="addTest()">Dodaj test</button>
                         </div>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+                    <button class="btn btn-primary btn-block" type="submit">Create</button>
                 </form>
             </div>
             <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
