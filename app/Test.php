@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Test extends BaseModel
 {
-    protected $fillable = ['opening_id', 'queue', 'type', 'min_rate', 'minutes', 'seconds'];
+    protected $fillable = ['opening_id', 'queue', 'type', 'min_rate', 'minutes', 'seconds', 'time'];
 
     protected $hidden = ['opening_id'];
 

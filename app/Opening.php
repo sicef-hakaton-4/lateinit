@@ -85,8 +85,9 @@ class Opening extends BaseModel
         $open->company_id = Auth::user()->id;
         $open->save();
         foreach ($req->tests as $index => $test) {
+            $test = collect($test);
             $tst = new Test;
-            $tst->fill($req->only(Test::fillableList()));
+            $tst->fill($test->only(Test::fillableList())->all());
             $tst->opening_id = $open->id;
             $tst->queue = $index;
             $tst->save();
