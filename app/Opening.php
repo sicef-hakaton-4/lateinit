@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Test;
 
 class Opening extends BaseModel
@@ -71,6 +73,7 @@ class Opening extends BaseModel
     public static function baseCreate($req) {
         $open = new static;
         $open->fill($req->only(static::fillableList()));
+        $open->company_id = Auth::user()->id;
         $open->save();
         foreach ($open->tests as $index => $test) {
             $tst = new Test;
