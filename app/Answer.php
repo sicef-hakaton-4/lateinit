@@ -46,8 +46,8 @@ class Answer extends BaseModel
                 $q = FileQuestion::find($req->question_id);
                 break;
         }
-        $answ->fill($req->only(static::fillableList()));
-        $answ->save();
+        $ans->fill($req->only(static::fillableList()));
+        $ans->save();
         $nextQuestion = $q->test->nextQuestion($q->id);
         $response['nextQuestion'] = $nextQuestion;
         if (is_null($nextQuestion)) {
