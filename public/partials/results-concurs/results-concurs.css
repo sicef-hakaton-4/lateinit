@@ -1,0 +1,87 @@
+.single-view-job {
+	margin-top: 80px;
+}
+.single-view-job-content img {
+	width: 100%;
+	margin-top: 15px;
+}
+.single-view-job-content {
+	margin-top: 40px;
+}
+.single-view-job-content h3 {
+	margin-top: 15px;
+	font-family: "Proxima Nova Bold";
+}
+.single-view-job-content  {
+	font-size: 14px;
+	font-family: "Proxima Nova Bold";
+}
+.single-view-job-content span {
+	color: #019ae0;
+	font-size: 18px;
+}
+.single-view-job-desc p {
+	margin-top: 10px;
+	font-size: 16px;
+}
+.single-view-job-desc h2 {
+	margin-top: 10px;
+	font-size: 24px;
+	color: #504e4e;
+}
+.card-single .card {
+	height: auto;
+	text-align: left;
+	margin-top: 30px;
+}
+.card-single .card h2 {
+	font-size: 24px;
+}
+.btn-apply {
+	margin-top: 15px;
+	padding-right: 0px;
+}
+.btn-apply button {
+	float: right;
+	border-radius: 2px;
+	background-color: #22a8e3;
+	color: #fff;
+	border: none;
+	width: 120px;
+	height: 40px;
+	
+}
+.btn-apply button:focus {
+	background-color: #22a8e3;
+	color: #fff;
+}
+.btn-apply button:hover {
+	background-color: #22a8e3;
+	color: #fff;
+}
+.table-expert .card {
+	height: auto;
+	text-align: left;
+}
+.table-expert .card h2 {
+	font-size: 16px;
+}
+.collaps-test {
+	width: 100%;
+    margin-bottom: 10px;
+    background-color: #53b9e7;
+    border: none;
+}
+.collaps-test:focus {
+	width: 100%;
+    margin-bottom: 10px;
+    background-color: #53b9e7;
+    border: none;
+}
+.collaps-test:hover {
+	outline: none;
+	width: 100%;
+    margin-bottom: 10px;
+    background-color: #53b9e7;
+    border: none;
+}

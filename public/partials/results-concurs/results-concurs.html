@@ -1,1 +1,91 @@
-<p>Results concurs</p>
+<div class="container single-view-job">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="title">My jobs</h1>
+			<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+			<div class="line"></div>
+		</div>
+	</div>
+</div>
+<div class="card-single">
+	<div class="container single-view-job-content card">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<img src="../../img/expert.png">
+			</div>
+			<div class="col-xs-12 col-sm-8">
+				<h3>{{}}</h3>
+				<p>DEADLINE: <span>{{}}</span></p>
+				<p>EXPERIENCE: <span>{{l}}</span></p>
+				<p>MINIMUM AVERAGE RATING: <span>{{}}</span></p>
+			</div>
+		</div>
+		<div class="row single-view-job-desc">
+			<div class="col-xs-12">
+				<p class="description">
+					{{}}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row card-single">
+		<div class="col-xs-12 card">
+			<h2>Requirements</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12" ng-repeat="requirement in job.requirements">
+					<p class="badge">{{requirement}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 card">
+			<h2>Technologies</h2>
+			<div class="line"></div>
+			<div class="row">
+				<div class="col-xs-12" ng-repeat="technology in job.technologies">
+					<p class="badge">{{technology}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container single-view-job">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="title">Applicants</h1>
+			<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+			<div class="line"></div>
+		</div>
+	</div>
+</div>
+<div class="container table-expert">
+	<div class="row">
+		<div class="col-xs-12 card">
+			<h2 class="title">Name :</h2>
+			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
+			<h2 class="title">Positions: <span>Backend</span></h2>
+			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
+			<div id="test" class="collapse">
+				<p>Pitanje: </p>
+				<p>Odgovor: </p>
+			</div>
+			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test1">Test 2</button>
+			<div id="test1" class="collapse">
+				<p>Pitanje: </p>
+				<p>Odgovor: </p>
+			</div>
+		</div>
+		<div class="col-xs-12 card">
+			<h2 class="title">Name :</h2>
+			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
+			<h2 class="title">Positions: <span>Backend</span></h2>
+			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
+			<div id="test" class="collapse">
+				<p>Pitanje: </p>
+				<p>Odgovor: </p>
+			</div>
+		</div>
+	</div>
+</div>
