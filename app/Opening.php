@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Test;
 
+use Carbon\Carbon;
+
 class Opening extends BaseModel
 {
     protected $fillable = ['company_id', 'position', 'description', 'requirements', 'level', 'deadline', 'min_rate', 'technologies'];
@@ -63,6 +65,11 @@ class Opening extends BaseModel
     public function setRequirementsAttribute($value) {
         $techs = implode('&&', $value);
         $this->attributes['requirements'] = $techs;
+    }
+
+    public function setDeadlineAttribute($value) {
+        $carb = new Carbon($value);
+        $this->attributes['date'] = $carb->toDateString();
     }
 
 
