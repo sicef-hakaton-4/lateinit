@@ -21,6 +21,9 @@ function ProfilFirmCtrl($scope, ProfilFirmService, Constants) {
         angular.forEach(user.projects, function(project) {
             angular.forEach(project.techNew, function(tech) {
                 console.log(tech.description);
+                if(!project.technologies) {
+                    project.technologies = [];
+                }
                 project.technologies.push(tech.description);
             });
             project.techNew = [];
