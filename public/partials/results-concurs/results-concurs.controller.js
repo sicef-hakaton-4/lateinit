@@ -11,10 +11,9 @@ function ResultsConcursCtrl($scope, ResultsConcursService, $uibModal, $statePara
         function(response){
         });
 
-    $scope.interview = function(expertId) {
+    $scope.interview = function(appId) {
         var params = {
-            expert_id: expertId,
-            opening_id: $scope.concurs.id
+            application_id: appId
         };
         var modal = $uibModal.open({
             animation: true,
