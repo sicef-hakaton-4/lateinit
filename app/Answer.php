@@ -56,7 +56,12 @@ class Answer extends BaseModel
         $nextQuestion = $q->test->nextQuestion($q->id);
         $response['nextQuestion'] = $nextQuestion;
         if (!$nextQuestion) {
-            $response['end'] = 1;
+            $response['testEnd'] = 1;
+            $nextTest = $q->test->nextTest();
+            if (!$nextTest) {
+                $response['finalEnd'] = 1;
+            }
+            $response['nextTest'] = $nextTest;
         }
         return JSONResponse(true, 200, 'Saved', $response);
     }

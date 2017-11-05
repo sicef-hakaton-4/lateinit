@@ -127,4 +127,12 @@ class Test extends BaseModel
         return $nextQuestion;
     }
 
+    public function nextTest() {
+        $nextTest = $this->opening->tests()->where('queue', '>', $this->queue)->first();
+        if (is_null($nextTest)) {
+            return false;
+        }
+        return $nextTest;
+    }
+
 }
