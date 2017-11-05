@@ -36,8 +36,8 @@
 			<h2>Technologies</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12 col-sm-4" ng-repeat="tecnology in expert.technologies">
-					<p class="badge">{{technology}}</p>
+				<div class="col-xs-12 col-sm-4">
+					<p ng-repeat="technology in expert.description.technologies" class="badge" style="margin-right:5px;">{{technology}}</p>
 				</div>
 			</div>
 		</div>
@@ -63,5 +63,6 @@
 	</div>
 </div>
 <div class="container btn-apply">
-	<button class="btn btn-primary">Apply</button>
+	<button ng-if="isLoggedIn" class="btn btn-primary">Hire</button>
+	<button ng-if="!isLoggedIn" class="btn btn-primary" ui-sref="menu.login">Hire</button>
 </div>

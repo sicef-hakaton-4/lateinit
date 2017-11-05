@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('ProfilFirmCtrl', ProfilFirmCtrl);
 
-function ProfilFirmCtrl($scope, ProfilFirmService, Constants) {
+function ProfilFirmCtrl($scope, ProfilFirmService, Constants, ngToast) {
 
     $scope.user = [];
 
@@ -32,6 +32,15 @@ function ProfilFirmCtrl($scope, ProfilFirmService, Constants) {
         ProfilFirmService.editUser(user).then(function(response) {
                 $scope.user = response.entity;
                 console.log($scope.user);
+                ngToast.success({
+                    content: response.message
+                });
+                ProfilFirmService.getData().then(function(response) {
+                        $scope.user = response.entity;
+                        console.log($scope.user);
+                    },
+                    function(response){
+                    });
             },
             function(response){
             });
