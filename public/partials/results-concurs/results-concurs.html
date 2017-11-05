@@ -67,10 +67,13 @@
 			<button class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
 			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
 			<h2 class="title">Positions: <span>Backend</span></h2>
-			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
-			<div id="test" class="collapse">
-				<p>Pitanje: </p>
-				<p>Odgovor: </p>
+			<div ng-repeat="test in app.tests track by $index">
+				<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test{{$index}}">Test 1</button>
+				<div id="test{{$index}}" class="collapse">
+					<div</div>
+					<p>Pitanje: </p>
+					<p>Odgovor: </p>
+				</div>
 			</div>
 		</div>
 		<div class="col-xs-12" ng-if="concurs.applications.length == 0">
