@@ -132,6 +132,7 @@ class Test extends BaseModel
         if (is_null($nextTest)) {
             return false;
         }
+        $nextTest->questionCount();
         return $nextTest;
     }
 
