@@ -27,7 +27,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(App\ExpertDescription::class, function (Faker $faker) {
 	return [
-		'technologies' => 'C++&&C#&&.NET&&PHP',
+		'technologies' => ['C++', 'C#', '.NET', 'PHP'],
 		'position' => $faker->jobTitle
 	];
 });

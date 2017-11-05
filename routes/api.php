@@ -51,6 +51,12 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 
 
+	//		-- Interviews --
+
+	Route::post('interview/schedule', 'OpeningController@scheduleInterview');
+
+
+
 	//		-- Testing -- 
 
 	Route::get('test/start/{testId}', 'TestController@startTest');
