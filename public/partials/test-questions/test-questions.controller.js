@@ -59,6 +59,7 @@ function TestQuestionsCtrl($scope, $state, $stateParams, TestQuestionsService, $
             .then(function(response) {
                     $scope.isLoading = false;
                     $scope.options.choosedAnswer = '';
+                    $scope.answer = '';
                     if(response.entity.nextQuestion) {
                         ngToast.success({
                             content: response.message

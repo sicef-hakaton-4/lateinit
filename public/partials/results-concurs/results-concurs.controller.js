@@ -4,9 +4,9 @@ angular
 
 function ResultsConcursCtrl($scope, ResultsConcursService, $uibModal, $stateParams) {
 
-    ResultsConcursService.getData($stateParams.id).then(function(response) {
-            $scope.results = response.entity;
-            console.log($scope.results);
+    ResultsConcursService.getData($stateParams.id)
+        .then(function(response) {
+            $scope.concurs = response.entity;
         },
         function(response){
         });
