@@ -15,8 +15,8 @@ class Interview extends BaseModel
    	
    	public static function schedule($dateTime, $openingId, $expertId) {
    		$int = new static;
-   		$int->openingId = $openingId;
-   		$int->expertId = $expertId;
+   		$int->opening_id = $openingId;
+   		$int->expert_id = $expertId;
    		$appointment = new Carbon($dateTime);
    		$int->appointment = $appointment->toDateTimeString();
    		$int->save();
