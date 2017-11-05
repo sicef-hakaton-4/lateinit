@@ -5,7 +5,7 @@ angular
 function TestQuestionsService($q, $http, Constants) {
     function getData(id) {
         var deffered = $q.defer();
-        $http.post(Constants.ENDPOINT_URL + Constants.TESTINFO_URL, id)
+        $http.post(Constants.ENDPOINT_URL + Constants.TESTINFO_URL, {opening_id: id})
             .then(function (response) {
                 deffered.resolve(response.data);
             })
