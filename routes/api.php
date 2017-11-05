@@ -22,7 +22,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
 
 
-
 	//		-- Openings --
 
 	Route::get('opening/applications/{openingId}', 'OpeningController@applications');
@@ -34,6 +33,12 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 	//		-- My info --
 
 	Route::get('my/account', 'UserController@myAccount');
+
+
+
+	//		-- Testing -- 
+
+	Route::get('test/start/{testId}', 'TestController@startTest');
 
 
 });

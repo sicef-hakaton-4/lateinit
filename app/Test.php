@@ -110,4 +110,9 @@ class Test extends BaseModel
         return $count;
     }
 
+    public function firstQuestion() {
+        $question = $this->questions()->first();
+        return $question;
+    }
+
 }
