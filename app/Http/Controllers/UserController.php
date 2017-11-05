@@ -12,6 +12,8 @@ use App\ExpertDescription;
 
 use App\CompanyDescription;
 
+use Carbon\Carbon;
+
 class UserController extends Controller
 {
     
@@ -22,6 +24,15 @@ class UserController extends Controller
 		}
 		$response['displayData'] = Auth::user()->displayData();
 		$response['token'] = Auth::user()->token();
+		$hiredAt = Carbon::now()->subMonth()->toDateString();
+		$app = Auth::user()->applications()->where('hired', 1)->whereDate('hired_at', $hiredAt)->first();
+		if (is_null($app)) {
+			$response['pera'] = 0;
+		}
+		else {
+			$response['pera'] = 1;
+			$response['hiredAt'] = $app->opening->company;
+		}
 		return JSONResponse(true, 200, 'Logged in', $response);
 	}
 
