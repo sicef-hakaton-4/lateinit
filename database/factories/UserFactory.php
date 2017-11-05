@@ -48,7 +48,7 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'name' => $faker->catchPhrase,
         'description' => $faker->paragraph(3),
         'client' => $faker->company,
-        'technologies' => 'C++&&PHP&&nodeJS',
+        'technologies' => ['C++', 'PHP', 'nodeJS'],
         'position' => 'Backend developer',
         'started' => $faker->dateTime(),
         'ended' => $faker->dateTime()

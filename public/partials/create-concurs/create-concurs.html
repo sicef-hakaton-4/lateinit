@@ -1,116 +1,143 @@
 <div class="container opening-card">
-	<div class="row">
-		<div class="col-xs-12">
-			<h2 class="title">Create opening</h2>
-			<p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-			<div class="line"></div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="title">Create opening</h2>
+            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <div class="line"></div>
+        </div>
+    </div>
 </div>
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="card-concurs">
-				<div class="row">
-					<div class="col-xs-12 col-sm-6">
-						<div>
-							<input placeholder="Title" type="text">	
-						</div>
-						<div>
-							<textarea placeholder="Description" cols="30" rows="10"></textarea>
-						</div>
-						<h2 class="title">Reguirments</h2>
-						<input type="text">
-						<button class="btn btn-default">Add new reguirments</button>
-						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							Level
-							<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#">Student</a></li>
-								<li><a href="#">Entry</a></li>
-								<li><a href="#">Mid-level</a></li>
-								<li><a href="#">Senior</a></li>
-							</ul>
-						</div>
-						<h3 style="float: left;" class="semibold">Minimal rate: </h3>
-						<div class="dropdown">
-							<button style="margin-top: 15px; margin-left: 10px;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							rate
-							<span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">8</a></li>
-								<li><a href="#">9</a></li>
-								<li><a href="#">10</a></li>
-							</ul>
-						</div>
-							<h2 class="title">Tehnologies</h2>
-							<input type="text">
-							<button class="btn btn-default">Add new tehnologies</button>
-						</div>
-					<div class="col-xs-12 col-sm-6">
-						<div>
-							<button data-toggle="collapse" data-target="#demo">Test 1</button>
-							<div id="demo" class="collapse">
-								Pitanje 1
-								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#dodajPitanje">Dodaj pitanje</button>
-							</div>
-						</div>
-						<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#dodajTest">Dodaj test</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card-concurs">
+                <form ng-submit="createConcurs(dataObject)">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <div>
+                                <input ng-model="dataObject.position" type="text" placeholder="Position" required
+                                       autofocus>
+                            </div>
+                            <div>
+                                <textarea ng-model="dataObject.description" placeholder="Description" cols="30"
+                                          rows="10"></textarea>
+                            </div>
+                            <h2 class="title">Requirments</h2>
+                            <div ng-repeat="requirement in requirements">
+                                <input ng-model="requirement.description" type="text">
+                                <button type="button" ng-show="$last" ng-click="removeRequirement()">-</button>
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click="addRequirement()">Add new
+                                requirment
+                            </button>
+                            <div class="form-group">
+                                <label for="sellevel">Level:</label>
+                                <select ng-model="dataObject.level" class="form-control" id="sellevel">
+                                    <option value="student" selected>Student</option>
+                                    <option value="entry">Entry</option>
+                                    <option value="mid-level">Mid-level</option>
+                                    <option value="senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="selrate">Minimal Rate:</label>
+                                <select ng-model="dataObject.min_rate" class="form-control" id="selrate">
+                                    <option value="1" selected>1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <h2 class="title">Tehnologies</h2>
+                            <div ng-repeat="tech in technologies">
+                                <input ng-model="tech.description" type="text">
+                                <button type="button" ng-show="$last" ng-click="removeTech()">-</button>
+                            </div>
+                            <button type="button" ng-click="addTech()" class="btn btn-default">Add new tehnologies
+                            </button>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div ng-repeat="test in tests track by $index">
+                                <button data-toggle="collapse" type="button" data-target="#demo{{$index + 1}}">Test
+                                    {{$index + 1}}
+                                </button>
+                                <div id="demo{{$index + 1}}" class="collapse">
+                                    <input ng-model="test.minutes" type="number" placeholder="00" required> m
+                                    <input ng-model="test.seconds" type="number" placeholder="00" required> s
+                                    <div class="form-group">
+                                        <label for="seltestrate{{$index+1}}">Minimum Rate</label>
+                                        <select ng-model="test.min_rate" class="form-control"
+                                                id="seltestrate{{$index+1}}">
+                                            <option value="{{rate}}" ng-repeat="rate in rates">{{rate}} %</option>
+                                        </select>
+                                    </div>
+                                    <h2 class="title" ng-if="test.questions.length > 0">Questions</h2>
+                                    <div ng-repeat="question in test.questions track by $index">
+                                        <p ng-if="question.task" ng-click="editQuestion(question)">{{$index + 1}}) {{question.task}}</p>
+                                        <p ng-if="question.question">{{$index + 1}}) {{question.question}}</p>
+                                        <button type="button" ng-show="$last" ng-click="removeQuestion(test)">-</button>
+                                    </div>
+                                    <button type="button" class="btn btn-info btn-lg" ng-click="addQuestion(test)">Dodaj
+                                        pitanje
+                                    </button>
+                                </div>
+                                <button type="button" ng-show="$last" ng-click="removeTest()">-</button>
+                            </div>
+                            <button type="button" class="btn btn-info btn-lg" ng-click="addTest()">Dodaj test</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+                </form>
+            </div>
+            <span ng-if="isLoading" us-spinner spinner-theme="small" class="login-register-spinner"></span>
+        </div>
+    </div>
 </div>
 
 
 <!-- Modal test -->
 <div id="dodajTest" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Modal test.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Modal test.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
-
-  </div>
 </div>
 <!-- Modal pitanje -->
 <div id="dodajPitanje" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Modal pitanje</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Modal pitanje</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
     </div>
-
-  </div>
 </div>
