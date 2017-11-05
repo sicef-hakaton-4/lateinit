@@ -40,5 +40,17 @@ function ResultsConcursCtrl($scope, ResultsConcursService, $uibModal, $statePara
         }, function (response) {
             console.log(response);
         });
+    };
+
+    $scope.hire = function(appId) {
+        ResultsConcursService.hire(appId)
+            .then(function(response) {
+                    ngToast.success({
+                        content: response.message
+                    });
+                },
+                function (response) {
+
+                });
     }
 }

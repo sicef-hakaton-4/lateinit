@@ -12,5 +12,6 @@ angular
         START_TEST_URL: "test/start/",
         NEXT_QUESTION_URL: "put/answer",
         CONCURS_SINGLE_URL: "get/opening/elevated/",
-        INTERVIEW_URL: "interview/schedule"
+        INTERVIEW_URL: "interview/schedule",
+        HIRE_URL: "application/hire/"
     });

@@ -66,6 +66,7 @@
 			<h2 class="title">Name: {{app.expert.name}}</h2>
 			<button ng-if="app.ints == null" class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
 			<h2 ng-if="app.ints != null" class="pull-right">Interview scheduled for: {{app.ints.ints}}</h2>
+			<button ng-if="app.ints != null && app.ints.hr == 1" class="btn btn-primary pull-right" ng-click="hire(app.id)">Hire</button>
 			<h2 class="title">Technologies: <span class="badge" ng-repeat="tech in app.expert.description.technologies">{{tech}}</span></h2>
 			<h2 class="title">Positions: <span>{{app.expert.description.position}}</span></h2>
 			<div ng-repeat="test in app.tests track by $index">
