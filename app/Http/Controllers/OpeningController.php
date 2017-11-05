@@ -31,4 +31,8 @@ class OpeningController extends Controller
 		return Opening::loadAll();
 	}
 
+	public function loadSingle($id) {
+		return Opening::loadSingle($id);
+	}
+
 }

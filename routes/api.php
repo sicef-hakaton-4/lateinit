@@ -4,9 +4,13 @@ use Illuminate\Http\Request;
 
 //		-- Unauthenticated --
 
+Route::get('get/user/{id}', 'ExpertController@getSingle');
+
 Route::get('expert/get', 'ExpertController@publicExperts');
 
 Route::get('get/opening', 'OpeningController@loadAll');
+
+Route::get('get/opening/{id}', 'OpeningController@loadSingle');
 
 
 Route::group(['middleware' => 'jwt.auth'], function () {

@@ -14,4 +14,8 @@ class ExpertController extends Controller
     	return JSONResponse(true, 200, 'Loaded', $experts);
     }
 
+    public function getSingle($id) {
+    	return User::loadSingle($id);
+    }
+
 }
