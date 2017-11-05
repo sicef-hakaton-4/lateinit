@@ -8,11 +8,13 @@ function TestQuestionsCtrl($scope, $state, $stateParams, TestQuestionsService, $
     $scope.options = {};
     $scope.questionNumber = 0;
     $scope.options.choosedAnswer = '';
+    $scope.answer = '';
     TestQuestionsService.getData($stateParams.id)
         .then(function(response) {
             $scope.numTest = response.entity.testNum;
             $scope.time = response.entity.nextTest.time;
             $scope.activeTest = response.entity.nextTest.queue;
+            $scope.testId = response.entity.nextTest.id;
             $scope.minRate = response.entity.nextTest.min_rate;
             $scope.questionCount = response.entity.nextTest.questionCount;
             $scope.applicationId = response.entity.applicaton_id;
@@ -23,7 +25,7 @@ function TestQuestionsCtrl($scope, $state, $stateParams, TestQuestionsService, $
 
     $scope.start = function() {
         $scope.isLoading = true;
-        TestQuestionsService.start($scope.activeTest)
+        TestQuestionsService.start($scope.testId)
             .then(function(response) {
                     $scope.isLoading = false;
                     $scope.question = response.entity;
@@ -72,6 +74,7 @@ function TestQuestionsCtrl($scope, $state, $stateParams, TestQuestionsService, $
                         });
                         $scope.time = response.entity.nextTest.time;
                         $scope.activeTest = response.entity.nextTest.queue;
+                        $scope.testId = response.entity.nextTest.id;
                         $scope.minRate = response.entity.nextTest.min_rate;
                         $scope.questionCount = response.entity.nextTest.questionCount;
                         $scope.question = null;
