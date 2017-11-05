@@ -99,7 +99,7 @@ class User extends Authenticatable
         foreach ($request->projects as $project) {
             if (!isset($project['id'])) {
                 Project::create($project);
-                continue();
+                continue;
             }
             $project->find($project['id']);
             $project->fill($project);
