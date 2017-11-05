@@ -22,6 +22,9 @@
                                 <textarea ng-model="dataObject.description" placeholder="Description" cols="30"
                                           rows="10"></textarea>
                             </div>
+                            <div>
+                                <input ng-model="dataObject.deadline" type="date" placeholder="Deadline" required>
+                            </div>
                             <h2 class="title">Requirments</h2>
                             <div ng-repeat="requirement in requirements">
                                 <input ng-model="requirement.description" type="text">

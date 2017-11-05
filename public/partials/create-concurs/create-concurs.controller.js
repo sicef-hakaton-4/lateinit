@@ -100,13 +100,13 @@ function CreateConcursCtrl($scope, CreateConcursService, $uibModal) {
 
         console.log(concursData);
 
-        // CreateConcursService.createConcurs(concursData)
-        //     .then(function(response) {
-        //         $scope.isLoading = false;
-        //         console.log(response);
-        //     })
-        //     .catch(function() {
-        //         $scope.isLoading = false;
-        //     });
+        CreateConcursService.createConcurs(concursData)
+            .then(function(response) {
+                $scope.isLoading = false;
+                console.log(response);
+            })
+            .catch(function() {
+                $scope.isLoading = false;
+            });
     }
 }
