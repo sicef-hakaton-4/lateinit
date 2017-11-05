@@ -45,7 +45,7 @@ class Application extends BaseModel
             return null;
         }
         $ints['ints'] = $this->interview->appointment;
-        $ints['hr'] = 0;
+        $ints['hr'] = 1;
         return $ints;
         
 
