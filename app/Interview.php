@@ -13,10 +13,9 @@ use Carbon\Carbon;
 class Interview extends BaseModel
 {
    	
-   	public static function schedule($dateTime, $openingId, $expertId) {
+   	public static function schedule($dateTime, $applicationId) {
    		$int = new static;
-   		$int->opening_id = $openingId;
-   		$int->expert_id = $expertId;
+   		$int->application_id = $applicationId;
    		$appointment = new Carbon($dateTime);
    		$int->appointment = $appointment->toDateTimeString();
    		$int->save();
