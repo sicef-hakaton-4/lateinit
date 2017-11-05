@@ -43,4 +43,9 @@ class UserController extends Controller
 		return User::loadSingle($myId);
 	}
 
+	public function editAccount(Request $req) {
+		$userId = Auth::user()->id;
+		return User::baseUpdate($userId, $req);
+	}
+
 }
