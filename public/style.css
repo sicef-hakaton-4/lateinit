@@ -61,11 +61,11 @@ textarea {
 }
 .footer {
     width: 100%;
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
     background-color: #5f5f5f;
     height:100px;
-    margin-top:100px;
+    margin-top:150px;
 }
 .footer .container center {
     margin-top:40px;
