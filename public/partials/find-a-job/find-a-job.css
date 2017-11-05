@@ -10,6 +10,8 @@
 .find-a-jobs .card {
 	height: auto;
 	padding: 15px;
+	padding-bottom: 0px !important;
+	margin-bottom: 20px;
 }
 .btn-view-more button {
 	float: right;
