@@ -82,3 +82,6 @@ textarea {
 .btn-default:active:focus {
     margin-top:0px !important;
 }
+.badge {
+    background-color: #bbbbbb;
+}
