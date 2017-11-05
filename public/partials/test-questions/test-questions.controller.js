@@ -4,7 +4,9 @@ angular
 
 function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval, ngToast) {
     $scope.isLoading = false;
+    $scope.isStarted = false;
     $scope.options = {};
+    $scope.questionNumber = 0;
     $scope.options.choosedAnswer = '';
     TestQuestionsService.getData($stateParams.id)
         .then(function(response) {
@@ -25,6 +27,8 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
             .then(function(response) {
                     $scope.isLoading = false;
                     $scope.question = response.entity;
+                    $scope.questionNumber = 1;
+                    $scope.isStarted = true;
                     $scope.countTime();
                 },
                 function(response) {
@@ -60,12 +64,15 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
                     $scope.options.choosedAnswer = '';
                     if(response.entity.nextQuestion) {
                         $scope.question = response.entity.nextQuestion;
+                        $scope.questionNumber++;
                     } else {
                         $scope.time = response.entity.nextTest.time;
                         $scope.activeTest = response.entity.nextTest.queue;
                         $scope.minRate = response.entity.nextTest.min_rate;
+                        $scope.questionCount = response.entity.nextTest.questionCount;
                         $scope.question = null;
                         $interval.cancel($scope.interval);
+                        $scope.isStarted = false;
                     }
                 },
                 function(response) {
