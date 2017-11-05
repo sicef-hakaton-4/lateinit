@@ -63,6 +63,28 @@
 	</div>
 </div>
 <div class="container btn-apply">
-	<button ng-if="isLoggedIn" class="btn btn-primary">Hire</button>
+	<button ng-if="isLoggedIn" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Hire</button>
 	<button ng-if="!isLoggedIn" class="btn btn-primary" ui-sref="menu.login">Hire</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Hire expert</h4>
+			</div>
+			<div class="modal-body">
+				<textarea rows="6" placeholder="Your message..."></textarea>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-primary">Send</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
 </div>
