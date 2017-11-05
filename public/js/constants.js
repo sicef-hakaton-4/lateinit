@@ -1,8 +1,8 @@
 angular
     .module('app')
     .constant('Constants', {
-        //ENDPOINT_URL: "http://localhost:8000/api/",
-        ENDPOINT_URL: "http://homestead.dev/api/",
+        ENDPOINT_URL: "http://localhost:8000/api/",
+        // ENDPOINT_URL: "http://homestead.dev/api/",
         LOGIN_API: "login",
         EXPERT_ROLE: "expert",
         LOGOUT_MESSAGE: "Successfully logged out",
@@ -13,5 +13,6 @@ angular
         NEXT_QUESTION_URL: "put/answer",
         CONCURS_SINGLE_URL: "get/opening/elevated/",
         INTERVIEW_URL: "interview/schedule",
-        HIRE_URL: "application/hire/"
+        HIRE_URL: "application/hire/",
+        RECENSION_URL: "put/review"
     });

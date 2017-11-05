@@ -3,7 +3,8 @@ angular
     .controller('FindAJobCtrl', FindAJobCtrl);
 
 function FindAJobCtrl($stateParams, $scope, FindAJobService, $state, $uibModal, ngToast) {
-    if($stateParams.fromLogIn) {
+    console.log($stateParams.fromLogIn);
+    if($stateParams.fromLogIn.pera == 1) {
         var modal = $uibModal.open({
             animation: true,
             templateUrl: 'partials/recension-modal/recension-modal.html',
@@ -11,7 +12,7 @@ function FindAJobCtrl($stateParams, $scope, FindAJobService, $state, $uibModal, 
             backdrop: true,
             resolve: {
                 company: function () {
-                    return $stateParams.company;
+                    return $stateParams.fromLogIn;
                 }
             }
         });

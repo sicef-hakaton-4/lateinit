@@ -12,9 +12,20 @@ function LoginCtrl($scope, AuthService, ngToast, $state, Constants) {
                 ngToast.success({
                     content: response.message
                 });
+                if(response.entity.pera == 1) {
+                    $scope.company = {
+                        name: response.entity.hiredAt.name,
+                        application_id: response.entity.application_id,
+                        pera: response.entity.pera
+                    };
+                } else {
+                    $scope.company = {
+                        pera: response.entity.pera
+                    };
+                }
 
                 if(response.entity.displayData.type == Constants.EXPERT_ROLE) {
-                    $state.go('menu.findjob', {fromLogIn: true});
+                    $state.go('menu.findjob', {fromLogIn: $scope.company});
                 } else {
                     $state.go('menu.createconcurs');
                 }

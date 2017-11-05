@@ -40,7 +40,6 @@ function AuthService($q, $http, Constants, $localStorage, $rootScope) {
 
     function recension(params) {
         var deferred = $q.defer();
-        console.log(credentials);
         $http.post(Constants.ENDPOINT_URL + Constants.RECENSION_URL, params)
             .then(function (response) {
                 $localStorage.token = response.data.entity.token;
