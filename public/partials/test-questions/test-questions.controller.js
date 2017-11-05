@@ -54,7 +54,9 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
         TestQuestionsService.next(id, type, $scope.applicationId, answer)
             .then(function(response) {
                     $scope.isLoading = false;
-                    $scope.question = response.entity;
+                    if(response.entity.nextQuestion) {
+                        $scope.question = response.entity;
+                    }
                     $scope.countTime();
                 },
                 function(response) {
