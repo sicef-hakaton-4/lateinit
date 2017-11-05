@@ -101,9 +101,9 @@ class User extends Authenticatable
                 Project::create($project);
                 continue;
             }
-            $project->find($project['id']);
-            $project->fill($project);
-            $project->save();
+            $proj = Project::find($project['id']);
+            $proj->fill($project);
+            $proj->save();
         }
         $message = 'Update completed!';
         return JSONResponse(true, 200, $message);
