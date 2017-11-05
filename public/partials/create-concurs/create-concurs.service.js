@@ -3,24 +3,12 @@ angular
     .service('CreateConcursService', CreateConcursService);
 
 function CreateConcursService($q, $http, Constants) {
-    function getData() {
-        var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
-            .then(function (response) {
-                deffered.resolve(response.data);
-            })
-            .catch(function (error) {
-                deffered.reject(error.data);
-            });
-
-        return deffered.promise;
-    }
 
     function createConcurs(data) {
         var deferred = $q.defer();
-        $http.post(Constants.ENDPOINT_URL + "")
+        $http.post(Constants.ENDPOINT_URL + Constants.CREATE_OPENING_URL, data)
             .then(function (response) {
-
+                console.log(response);
                 deferred.resolve(response.data);
             })
             .catch(function (error) {
@@ -31,7 +19,6 @@ function CreateConcursService($q, $http, Constants) {
     }
 
     return {
-        getData: getData,
         createConcurs: createConcurs
     }
 }
