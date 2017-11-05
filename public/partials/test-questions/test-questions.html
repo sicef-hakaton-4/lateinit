@@ -11,64 +11,45 @@
             <div class="card card-questions">
                 <h3>Number of tests: {{numTest}}</h3>
                 <h4>Test: {{activeTest}}</h4>
-                <h4>Time: {{time.string}}</h4>
+                <h4>Time: {{time.minutes}} : {{time.seconds}}</h4>
                 <h4>Min rate: {{minRate}}</h4>
                 <h4>Questions: {{questionCount}}</h4>
                 <button class="btn btn-primary" ng-click="start()">Start</button>
             </div>
         </div>
     </div>
-    <div class="row find-a-jobs">
+    <div class="row find-a-jobs" ng-if="question.type == 'multiple'">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="card card-questions">
-                <h5>Lorem Ipsum is simply dummy text of the prithe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </h5>
-                <div class="checkbox">
+                <h5>{{question.question}}</h5>
+                <div class="checkbox" ng-repeat="answer in question.options">
                     <label>
-                        <input type="checkbox" value="">
+                        <input type="checkbox" value="{{anser.option}}">
                         <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        Option one
+                        {{answer.option}}
                     </label>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="">
-                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        Option two
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="">
-                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        Option three
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="">
-                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        Option four
-                    </label>
-                </div>
+                <button class="btn btn-primary" ng-click="next()">Next</button>
             </div>
         </div>
     </div>
-    <div class="row find-a-jobs">
+    <div class="row find-a-jobs" ng-if="question.type == 'code'">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="card card-questions">
                 <h5>Lorem Ipsum is simply dummy text of the prithe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </h5>
                 <textarea rows="10" class="form-control register-input" placeholder="Answer"></textarea>
+                <button class="btn btn-primary" ng-click="next()">Next</button>
             </div>
         </div>
     </div>
-    <div class="row find-a-jobs">
+    <div class="row find-a-jobs" ng-if="question.type == 'file'">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="card card-questions">
                 <h5>Lorem Ipsum is simply dummy text of the prithe release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </h5>
                 <button>upload file</button>
+                <button class="btn btn-primary" ng-click="next()">Next</button>
             </div>
         </div>
     </div>

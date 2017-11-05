@@ -18,7 +18,7 @@ function TestQuestionsService($q, $http, Constants) {
 
     function start(id) {
         var deferred = $q.defer();
-        $http.post(Constants.ENDPOINT_URL + Constants.START_TEST_URL + id)
+        $http.get(Constants.ENDPOINT_URL + Constants.START_TEST_URL + id)
             .then(function (response) {
                 deferred.resolve(response.data);
             })
