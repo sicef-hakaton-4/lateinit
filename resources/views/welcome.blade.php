@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="partials/firm-register/firm-register.css">
     <link rel="stylesheet" href="partials/create-concurs/modals/add-question-modal.css">
     <link rel="stylesheet" href="partials/create-concurs/modals/edit-question-modal.css">
+    <link rel="stylesheet" href="partials/results-concurs/modals/send-interview.css">
 </head>
 
 <body>
@@ -76,6 +77,7 @@
 <script src="partials/firm-register/firm-register.controller.js"></script>
 <script src="partials/create-concurs/modals/add-question-modal.controller.js"></script>
 <script src="partials/create-concurs/modals/edit-question-modal.controller.js"></script>
+<script src="partials/results-concurs/modals/send-interview.controller.js"></script>
 
 <!-- Services -->
 <script src="js/auth.service.js"></script>
@@ -96,4 +98,5 @@
 <script src="partials/results-concurs/results-concurs.service.js"></script>
 <script src="partials/expert-register/expert-register.service.js"></script>
 <script src="partials/firm-register/firm-register.service.js"></script>
+
 </html>

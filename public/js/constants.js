@@ -10,5 +10,6 @@ angular
         CREATE_OPENING_URL: "put/opening",
         TESTINFO_URL: "put/application",
         START_TEST_URL: "test/start/",
-        NEXT_QUESTION_URL: "put/answer"
+        NEXT_QUESTION_URL: "put/answer",
+        CONCURS_SINGLE_URL: ""
     });

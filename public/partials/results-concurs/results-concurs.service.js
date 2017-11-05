@@ -6,7 +6,7 @@ function ResultsConcursService($q, $http, Constants) {
     function getData(id) {
         console.log(id);
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.get(Constants.ENDPOINT_URL + Constants.CONCURS_SINGLE_URL)
             .then(function (response) {
                 deffered.resolve(response.data);
             })
