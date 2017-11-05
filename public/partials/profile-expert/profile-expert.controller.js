@@ -5,6 +5,7 @@ angular
 function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
 
     $scope.user = [];
+    $scope.newTechnologies = [];
 
     ProfileExpertService.getData().then(function(response) {
             $scope.user = response.entity;
@@ -15,17 +16,30 @@ function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
 
     //Save edit user
     $scope.saveChanges = function(user) {
+        angular.forEach($scope.newTechnologies, function(tech) {
+            user.description.technologies.push(tech.description);
+        });
+        angular.forEach($scope.techNew, function(tech) {
+            user.project[projectId].technologies.push(tech.description);
+        });
+        angular.forEach(user.projects, function(project) {
+            angular.forEach(project.techNew, function(tech) {
+                project.technologies.push(tech.description);
+            });
+            project.techNew = [];
+        });
+        $scope.newTechnologies = [];
+        console.log(user.projects);
         ProfileExpertService.editUser(user).then(function(response) {
                 $scope.user = response.entity;
                 console.log($scope.user);
             },
             function(response){
             });
-    }
+    };
 
     $scope.addInput = function() {
-        $scope.user.description.technologies.push("");
-        console.log($scope.user.description.technologies);
+        $scope.newTechnologies.push({description: ""});
     };
 
     $scope.addProject = function() {
@@ -34,13 +48,9 @@ function ProfileExpertCtrl($scope, ProfileExpertService, Constants) {
     };
 
     $scope.addTechnologies = function(project) {
-        console.log(project.technologies);
-        if (project.technologies == undefined) {
-            project.technologies = [];
-            project.technologies.push("");
+        if(!project.techNew) {
+            project.techNew = [];
         }
-        else {
-            project.technologies.push("");
-        }
+        project.techNew.push({description: ""});
     };
 }
