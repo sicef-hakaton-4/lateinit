@@ -61,6 +61,7 @@ class User extends Authenticatable
     }
 
     public function description() {
+        echo $this->type;
         if ($this->type == 'expert') {
             return $this->hasOne('App\ExpertDescription', 'expert_id');
         }
