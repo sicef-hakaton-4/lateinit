@@ -119,8 +119,12 @@ class Test extends BaseModel
         return $question;
     }
 
-    public function nextQuestion() {
-
+    public function nextQuestion($id) {
+        $nextQuestion = $this->questions()->where('id', '>', $id)->first();
+        if (!is_null($nextQuestion)) {
+            return false;
+        }
+        return $nextQuestion;
     }
 
 }
