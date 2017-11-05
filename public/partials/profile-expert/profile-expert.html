@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div>
-                <button ng-click="addInput()">add new</button>
+                <button class="btn btn-primary btn-experts" ng-click="addInput()">add new</button>
             </div>
         </div>
     </div>
@@ -68,17 +68,17 @@
                     <p><span ng-repeat="technology in project.techNew track by $index">
                         <input type="text" class="form-control" placeholder="Technology" ng-model="technology.description" required autofocus value="{{technology}}">
                     </span></p>
-                    <button ng-click="addTechnologies(project)">add new</button>
+                    <button class="btn btn-primary btn-experts" ng-click="addTechnologies(project)">add new</button>
                     <p>pozicija: <input type="text" class="form-control" ng-model="project.position" placeholder="Position" required autofocus value="{{project.position}}"></p>
                     <p> <span></span></p>
                 </div>
             </div>
             <div>
-                <button ng-click="addProject()">add new</button>
+                <button class="btn btn-primary btn-experts" ng-click="addProject()">add new</button>
             </div>
         </div>
     </div>
 </div>
 <div class="container btn-apply">
-    <button class="btn btn-primary" ng-click="saveChanges(user)">Save changes</button>
+    <button class="btn btn-primary btn-experts" ng-click="saveChanges(user)">Save changes</button>
 </div>
