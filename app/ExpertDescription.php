@@ -22,4 +22,13 @@ class ExpertDescription extends BaseModel
     public function getTechnologiesAttribute($value) {
     	return explode('&&', $value);
     }
+
+
+
+    //		-- Mutators --
+
+    public function setTechnologiesAttribute($value) {
+    	$techs = implode('&&', $value);
+    	$this->attributes['technologies'] = $techs;
+    }
 }
