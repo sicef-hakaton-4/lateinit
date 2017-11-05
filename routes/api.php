@@ -12,6 +12,8 @@ Route::get('get/opening', 'OpeningController@loadAll');
 
 Route::get('get/opening/{id}', 'OpeningController@loadSingle');
 
+Route::get('get/opening/elevated/{openingId}', 'OpeningController@elevatedView');
+
 
 Route::group(['middleware' => 'jwt.auth'], function () {
 
