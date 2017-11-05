@@ -19,7 +19,18 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService, $interval
 
     $scope.countTime = function() {
         $interval(function() {
+            if($scope.time.minutes == 0) {
+                console.log("Finished");
+            }
 
+            if($scope.time.seconds > 0) {
+                $scope.time.seconds--;
+            }
+
+            if($scope.time.seconds == 0) {
+                $scope.time.minutes--;
+                $scope.time.seconds = 59;
+            }
         }, $scope.time.totalSeconds);
     };
 
