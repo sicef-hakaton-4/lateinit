@@ -57,8 +57,10 @@ class Application extends BaseModel
         $response['applicaton_id'] = $app->id;
         $response['testNum'] = $app->opening->tests()->count();
         $response['nextTest'] = $app->opening->tests()->first();
-        $response['nextTest']->questionCount();
-        $response['nextTest']->makeHidden('questions');
+        if (!is_null($response['nextTest'])) {
+            $response['nextTest']->questionCount();
+            $response['nextTest']->makeHidden('questions');
+        }
         return JSONResponse(true, 200, 'Created', $response);
     }
 
