@@ -94,11 +94,16 @@ class User extends Authenticatable
         if (!$instance->save()) {
             return JSONResponse(false, 500, 'Database communication error');
         }
-        if ($instance->type == 'expert') {
-            $update = $request->only(['technologies', 'position', 'address', 'phonenumber', 'public']);
-        }
-        else {
-            $update = $request->only(['description', 'founded', 'employees', 'headquarters']);
+        $this->description->fill($request->description);
+        $this->description->save();
+        foreach ($request->projects as $project) {
+            if (!isset($project['id'])) {
+                Project::create($project);
+                continue();
+            }
+            $project->find($project['id']);
+            $project->fill($project);
+            $project->save();
         }
         $message = 'Update completed!';
         return JSONResponse(true, 200, $message);

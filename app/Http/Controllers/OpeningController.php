@@ -27,4 +27,8 @@ class OpeningController extends Controller
 		return JSONResponse(true, 200, 'Loaded', $data);
 	}
 
+	public function loadAll() {
+		return Opening::loadAll();
+	}
+
 }
