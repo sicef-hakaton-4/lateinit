@@ -50,10 +50,9 @@ class Answer extends BaseModel
                 $q->type = 'file';
                 break;
         }
-        $nextQuestion = $q->test->nextQuestion($q);
         $ans->fill($req->only(static::fillableList()));
         $ans->save();
-        $nextQuestion = $q->test->nextQuestion($q->id);
+        $nextQuestion = $q->test->nextQuestion($q);
         $response['nextQuestion'] = $nextQuestion;
         if (!$nextQuestion) {
             $response['testEnd'] = 1;
