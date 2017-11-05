@@ -27,7 +27,7 @@
                 <h5>{{question.question}}</h5>
                 <div ng-repeat="answer in question.options track by $index">
                     <input type="radio" name="choosedAnswer" ng-value="answer.option" ng-model="options.choosedAnswer" required/>
-                    <label>{{ answer.option }}</label>
+                    <label style="margin-bottom: 20px;">{{ answer.option }}</label>
                 </div>
                 <button class="btn btn-primary btn-experts" ng-click="next(question.id, question.type, options.choosedAnswer)">Next</button>
             </div>
@@ -35,11 +35,11 @@
     </div>
     <div class="row find-a-jobs" ng-if="question.type == 'code'">
         <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0;">
-            <div class="card card-questions">
+            <div class="card card-questions" style="padding-bottom: 6px !important;">
                 <h4>Question {{questionNumber}}</h4>
                 <h5>{{question.task}}</h5>
                 <textarea rows="10" class="form-control register-input" ng-model="answer" placeholder="Answer"></textarea>
-                <button class="btn btn-primary" ng-click="next(question.id, question.type, answer); answer = ''">Next</button>
+                <button class="btn btn-primary btn-experts" ng-click="next(question.id, question.type, answer); answer = ''">Next</button>
             </div>
         </div>
     </div>
@@ -48,8 +48,8 @@
             <div class="card card-questions">
                 <h4>Question {{questionNumber}}</h4>
                 <h5>{{question.task}}</h5>
-                <input type="file">
-                <button class="btn btn-primary" ng-click="next(question.id, question.type, 'kako je koke')">Next</button>
+                <input style="padding-bottom: 15px;" type="file">
+                <button class="btn btn-primary btn-experts" ng-click="next(question.id, question.type, 'kako je koke')">Next</button>
             </div>
         </div>
     </div>
