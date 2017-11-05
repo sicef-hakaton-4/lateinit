@@ -29,6 +29,9 @@ class CreateApplicationsTable extends Migration
                   ->onDelete('cascade');
 
             $table->timestamp('applied_at');
+
+            $table->tinyInteger('hired')->default(0);
+            $table->datetime('hired_at')->nullable();
         });
     }
 

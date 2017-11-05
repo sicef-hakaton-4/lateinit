@@ -11,9 +11,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-parts">
                 <li ui-sref-active="active"><a ui-sref="menu.home">Home</a></li>
-                <li ui-sref-active="active"><a ui-sref="menu.findjob">Jobs</a></li>
-                <li ui-sref-active="active"><a ui-sref="menu.find-expert">Experts</a></li>
-                <li ui-sref-active="active"><a ui-sref="menu.myConcurs">Openings</a></li>
+                <li ng-if="user.type == 'expert' || !isLoggedIn" ui-sref-active="active"><a ui-sref="menu.findjob">Jobs</a></li>
+                <li ng-if="user.type == 'company' || !isLoggedIn" ui-sref-active="active"><a ui-sref="menu.find-expert">Experts</a></li>
+                <li ng-if="user.type == 'company'" ui-sref-active="active"><a ui-sref="menu.myConcurs">Openings</a></li>
+                <li ng-if="user.type == 'company'" ui-sref-active="active"><a ui-sref="menu.createconcurs">Create</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-parts">
                 <li ui-sref-active="active" ng-if="!isLoggedIn"><a ui-sref="menu.login">Login</a></li>
