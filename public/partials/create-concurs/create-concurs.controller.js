@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('CreateConcursCtrl', CreateConcursCtrl);
 
-function CreateConcursCtrl($scope, $state, CreateConcursService, $uibModal) {
+function CreateConcursCtrl($scope, $state, CreateConcursService, $uibModal, ngToast) {
     $scope.requirements = [{description: ""}];
     $scope.technologies = [{description: ""}];
     $scope.tests = [];

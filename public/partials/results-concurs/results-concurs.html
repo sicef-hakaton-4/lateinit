@@ -15,15 +15,15 @@
 			</div>
 			<div class="col-xs-12 col-sm-8">
 				<h3>{{}}</h3>
-				<p>DEADLINE: <span>{{}}</span></p>
-				<p>EXPERIENCE: <span>{{l}}</span></p>
-				<p>MINIMUM AVERAGE RATING: <span>{{}}</span></p>
+				<p>DEADLINE: <span>{{concurs.deadline}}</span></p>
+				<p>EXPERIENCE: <span>{{concurs.level}}</span></p>
+				<p>MINIMUM AVERAGE RATING: <span>{{concurs.min_rate}}</span></p>
 			</div>
 		</div>
 		<div class="row single-view-job-desc">
 			<div class="col-xs-12">
 				<p class="description">
-					{{}}
+					{{concurs.description}}
 				</p>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 			<h2>Requirements</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="requirement in job.requirements">
+				<div class="col-xs-12" ng-repeat="requirement in concurs.requirements">
 					<p class="badge">{{requirement}}</p>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 			<h2>Technologies</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="technology in job.technologies">
+				<div class="col-xs-12" ng-repeat="technology in concurs.technologies">
 					<p class="badge">{{technology}}</p>
 				</div>
 			</div>
@@ -62,30 +62,27 @@
 </div>
 <div class="container table-expert">
 	<div class="row">
-		<div class="col-xs-12 card">
-			<h2 class="title">Name :</h2>
-			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
-			<h2 class="title">Positions: <span>Backend</span></h2>
-			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
-			<div id="test" class="collapse">
-				<p>Pitanje: </p>
-				<p>Odgovor: </p>
-			</div>
-			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test1">Test 2</button>
-			<div id="test1" class="collapse">
-				<p>Pitanje: </p>
-				<p>Odgovor: </p>
+		<div class="col-xs-12 card" ng-repeat="app in concurs.applications track by $index">
+			<h2 class="title">Name: {{app.expert.name}}</h2>
+			<button style="margin-top: -34px;" ng-if="app.ints != null && app.ints.hr == 1 && app.hired != 1" class="btn btn-primary pull-right" ng-click="hire(app.id)">Hire</button>
+			<button ng-if="app.ints == null && app.hired != 1" class="btn btn-primary pull-right" ng-click="interview(app.id)">Schedule interview</button>
+			<h2 ng-if="app.ints != null && app.hired != 1" class="pull-right">Interview scheduled for: {{app.ints.ints}}</h2>
+
+			<h2 ng-if="app.hired == 1" class="pull-right">Hired</h2>
+			<h2 class="title">Technologies: <span class="badge" ng-repeat="tech in app.expert.description.technologies">{{tech}}</span></h2>
+			<h2 class="title">Positions: <span>{{app.expert.description.position}}</span></h2>
+			<div ng-repeat="test in app.tests track by $index">
+				<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#demo{{$parent.$index}}{{$index+1}}">Test {{$index+1}}</button>
+				<div id="demo{{$parent.$index}}{{$index+1}}" class="collapse">
+					<div ng-repeat="p in test">
+						<p>Question: {{p.question.task}}</p>
+						<p>Answer: {{p.answer}}</p>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 card">
-			<h2 class="title">Name :</h2>
-			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
-			<h2 class="title">Positions: <span>Backend</span></h2>
-			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
-			<div id="test" class="collapse">
-				<p>Pitanje: </p>
-				<p>Odgovor: </p>
-			</div>
+		<div class="col-xs-12" ng-if="concurs.applications.length == 0">
+			There is no applications yet
 		</div>
 	</div>
 </div>

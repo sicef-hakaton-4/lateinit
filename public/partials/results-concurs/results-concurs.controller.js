@@ -2,12 +2,55 @@ angular
     .module('app')
     .controller('ResultsConcursCtrl', ResultsConcursCtrl);
 
-function ResultsConcursCtrl($scope, ResultsConcursService, Constants, $stateParams) {
+function ResultsConcursCtrl($scope, ResultsConcursService, $uibModal, $stateParams, ngToast) {
 
-    ResultsConcursService.getData($stateParams.id).then(function(response) {
-            $scope.results = response.entity;
-            console.log($scope.results);
+    ResultsConcursService.getData($stateParams.id)
+        .then(function(response) {
+            $scope.concurs = response.entity;
         },
         function(response){
         });
+
+    $scope.interview = function(appId) {
+        var params = {
+            application_id: appId
+        };
+        var modal = $uibModal.open({
+            animation: true,
+            templateUrl: 'partials/results-concurs/modals/send-interview.html',
+            controller: 'SendInterviewModalCtrl',
+            backdrop: true,
+            resolve: {
+                params: function () {
+                    return params;
+                }
+            }
+        });
+
+        modal.result.then(function () {
+            ngToast.success({
+                content: "Invite for interview successfully sent"
+            });
+            ResultsConcursService.getData($stateParams.id)
+                .then(function(response) {
+                        $scope.concurs = response.entity;
+                    },
+                    function(response){
+                    });
+        }, function (response) {
+            console.log(response);
+        });
+    };
+
+    $scope.hire = function(appId) {
+        ResultsConcursService.hire(appId)
+            .then(function(response) {
+                    ngToast.success({
+                        content: response.message
+                    });
+                },
+                function (response) {
+
+                });
+    }
 }

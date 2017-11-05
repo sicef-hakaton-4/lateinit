@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-primary btn-experts" ng-click="addInput()">Add</button>
+                <button class="btn btn-primary btn-experts" ng-click="addInput()">Add technology</button>
             </div>
         </div>
     </div>
@@ -63,18 +63,18 @@
                     <p>Description: <input type="text" class="form-control" placeholder="Description" ng-model="project.description" required autofocus value="{{project.description}}"></p>
                     <p>Client: <input type="text" class="form-control" placeholder="Client name" ng-model="project.client" required autofocus value="{{project.client}}"></p>
                     <p>Technologies: <span ng-repeat="technology in project.technologies track by $index">
-                        <input type="text" class="form-control" placeholder="Technology" ng-model="technology" required autofocus value="{{technology}}">
+                        <input type="text" style="margin-bottom: 5px !important;" class="form-control" placeholder="Technology" ng-model="technology" required autofocus value="{{technology}}">
                     </span></p>
                     <p><span ng-repeat="technology in project.techNew track by $index">
-                        <input type="text" class="form-control" placeholder="Technology" ng-model="technology.description" required autofocus value="{{technology}}">
+                        <input type="text" style="margin-bottom: 5px !important;" class="form-control" placeholder="Technology" ng-model="technology.description" required autofocus value="{{technology}}">
                     </span></p>
-                    <button class="btn btn-primary btn-experts" ng-click="addTechnologies(project)">Add</button>
+                    <button class="btn btn-primary btn-add" ng-click="addTechnologies(project)">Add technology</button>
                     <p>Position: <input type="text" class="form-control" ng-model="project.position" placeholder="Position" required autofocus value="{{project.position}}"></p>
                     <p> <span></span></p>
                 </div>
             </div>
             <div>
-                <button class="btn btn-primary btn-experts" ng-click="addProject()">Add</button>
+                <button class="btn btn-primary btn-experts" ng-click="addProject()">Add new project</button>
             </div>
         </div>
     </div>
