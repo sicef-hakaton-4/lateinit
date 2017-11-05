@@ -6,6 +6,8 @@ use App\Application;
 
 use App\Answer;
 
+use Carbon\Carbon;
+
 class ApplicationSeeder extends Seeder
 {
     /**
@@ -22,6 +24,7 @@ class ApplicationSeeder extends Seeder
         	$app = new Application;
         	$app->opening_id = 1;
         	$app->expert_id = $i;
+            $app->applied_at = Carbon::now()->toDateTimeString();
         	$app->save();
         	foreach ($app->opening->tests as $test) {
         		foreach ($test->questions() as $question) {

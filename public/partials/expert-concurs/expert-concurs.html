@@ -7,20 +7,30 @@
         </div>
     </div>
     <div class="row find-a-jobs">
-        <div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="concur in concurs">
+        <div class="col-xs-12 col-sm-12 col-md-12" ng-repeat="opening in openings">
             <div class="card">
                 <div class="row">
                     <div class="avatar-find-job col-xs-12 col-md-4">
                         <img src="../../img/expert.png">
                     </div>
                     <div class="col-xs-12 col-md-8 card-text-findjob">
-                        <h3>{{concur.position}}</h3>
-                        <h4 class="description">{{concur.description}}</h4>
+                        <h3>{{opening.opening.position}}</h3>
+                        <h4 class="description">{{opening.opening.description}}</h4>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="badge" ng-repeat="requirement in opening.opening.requirements">{{requirement}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p class="badge" ng-repeat="technology in opening.opening.technologies">{{technology}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <p><span>Deadline: </span>{{concur.deadline}}</p>
+                        <p><span>Deadline: </span>{{opening.opening.deadline}}</p>
                     </div>
                 </div>
             </div>

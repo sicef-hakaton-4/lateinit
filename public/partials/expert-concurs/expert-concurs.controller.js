@@ -5,8 +5,8 @@ angular
 function ExpertConcursCtrl($scope, $state, ExpertConcursService) {
 
     ExpertConcursService.getData().then(function(response) {
-            $scope.data = response.entity;
-            console.log($scope.data);
+            $scope.openings = response.entity.openings;
+            console.log($scope.openings);
         },
         function(response){
         });

@@ -134,7 +134,7 @@ class BaseModel extends Model
     public static function loadAll() {
     	$listData = static::$listData;
     	$rels = static::$listRel;
-    	$data = static::with($rels)->select($listData)->get();
+    	$data = static::with($rels)->select($listData)->orderBy('id', 'desc')->get();
     	return JSONResponse(true, 200, 'Loaded succesfully', $data);
     }
 

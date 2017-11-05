@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Opening;
 
+use App\Interview;
+
 use Illuminate\Support\Facades\Auth;
 
 class OpeningController extends Controller
@@ -39,13 +41,20 @@ class OpeningController extends Controller
 		$opening = Opening::with('applications.expert', 'applications.answers')->where('id', $id)->first();
 		$opening->applications->transform(function ($app) {
 			$app->answers->load('question.test');
-			$app->answers->groupBy(function ($answer) {
+			$tests = $app->answers->groupBy(function ($answer) {
 				$test = 'Test' . $answer->question->test->queue;
 				return $test;
 			});
+			$app->tests = $tests;
+			$app->makeHidden('answers');
 			return $app;
 		});
 		return JSONResponse(true, 200, 'Loaded', $opening);
+	}
+
+	public function scheduleInterview(Request $req) {
+		$int = Interview::schedule($req->date, $req->opening_id, $req->expert_id);
+		return JSONResponse(true, 200, 'Interview scheduled.');
 	}
 
 }
