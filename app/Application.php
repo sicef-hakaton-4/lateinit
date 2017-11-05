@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+
 class Application extends BaseModel
 {
 
@@ -80,6 +82,12 @@ class Application extends BaseModel
             $response['nextTest']->makeHidden('questions');
         }
         return JSONResponse(true, 200, 'Created', $response);
+    }
+
+    public function hire() {
+        $this->hired = 1;
+        $this->hired_at = Carbon::now()->toDateTimeString();
+        $this->save();
     }
 
 }
