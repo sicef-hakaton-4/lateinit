@@ -38,8 +38,26 @@ function AuthService($q, $http, Constants, $localStorage, $rootScope) {
         return deferred.promise;
     }
 
+    function recension(params) {
+        var deferred = $q.defer();
+        $http.post(Constants.ENDPOINT_URL + Constants.RECENSION_URL, params)
+            .then(function (response) {
+                $localStorage.token = response.data.entity.token;
+                $localStorage.user = response.data.entity.displayData;
+                $rootScope.isLoggedIn = true;
+                $rootScope.user = $localStorage.user;
+                deferred.resolve(response.data);
+            })
+            .catch(function (error) {
+                deferred.reject(error.data);
+            });
+
+        return deferred.promise;
+    }
+
     return {
         login: login,
-        register: register
+        register: register,
+        recension: recension
     }
 }

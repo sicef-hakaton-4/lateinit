@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h3 style="margin-left: 15px;" class="modal-title">Add recension</h3>
+    <div class="modal-body" id="modal-body">
+        <form ng-submit="add(recension)">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>About a month ago, you were hired at {{company.name}}. Please share your experiences with other potential employees so they may get to know your company better.</h4>
+                </div>
+                <div class="col-xs-12">
+                    <input class="form-control" ng-model="recension.body" type="text" placeholder="Your comment" required>
+                </div>
+                <br>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="seltype">Rate:</label>
+                        <select ng-model="recension.rate" class="form-control" id="seltype">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row buttons-modal">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-default" style="margin-left: 10px;">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
