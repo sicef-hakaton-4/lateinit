@@ -48,7 +48,6 @@ class Test extends BaseModel
         $questions = $questions->sortBy(function ($q) {
             return $q->id;
         });
-        dd($questions->pluck('id'));
     	$this->questions = $questions;
     	return $questions;
     }
