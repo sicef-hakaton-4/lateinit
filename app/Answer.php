@@ -35,22 +35,27 @@ class Answer extends BaseModel
 
     public static function baseCreate($req) {
     	$ans = new static;
-        switch ($req->question_type) {
-            case 'multiple':
+        $qType = $req->question_type;
+        switch ($qType) {
+            case "multiple":
                 $q = MultipleQuestion::find($req->question_id);
+                $q->type = 'multiple';
                 break;
             case 'code':
                 $q = CodeQuestion::find($req->question_id);
+                $q->type = 'code';
                 break;
             case 'file':
                 $q = FileQuestion::find($req->question_id);
+                $q->type = 'file';
                 break;
         }
+        $nextQuestion = $q->test->nextQuestion($q);
         $ans->fill($req->only(static::fillableList()));
         $ans->save();
         $nextQuestion = $q->test->nextQuestion($q->id);
         $response['nextQuestion'] = $nextQuestion;
-        if (is_null($nextQuestion)) {
+        if (!$nextQuestion) {
             $response['end'] = 1;
         }
         return JSONResponse(true, 200, 'Saved', $response);
