@@ -2,22 +2,24 @@ angular
     .module('app')
     .controller('TestQuestionsCtrl', TestQuestionsCtrl);
 
-function TestQuestionsCtrl($scope, TestQuestionsService, Constants) {
+function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService) {
 
-    TestQuestionsService.getData().then(function(response) {
-            $scope.questions = response.entity;
-            console.log($scope.questions);
+    TestQuestionsService.getData($stateParams.id)
+        .then(function(response) {
+            console.log(response);
         },
-        function(response){
+        function(response) {
+
         });
 
     //Save edit user
-    $scope.doTest = function(answers) {
-        TestQuestionsService.doTest(answers).then(function(response) {
-                $scope.answers = response.entity;
-                console.log($scope.answers);
+    $scope.start = function() {
+        TestQuestionsService.start()
+            .then(function(response) {
+                console.log(response);
             },
-            function(response){
+            function(response) {
+
             });
     }
 }

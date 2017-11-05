@@ -3,9 +3,9 @@ angular
     .service('TestQuestionsService', TestQuestionsService);
 
 function TestQuestionsService($q, $http, Constants) {
-    function getData() {
+    function getData(id) {
         var deffered = $q.defer();
-        $http.get(Constants.ENDPOINT_URL + "")
+        $http.post(Constants.ENDPOINT_URL + Constants.TESTINFO_URL, id)
             .then(function (response) {
                 deffered.resolve(response.data);
             })

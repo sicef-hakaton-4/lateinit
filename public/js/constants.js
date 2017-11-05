@@ -7,5 +7,6 @@ angular
         EXPERT_ROLE: "expert",
         LOGOUT_MESSAGE: "Successfully logged out",
         REGISTER_URL: "register",
-        CREATE_OPENING_URL: "put/opening"
+        CREATE_OPENING_URL: "put/opening",
+        TESTINFO_URL: "put/applications"
     });
