@@ -93,7 +93,7 @@ class Opening extends BaseModel
             $tst = new Test;
             $tst->fill($test->only(Test::fillableList())->all());
             $tst->opening_id = $open->id;
-            $tst->queue = $index;
+            $tst->queue = $index + 1;
             $tst->save();
             $tst->addQuestions($test['questions']);
         }
