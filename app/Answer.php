@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\MultipleQuestion;
+
+use App\FileQuestion;
+
+use App\CodeQuestion;
+
 class Answer extends BaseModel
 {
 
@@ -29,6 +35,21 @@ class Answer extends BaseModel
 
     public static function baseCreate($req) {
     	$ans = new static;
+        switch ($req->question_type) {
+            case 'multiple':
+                $q = MultipleQuestion::find($req->question_id);
+                break;
+            case 'code':
+                $q = CodeQuestion::find($req->question_id);
+                break;
+            case 'file':
+                $q = FileQuestion::find($req->question_id);
+                break;
+        }
+        $answ->fill($req->only(static::fillableList()));
+        $answ->save();
+        $response['nextQuestion'] = $q->test->nextQuestion($q->id);
+        return JSONResponse(true, 200, 'Saved', $response);
     }
 
 }

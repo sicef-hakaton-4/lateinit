@@ -1,3 +1,11 @@
+.btn-delete {
+	margin-top: -2px !important;
+	background-color: #ff5252 !important;
+}
+.btn-dlt {
+	margin-top: 8px !important;
+	background-color: #ff5252 !important;
+}
 .card-concurs {
 	padding: 15px;
 	border-radius: 5px;
@@ -35,4 +43,21 @@
 	background-color: #019ae0;
 	color: #fff;
 	margin-top: 10px;
+}
+.add-test {
+	background-color: #cccccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+.questions {
+	cursor: pointer;
+	height: 32px;
+    cursor: pointer;
+    background-color: #ededed;
+    padding-left: 10px;
+    border-radius: 5px;
+    line-height: 32px;
+    width: 90%;
 }

@@ -45,6 +45,10 @@ class Test extends BaseModel
                     $question->type = 'multiple';
                     return $question;
                 }));
+        $questions = $questions->sortBy(function ($q) {
+            return $q->id;
+        });
+        dd($questions->pluck('id'));
     	$this->questions = $questions;
     	return $questions;
     }
@@ -56,8 +60,9 @@ class Test extends BaseModel
     public function getTimeAttribute($value) {
         $minutes = floor($value / 60);
         $seconds = $value % 60;
-        $return['string'] = $minutes . ':' . $seconds;
-        $return['seconds'] = $value;
+        $return['minutes'] = $minutes . ':' . $seconds;
+        $return['totalSeconds'] = $value;
+        $return['seconds'] = $seconds;
         return $return;
     }
 
@@ -113,6 +118,10 @@ class Test extends BaseModel
     public function firstQuestion() {
         $question = $this->questions()->first();
         return $question;
+    }
+
+    public function nextQuestion() {
+
     }
 
 }
