@@ -32,6 +32,7 @@
 .card-single .card {
 	height: auto;
 	text-align: left;
+	margin-top: 30px;
 }
 .btn-apply {
 	margin-top: 15px;
@@ -54,4 +55,19 @@
 .btn-apply button:hover {
 	background-color: #22a8e3;
 	color: #fff;
+}
+.single-expert p {
+	padding-left: 5px;
+	font-size: 14px;
+	font-family: "Proxima Nova Bold";
+}
+.single-expert span {
+	font-size: 14px;
+	color: #22a8e3;
+	font-family: "Proxima Nova Bold";
+}
+.single-header {
+	background-color: silver;
+	height: 30px;
+    line-height: 30px;
 }

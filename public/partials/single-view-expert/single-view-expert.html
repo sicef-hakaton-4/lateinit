@@ -14,7 +14,7 @@
 				<img src="../../img/expert.png">
 			</div>
 			<div class="col-xs-12 col-sm-8">
-				<h3></h3>
+				<h3>{{expert.name}}</h3>
 				<p>Email: {{expert.email}}<span></span></p>
 				<p>Pozicija: {{expert.description.position}} <span></span></p>
 				<p>Adresa: {{expert.description.address}} <span></span></p>
@@ -37,7 +37,7 @@
 			<div class="line"></div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-4" ng-repeat="tecnology in expert.technologies">
-					<p>{{technology}}</p>
+					<p class="badge">{{technology}}</p>
 				</div>
 			</div>
 		</div>
@@ -47,14 +47,16 @@
 			<h2>List projects</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="project in expert.projects track by $index">
-					<p>{{$index + 1}}</p>
-					<p>ime projekta: {{project.name}}</p>
-					<p>opis projekta: {{project.description}}</p>
-					<p>ime klijenta: {{project.client}}</p>
-					<p ng-repeat="technology in project.technologies">tehnologije: {{technology}}</p>
-					<p>pozicija: {{project.position}}</p>
-					<p>od - do : {{project.started}} - {{project.ended}}</p>
+				<div class="col-xs-12 single-expert" ng-repeat="project in expert.projects track by $index">
+					<div class="single-header">
+						<p>{{$index + 1}}. project</p>	
+					</div>
+					<p>ime projekta: <span>{{project.name}}</span></p>
+					<p>opis projekta: <span>{{project.description}}</span></p>
+					<p>ime klijenta: <span>{{project.client}}</span></p>
+					<p ng-repeat="technology in project.technologies">tehnologije: <span>{{technology}}</span></p>
+					<p>pozicija: <span>{{project.position}}</span></p>
+					<p> <span>{{project.started}} - {{project.ended}}</span></p>
 				</div>
 			</div>
 		</div>

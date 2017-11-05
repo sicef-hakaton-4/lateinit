@@ -83,7 +83,7 @@
                                     <h2 class="title" ng-if="test.questions.length > 0">Questions</h2>
                                     <div ng-repeat="question in test.questions track by $index">
                                         <p ng-if="question.task" ng-click="editQuestion(question)">{{$index + 1}}) {{question.task}}</p>
-                                        <p ng-if="question.question">{{$index + 1}}) {{question.question}}</p>
+                                        <p ng-if="question.question" ng-click="editQuestion(question)">{{$index + 1}}) {{question.question}}</p>
                                         <button type="button" ng-show="$last" ng-click="removeQuestion(test)">-</button>
                                     </div>
                                     <button type="button" class="btn btn-info btn-lg" ng-click="addQuestion(test)">Dodaj
