@@ -19,7 +19,7 @@ class TestSeeder extends Seeder
      */
     public function run()
     {
-        for ($openId = 1; $openId < 11; $openId++) {
+        for ($openId = 1; $openId < 51; $openId++) {
         	for ($queue = 1; $queue < 4; $queue++) {
         		$tst = new Test;
         		$tst->opening_id = $openId;
