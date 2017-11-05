@@ -1,1 +1,67 @@
-<p>Profile firm</p>
+<div class="container single-view-job">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="title">Single view find an expert</h1>
+            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+            <div class="line"></div>
+        </div>
+    </div>
+</div>
+<div class="card-single">
+    <div class="container single-view-job-content card">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <img src="../../img/expert.png">
+            </div>
+            <div class="col-xs-12 col-sm-8">
+                <h3>
+                    <input type="text" class="form-control" placeholder="Email address" required autofocus value="{{user.name}}">
+                </h3>
+                <p>Email: <input type="email" class="form-control" ng-model="user.email" placeholder="Email address" required autofocus value="{{user.email}}"></p>
+                <p>Description: <input type="text" class="form-control" ng-model="user.description.description" placeholder="Position" required autofocus value="{{user.description.description}}"></p>
+                <p>Address: <input type="text" class="form-control" ng-model="user.description.headquarters" placeholder="Address" required autofocus value="{{user.description.headquarters}}"></p>
+                <p>Employees: <input type="number" class="form-control" ng-model="user.description.employees" placeholder="Employees" required autofocus value="{{user.description.employees}}"></p>
+            </div>
+        </div>
+        <div class="row single-view-job-desc">
+            <div class="col-xs-12">
+                <p class="description">
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row card-single">
+        <div class="col-xs-12 card">
+            <h2>List projects</h2>
+            <div class="line"></div>
+            <div class="row">
+                <div class="col-xs-12 single-expert" ng-repeat="project in user.projects track by $index">
+                    <div class="single-header">
+                        <p>{{$index + 1}}. project</p>
+                    </div>
+                    <p>ime projekta: <input type="text" class="form-control" ng-model="project.name" placeholder="Project name" required autofocus value="{{project.name}}"></p>
+                    <p>opis projekta: <input type="text" class="form-control" placeholder="Description" ng-model="project.description" required autofocus value="{{project.description}}"></p>
+                    <p>ime klijenta: <input type="text" class="form-control" placeholder="Client name" ng-model="project.client" required autofocus value="{{project.client}}"></p>
+                    <p>tehnologije: <span ng-repeat="technology in project.technologies track by $index">
+                        <input type="text" class="form-control" placeholder="Technology" ng-model="technology" required autofocus value="{{technology}}">
+                    </span></p>
+                    <p><span ng-repeat="technology in project.techNew track by $index">
+                        <input type="text" class="form-control" placeholder="Technology" ng-model="technology.description" required autofocus value="{{technology}}">
+                    </span></p>
+                    <button ng-click="addTechnologies(project)">add new</button>
+                    <p>pozicija: <input type="text" class="form-control" ng-model="project.position" placeholder="Position" required autofocus value="{{project.position}}"></p>
+                    <p> <span></span></p>
+                </div>
+            </div>
+            <div>
+                <button ng-click="addProject()">add new</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container btn-apply">
+    <button class="btn btn-primary" ng-click="saveChanges(user)">Save changes</button>
+</div>
