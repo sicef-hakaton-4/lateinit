@@ -10,7 +10,7 @@ class MultipleQuestion extends BaseModel
 
     protected $appends = ['options'];
 
-    protected $hidden = 'test_id';
+    protected $hidden = ['test_id', 'option1', 'option2', 'option3'];
 
 
 

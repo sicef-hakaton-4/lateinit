@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\MultipleQuestion;
+
+use App\FileQuestion;
+
+use App\CodeQuestion;
+
 class Answer extends BaseModel
 {
 
@@ -21,6 +27,17 @@ class Answer extends BaseModel
 
     public function question() {
     	return $this->morphedBy('App\Question', 'question_type');
+    }
+
+
+
+    //		-- CRUD -- 
+
+    public static function baseCreate($req) {
+    	$ans = new static;
+        switch ($req->question_type) {
+            
+        }
     }
 
 }
