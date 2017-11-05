@@ -34,6 +34,10 @@ class Opening extends BaseModel
         return $this->hasMany('App\Application');
     }
 
+    public function tests() {
+        return $this->hasMany('App\Test');
+    }
+
 
 
     //		-- Accessors -- 
