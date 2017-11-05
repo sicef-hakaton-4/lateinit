@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ExpertSeeder::class);
         $this->call(openingSeeder::class);
         $this->call(TestSeeder::class);
+        $this->call(ApplicationSeeder::class);
     }
 }

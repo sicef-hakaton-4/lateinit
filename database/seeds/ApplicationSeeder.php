@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 
 use App\Application;
 
+use App\Answer;
+
 class ApplicationSeeder extends Seeder
 {
     /**
@@ -21,7 +23,16 @@ class ApplicationSeeder extends Seeder
         	$app->opening_id = 1;
         	$app->expert_id = $i;
         	$app->save();
-        	foreach ($app->opening->)
+        	foreach ($app->opening->tests as $test) {
+        		foreach ($test->questions() as $question) {
+        			$ans = new Answer;
+        			$ans->question_id = $question->id;
+        			$ans->question_type = $question->type;
+        			$ans->answer = 'kakoe koke?';
+        			$ans->application_id = $app->id;
+        			$ans->save();
+        		}
+        	}
         }
     }
 }
