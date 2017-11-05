@@ -51,6 +51,15 @@ class Opening extends BaseModel
 
     //		-- Mutators --
 
+    public function setTechnologiesAttribute($value) {
+        $techs = implode('&&', $value);
+        $this->attributes['technologies'] = $techs;
+    }
+
+    public function setRequirementsAttribute($value) {
+        $techs = implode('&&', $value);
+        $this->attributes['requirements'] = $techs;
+    }
 
 
     //		-- Custom methods --
