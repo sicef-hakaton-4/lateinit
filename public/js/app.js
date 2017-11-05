@@ -280,4 +280,16 @@ angular.module('app', [
             }
         }
     });
+
+    $stateProvider.
+    state('menu.expertConcurs', {
+        url: '/expert-concurs',
+        views: {
+            'menuContent': {
+                templateUrl: 'partials/expert-concurs/expert-concurs.html',
+                css: 'partials/expert-concurs/expert-concurs.css',
+                controller: 'ExpertConcursCtrl'
+            }
+        }
+    });
 });

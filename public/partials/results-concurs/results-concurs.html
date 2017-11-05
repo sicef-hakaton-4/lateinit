@@ -62,9 +62,9 @@
 </div>
 <div class="container table-expert">
 	<div class="row">
-		<div class="col-xs-12 card" ng-repeat="expert in concurs.applications">
-			<h2 class="title">Name :</h2>
-			<button class="btn btn-primary pull-right" ng-click="interview()">Schedule interview</button>
+		<div class="col-xs-12 card" ng-repeat="app in concurs.applications">
+			<h2 class="title">Name: {{app.expert.name}}</h2>
+			<button class="btn btn-primary pull-right" ng-click="interview(app.expert.id)">Schedule interview</button>
 			<h2 class="title">Technologies: <span class="badge">Laravel</span></h2>
 			<h2 class="title">Positions: <span>Backend</span></h2>
 			<button class="btn btn-primary collaps-test" data-toggle="collapse" data-target="#test">Test 1</button>
