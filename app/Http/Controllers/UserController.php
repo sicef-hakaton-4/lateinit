@@ -32,6 +32,7 @@ class UserController extends Controller
 		else {
 			$response['pera'] = 1;
 			$response['hiredAt'] = $app->opening->company;
+			$response['application_id'] = $app->id;
 		}
 		return JSONResponse(true, 200, 'Logged in', $response);
 	}
