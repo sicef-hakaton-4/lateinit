@@ -17,7 +17,7 @@ class CreateAnswersTable extends Migration
             $table->increments('id')->unsigned();
             
             $table->integer('question_id')->unsigned();
-            $table->tinyInteger('question_type'); // 1 za multiple, 2 za code, 3 za file
+            $table->enum('question_type', ['multiple', 'code', 'file']); // 1 za multiple, 2 za code, 3 za file
 
             $table->integer('application_id')->unsigned();
             $table->foreign('application_id')
