@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Opening;
 
+use App\Interview;
+
 use Illuminate\Support\Facades\Auth;
 
 class OpeningController extends Controller
@@ -48,6 +50,11 @@ class OpeningController extends Controller
 			return $app;
 		});
 		return JSONResponse(true, 200, 'Loaded', $opening);
+	}
+
+	public function scheduleInterview(Request $req) {
+		$int = Interview::schedule($req->date, $req->opening_id, $req->expert_id);
+		return JSONResponse(true, 200, 'Interview scheduled.');
 	}
 
 }
