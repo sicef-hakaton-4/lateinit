@@ -59,7 +59,7 @@ class Test extends BaseModel
     public function getTimeAttribute($value) {
         $minutes = floor($value / 60);
         $seconds = $value % 60;
-        $return['minutes'] = $minutes . ':' . $seconds;
+        $return['minutes'] = $minutes;
         $return['totalSeconds'] = $value;
         $return['seconds'] = $seconds;
         return $return;
@@ -119,8 +119,12 @@ class Test extends BaseModel
         return $question;
     }
 
-    public function nextQuestion() {
-
+    public function nextQuestion($id) {
+        $nextQuestion = $this->questions()->where('id', '>', $id)->first();
+        if (!is_null($nextQuestion)) {
+            return false;
+        }
+        return $nextQuestion;
     }
 
 }

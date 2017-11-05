@@ -18,7 +18,7 @@ function ProfileExpertService($q, $http, Constants) {
 
     function editUser(user) {
         var deferred = $q.defer();
-        $http.put(Constants.ENDPOINT_URL + "")
+        $http.patch(Constants.ENDPOINT_URL + "patch/user")
             .then(function (response) {
 
                 deferred.resolve(response.data);
