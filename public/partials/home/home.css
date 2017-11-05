@@ -4,6 +4,14 @@
   background-size: cover;
   height: 600px;
 }
+.card-create-a-cv {
+	background: rgba(183,222,237,1);
+	background: -moz-linear-gradient(-45deg, rgba(183,222,237,1) 26%, rgba(183,222,237,1) 29%, rgba(34,168,227,1) 80%, rgba(34,168,227,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(26%, rgba(183,222,237,1)), color-stop(29%, rgba(183,222,237,1)), color-stop(80%, rgba(34,168,227,1)), color-stop(100%, rgba(34,168,227,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(183,222,237,1) 26%, rgba(183,222,237,1) 29%, rgba(34,168,227,1) 80%, rgba(34,168,227,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(183,222,237,1) 26%, rgba(183,222,237,1) 29%, rgba(34,168,227,1) 80%, rgba(34,168,227,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(183,222,237,1) 26%, rgba(183,222,237,1) 29%, rgba(34,168,227,1) 80%, rgba(34,168,227,1) 100%);
+}
 /*content*/
 .content-home {
 	text-align: center;
@@ -87,5 +95,6 @@
 	height: 300px;
 	line-height: 300px;
 	font-family: "Proxima Nova Bold";
-	font-size: 16px;
+	font-size: 18px;
+	color: #fff;
 }
