@@ -115,7 +115,7 @@ angular.module('app', [
 
     $stateProvider.
     state('menu.singleViewJob', {
-        url: '/single-view-job',
+        url: '/single-view-job/:id',
         views: {
             'menuContent': {
                 templateUrl: 'partials/single-view-job/single-view-job.html',
@@ -141,14 +141,17 @@ angular.module('app', [
     });
 
     $stateProvider.
-    state('menu.test-questions', {
-        url: '/test-questions',
+    state('menu.testquestions', {
+        url: '/test-questions/:id',
         views: {
             'menuContent': {
                 templateUrl: 'partials/test-questions/test-questions.html',
                 css: 'partials/test-questions/test-questions.css',
                 controller: 'TestQuestionsCtrl'
             }
+        },
+        params: {
+            id: null
         }
     });
 
@@ -178,7 +181,7 @@ angular.module('app', [
 
     $stateProvider.
     state('menu.singleViewExpert', {
-        url: '/single-view-expert',
+        url: '/single-view-expert/:id',
         views: {
             'menuContent': {
                 templateUrl: 'partials/single-view-expert/single-view-expert.html',
@@ -241,7 +244,7 @@ angular.module('app', [
 
     $stateProvider.
     state('menu.resultsConcurs', {
-        url: '/results-concurs',
+        url: '/results-concurs/:id',
         views: {
             'menuContent': {
                 templateUrl: 'partials/results-concurs/results-concurs.html',

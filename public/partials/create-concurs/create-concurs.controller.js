@@ -2,7 +2,7 @@ angular
     .module('app')
     .controller('CreateConcursCtrl', CreateConcursCtrl);
 
-function CreateConcursCtrl($scope, CreateConcursService, $uibModal) {
+function CreateConcursCtrl($scope, $state, CreateConcursService, $uibModal) {
     $scope.requirements = [{description: ""}];
     $scope.technologies = [{description: ""}];
     $scope.tests = [];
@@ -103,7 +103,10 @@ function CreateConcursCtrl($scope, CreateConcursService, $uibModal) {
         CreateConcursService.createConcurs(concursData)
             .then(function(response) {
                 $scope.isLoading = false;
-                console.log(response);
+                ngToast.success({
+                    content: response.message
+                });
+                $state.go('menu.myConcurs');
             })
             .catch(function() {
                 $scope.isLoading = false;

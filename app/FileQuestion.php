@@ -17,4 +17,8 @@ class FileQuestion extends BaseModel
     public function answers() {
     	return $this->morphMany('App\Answer', 'question_type');
     }
+
+    public function test() {
+    	return $this->belongsTo('App\Test');
+    }
 }

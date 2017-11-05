@@ -2,6 +2,13 @@
 
 use Illuminate\Http\Request;
 
+//		-- Unauthenticated --
+
+Route::get('expert/get', 'ExpertController@publicExperts');
+
+Route::get('get/opening', 'OpeningController@loadAll');
+
+
 Route::group(['middleware' => 'jwt.auth'], function () {
 
 
@@ -58,12 +65,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 Route::post('login', 'UserController@login');
 
 Route::post('register', 'UserController@register');
-
-
-
-//		-- Unauthenticated --
-
-Route::get('expert/get', 'ExpertController@publicExperts');
 
 
 
