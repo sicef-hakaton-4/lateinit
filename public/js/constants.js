@@ -8,5 +8,6 @@ angular
         LOGOUT_MESSAGE: "Successfully logged out",
         REGISTER_URL: "register",
         CREATE_OPENING_URL: "put/opening",
-        TESTINFO_URL: "put/application"
+        TESTINFO_URL: "put/application",
+        START_TEST_URL: "test/start/"
     });

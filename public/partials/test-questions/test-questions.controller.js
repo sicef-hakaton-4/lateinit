@@ -3,6 +3,8 @@ angular
     .controller('TestQuestionsCtrl', TestQuestionsCtrl);
 
 function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService) {
+    $scope.isLoading = false;
+
     TestQuestionsService.getData($stateParams.id)
         .then(function(response) {
             $scope.numTest = response.entity.testNum;
@@ -15,10 +17,11 @@ function TestQuestionsCtrl($scope, $stateParams, TestQuestionsService) {
 
         });
 
-    //Save edit user
     $scope.start = function() {
-        TestQuestionsService.start()
+        $scope.isLoading = true;
+        TestQuestionsService.start($stateParams.id)
             .then(function(response) {
+                $scope.isLoading = false;
                 console.log(response);
             },
             function(response) {

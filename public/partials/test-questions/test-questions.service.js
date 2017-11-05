@@ -16,11 +16,10 @@ function TestQuestionsService($q, $http, Constants) {
         return deffered.promise;
     }
 
-    function doTest(answers) {
+    function start(id) {
         var deferred = $q.defer();
-        $http.post(Constants.ENDPOINT_URL + "")
+        $http.post(Constants.ENDPOINT_URL + Constants.START_TEST_URL + id)
             .then(function (response) {
-
                 deferred.resolve(response.data);
             })
             .catch(function (error) {
@@ -32,6 +31,6 @@ function TestQuestionsService($q, $http, Constants) {
 
     return {
         getData: getData,
-        doTest: doTest
+        start: start
     }
 }
