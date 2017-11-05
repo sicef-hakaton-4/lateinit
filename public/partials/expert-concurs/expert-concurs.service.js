@@ -8,7 +8,6 @@ function ExpertConcursService($q, $http, Constants) {
         var deferred = $q.defer();
         $http.get(Constants.ENDPOINT_URL + "my/openings")
             .then(function (response) {
-                console.log(response);
                 deferred.resolve(response.data);
             })
             .catch(function (error) {
