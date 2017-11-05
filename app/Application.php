@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class Application extends BaseModel
 {
 
-    protected $hidden = ['expert_id', 'opening_id'];
+    protected $hidden = ['expert_id', 'opening_id', 'interview'];
 
     protected $fillable = ['expert_id', 'opening_id'];
+
+    protected $appends = ['ints'];
 
 
 
@@ -29,9 +31,25 @@ class Application extends BaseModel
     	return $this->hasMany('App\Answer');
     }
 
+    public function interview() {
+        return $this->hasOne('App\Interview');
+    }
+
 
 
     //		-- Accessors --
+
+    public function getIntsAttribute() {
+        if (is_null($this->interview)) {
+            $this->attributes['ints'] = null;
+            return null;
+        }
+        $ints['ints'] = $this->interview->appointment;
+        $ints['hr'] = 0;
+        return $ints;
+        
+
+    }
 
 
 
