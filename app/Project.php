@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends BaseModel
 {
-    protected $fillable = ['owner_id', 'owner'];
+    protected $fillable = ['owner_id', 'owner', 'name', 'description', 'client', 'technologies', 'position', 'started', 'ended'];
 
     protected $hidden = [];
 
@@ -35,4 +35,16 @@ class Project extends BaseModel
 
 
     //		-- Custom methods --
+
+
+
+    //      -- CRUD -- 
+
+    public static function baseCreate($req) {
+        $pro = new static;
+        $pro->owner_id = Auth::user()->id;
+        $pro->owner = (Auth::user()->type == 'expert') ? 0 : 1;
+        $pro->save();
+        return JSONResponse(true, 200, 'Project added.');
+    }
 }
