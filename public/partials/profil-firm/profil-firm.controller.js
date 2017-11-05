@@ -32,6 +32,9 @@ function ProfilFirmCtrl($scope, ProfilFirmService, Constants) {
         ProfilFirmService.editUser(user).then(function(response) {
                 $scope.user = response.entity;
                 console.log($scope.user);
+                ngToast.success({
+                    content: response.message
+                });
             },
             function(response){
             });

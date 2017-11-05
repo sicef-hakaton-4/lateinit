@@ -35,8 +35,8 @@
 			<h2>Requirements</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="requirement in job.requirements">
-					<p class="badge">{{requirement}}</p>
+				<div class="col-xs-12">
+					<p ng-repeat="requirement in job.requirements" style="margin-right: 5px;" class="badge">{{requirement}}</p>
 				</div>
 			</div>
 		</div>
@@ -44,13 +44,14 @@
 			<h2>Technologies</h2>
 			<div class="line"></div>
 			<div class="row">
-				<div class="col-xs-12" ng-repeat="technology in job.technologies">
-					<p class="badge">{{technology}}</p>
+				<div class="col-xs-12">
+					<p ng-repeat="technology in job.technologies" class="badge" style="margin-right: 5px;">{{technology}}</p>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="container btn-apply">
-	<button class="btn btn-primary" ng-click="goTest()">Apply</button>
+	<button ng-if="isLoggedIn" class="btn btn-primary" ng-click="goTest()">Apply</button>
+	<button ng-if="!isLoggedIn" class="btn btn-primary" ui-sref="menu.login">Apply</button>
 </div>
